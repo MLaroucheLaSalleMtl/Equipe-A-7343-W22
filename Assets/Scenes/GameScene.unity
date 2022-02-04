@@ -175,13 +175,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71768541}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0202e52ef3e7cdf408f122a8b5f99131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadTime: 5
-  nameOfScene: Loading B (Main Menu To Game)
+  loadTime: 20
+  imageRNG: {fileID: 0}
+  images: []
+  quickTipText: {fileID: 0}
 --- !u!1 &870533639
 GameObject:
   m_ObjectHideFlags: 0

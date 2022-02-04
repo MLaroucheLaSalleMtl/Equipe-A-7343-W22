@@ -13,8 +13,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        SceneController = GetComponent<LoadingController>();
-        SceneController.LoadScene(SceneController.nameOfScene, SceneController.loadTime);
+        //SceneController = GetComponent<LoadingController>();
+        //SceneController.LoadScene();
+        //SceneController.LoadScene("");
     }
 
     private void Awake()

@@ -7,6 +7,10 @@ using TMPro;
 
 public class MenuController : MonoBehaviour
 {
+    public static MenuController instance = null;
+    ResolutionSettings ResSettings;
+    LoadingController loadingController;
+
     [Header("volume Setting")]
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
@@ -22,54 +26,35 @@ public class MenuController : MonoBehaviour
 
     [Header("Levels To load")]
     public string _newGameLevel;
-    private string levelToLoad;
+    public string levelToLoad;
     [SerializeField] private GameObject noSavedGame = null;
 
     [Header("Resolution Dropdown")]
-    public TMP_Dropdown resolutionDropdown;
-    private  Resolution[] resolutions;
+    [SerializeField] public TMP_Dropdown resolutionDropdown;
+    private Dropdown resDropdown;
+    private Resolution[] resolutions;
 
     private void Start()
     {
-        resolutionDropdown.ClearOptions();
-        resolutions = Screen.resolutions;
-
-        List<string> options = new List<string>();
-        int currentResolutionIndex = 0;
-        for (int i = 0; i < resolutions.Length ; i++)
-            {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
-
-            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
-            {
-                currentResolutionIndex = i;
-            }
-        }
-
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
-
-    }
-
-    public void SetResolution(int resolutionDropdownIndex)
-    {
-        Resolution resolution = resolutions[resolutionDropdownIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode);
-    }
+        loadingController = GetComponent<LoadingController>();
+        ResSettings = gameObject.GetComponent<ResolutionSettings>();       
+    }    
 
     public void NewGameDialogYes()
     {
-        SceneManager.LoadScene(_newGameLevel);
+        //SceneManager.LoadScene(_newGameLevel);
+        loadingController.LoadScene();
+        loadingController.LoadScene(levelToLoad);
     }
 
     public void LoadGameDialogYes()
     {
-       if(PlayerPrefs.HasKey ("SavedLevel"))
+        if(PlayerPrefs.HasKey ("SavedLevel"))
         {
             levelToLoad = PlayerPrefs.GetString("SavedLevel");
-            SceneManager.LoadScene(levelToLoad);
+            //SceneManager.LoadScene(levelToLoad);
+            loadingController.LoadScene();
+            loadingController.LoadScene("GameScene");
         }
         else
         {
@@ -106,19 +91,19 @@ public class MenuController : MonoBehaviour
     }
 
     public void GraphicsApply()
-    {
-        PlayerPrefs.SetInt("masterQuality", _qualityLevel);
+    {        
+        //Temporary
         QualitySettings.SetQualityLevel(_qualityLevel);
+        PlayerPrefs.SetInt("masterQuality", _qualityLevel);
 
-        PlayerPrefs.SetInt("masterFullScreen", (_isFullScreen ? 1 : 0));
         Screen.fullScreen = _isFullScreen;
-
+        PlayerPrefs.SetInt("masterFullScreen", (_isFullScreen ? 1 : 0));
     }
 
     public void ResetButton(string Menutype)
     {
         if (Menutype == "Graphics")
-            {
+        {
             qualtyDropdown.value = 1;
             QualitySettings.SetQualityLevel(1);
 
@@ -126,16 +111,15 @@ public class MenuController : MonoBehaviour
             Screen.fullScreen = false;
 
             Resolution currentResolution = Screen.currentResolution;
-            Screen.SetResolution(currentResolution.width, currentResolution.height, Screen.fullScreenMode);
+            Screen.SetResolution(currentResolution.width, currentResolution.height, Screen.fullScreenMode, currentResolution.refreshRate);
             resolutionDropdown.value = resolutions.Length;
             GraphicsApply();
-
-             }
+        }
         if (Menutype == "Audio")
         {
             AudioListener.volume = defaulVolume;
             volumeSlider.value = defaulVolume;
-            volumeTextValue.text = defaulVolume.ToString("0.0");
+            volumeTextValue.text = defaulVolume.ToString("0.1");
             VolumeApply();
         }
     }

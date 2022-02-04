@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -209,6 +209,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1195439918}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: GraphicsApply
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1198077586}
+        m_TargetAssemblyTypeName: ResolutionSettings, Assembly-CSharp
+        m_MethodName: SetResolution
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4241,7 +4253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -574.6521, y: -29}
+  m_AnchoredPosition: {x: -574.65204, y: -28.999878}
   m_SizeDelta: {x: -1578.0618, y: -995.9322}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105578618
@@ -5086,6 +5098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1195439919}
   - component: {fileID: 1195439918}
+  - component: {fileID: 1195439920}
   m_Layer: 0
   m_Name: Menu controller
   m_TagString: Untagged
@@ -5110,7 +5123,8 @@ MonoBehaviour:
   defaulVolume: 1
   qualtyDropdown: {fileID: 1387808595}
   fullScreenToggle: {fileID: 1703591032}
-  _newGameLevel: Level1
+  _newGameLevel: GameScene
+  levelToLoad: GameScene
   noSavedGame: {fileID: 99242036}
   resolutionDropdown: {fileID: 1198077582}
 --- !u!4 &1195439919
@@ -5128,6 +5142,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195439920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195439917}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0202e52ef3e7cdf408f122a8b5f99131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadTime: 5
+  imageRNG: {fileID: 0}
+  images: []
+  quickTipText: {fileID: 0}
 --- !u!1 &1198077581
 GameObject:
   m_ObjectHideFlags: 0
@@ -5140,6 +5170,7 @@ GameObject:
   - component: {fileID: 1198077585}
   - component: {fileID: 1198077584}
   - component: {fileID: 1198077582}
+  - component: {fileID: 1198077586}
   m_Layer: 5
   m_Name: Dropdown resolution
   m_TagString: Untagged
@@ -5199,19 +5230,7 @@ MonoBehaviour:
     m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1195439918}
-        m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: SetResolution
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_AlphaFadeSpeed: 0.15
 --- !u!224 &1198077583
 RectTransform:
@@ -5234,8 +5253,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -178.00003, y: 63.998}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -184.69698, y: 63.998}
+  m_SizeDelta: {x: 175, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1198077584
 MonoBehaviour:
@@ -5275,6 +5294,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198077581}
   m_CullTransparentMesh: 1
+--- !u!114 &1198077586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198077581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aedd64fa53e9a3a4b8ed4a0b7bad2ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1219095777
 GameObject:
   m_ObjectHideFlags: 0
@@ -7036,7 +7067,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -301.73703, y: 5.0003357}
+  m_AnchoredPosition: {x: -277.6, y: 14.5}
   m_SizeDelta: {x: 225.0223, y: 50}
   m_Pivot: {x: 0.000000022351742, y: 0.5}
 --- !u!114 &1551801016
@@ -9663,7 +9694,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

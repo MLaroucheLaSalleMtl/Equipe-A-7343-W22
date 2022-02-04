@@ -7,11 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class LoadingController : MonoBehaviour
 {
+    //public static LoadingController instance = null;
     GameManager manager;
+    MenuController menuController;
 
     [Header("--- Scene Settings ---")]
-    [SerializeField] public float loadTime = 5f;
-    [SerializeField] public string nameOfScene;
+    [SerializeField] public float loadTime = 10f;
+    //[SerializeField] public string nameOfScene;
 
     [Header("--- Loading Images ---")]
     [SerializeField] private Image imageRNG;    
@@ -28,32 +30,33 @@ public class LoadingController : MonoBehaviour
 
     IEnumerator WaitForScene()
     {
-        yield return new WaitForSeconds(loadTime);
-        LoadScene();
+        yield return new WaitForSeconds(loadTime);        
+        LoadScene(menuController.levelToLoad);
     }
 
-    private void LoadScene()
+    public void LoadScene()
     {
-        SceneManager.LoadSceneAsync(nameOfScene, LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("Loading B (Main Menu To Game)", LoadSceneMode.Single);
     }
 
-    public void LoadScene(string sceneName, float loadTime)
+    public void LoadScene(string sceneName/*, float loadTime*/)
     {
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
-        Invoke("LoadScene", loadTime);
+        //Invoke("LoadScene", loadTime);
     }
 
     // Start is called before the first frame update
     void Start()
     {
         manager = GameManager.instance;
+        menuController = MenuController.instance;
         StartCoroutine(WaitForScene());        
         RandomizeLoadingScene();
     }
 
     void RandomizeLoadingScene()
     {
-        quickTipText.text = quickTip[RNG.GetInstance().Next(0, quickTip.Length)].ToString();
+        quickTipText.text = quickTip[RNG.GetInstance().Next(0, quickTip.Length)];
         imageRNG.sprite   = images[RNG.GetInstance().Next(0, images.Length)];         
     }
 }
