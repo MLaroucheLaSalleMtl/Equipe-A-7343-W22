@@ -43,7 +43,7 @@ public class MenuController : MonoBehaviour
     public void NewGameDialogYes()
     {
         //SceneManager.LoadScene(_newGameLevel);
-        loadingController.LoadScene();
+        //loadingController.GetComponent<LoadingController>().LoadScene();
         loadingController.LoadScene(levelToLoad);
     }
 
@@ -54,7 +54,7 @@ public class MenuController : MonoBehaviour
             levelToLoad = PlayerPrefs.GetString("SavedLevel");
             //SceneManager.LoadScene(levelToLoad);
             loadingController.LoadScene();
-            loadingController.LoadScene("GameScene");
+            loadingController.LoadScene(levelToLoad);
         }
         else
         {
@@ -119,7 +119,7 @@ public class MenuController : MonoBehaviour
         {
             AudioListener.volume = defaulVolume;
             volumeSlider.value = defaulVolume;
-            volumeTextValue.text = defaulVolume.ToString("0.1");
+            volumeTextValue.text = defaulVolume.ToString("0.0");
             VolumeApply();
         }
     }
