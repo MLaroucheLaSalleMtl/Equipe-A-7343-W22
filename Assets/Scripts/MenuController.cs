@@ -17,6 +17,9 @@ public class MenuController : MonoBehaviour
     private int _qualityLevel;
     private bool _isFullScreen;
 
+    [SerializeField] private TMP_Dropdown qualtyDropdown;
+    [SerializeField] Toggle fullScreenToggle;
+
     [Header("Levels To load")]
     public string _newGameLevel;
     private string levelToLoad;
@@ -28,7 +31,7 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        resolutionDropdown = GetComponent<TMP_Dropdown>();
+        resolutionDropdown.ClearOptions();
         resolutions = Screen.resolutions;
 
         List<string> options = new List<string>();
@@ -38,18 +41,22 @@ public class MenuController : MonoBehaviour
             string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
 
-            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height && resolutions[i].refreshRate == Screen.currentResolution.refreshRate)
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
             {
                 currentResolutionIndex = i;
             }
         }
 
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
+
     }
 
-    public void SetResolution()
+    public void SetResolution(int resolutionDropdownIndex)
     {
-        Resolution resolution = resolutions[resolutionDropdown.value];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode, resolution.refreshRate);
+        Resolution resolution = resolutions[resolutionDropdownIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode);
     }
 
     public void NewGameDialogYes()
@@ -110,7 +117,21 @@ public class MenuController : MonoBehaviour
 
     public void ResetButton(string Menutype)
     {
-        if(Menutype == "Audio")
+        if (Menutype == "Graphics")
+            {
+            qualtyDropdown.value = 1;
+            QualitySettings.SetQualityLevel(1);
+
+            fullScreenToggle.isOn = false;
+            Screen.fullScreen = false;
+
+            Resolution currentResolution = Screen.currentResolution;
+            Screen.SetResolution(currentResolution.width, currentResolution.height, Screen.fullScreenMode);
+            resolutionDropdown.value = resolutions.Length;
+            GraphicsApply();
+
+             }
+        if (Menutype == "Audio")
         {
             AudioListener.volume = defaulVolume;
             volumeSlider.value = defaulVolume;
@@ -118,13 +139,5 @@ public class MenuController : MonoBehaviour
             VolumeApply();
         }
     }
-
-    
-    //public IEnumerator ConfirmationBox()
-    //{
-    //    confirmationPrompt.SetActive(true);
-    //    yield return new WaitForSeconds(2);
-    //    confirmationPrompt.SetActive(false);
-    //}
         
 }
