@@ -34,7 +34,7 @@ public class LoadingController : MonoBehaviour
 
     private void LoadScene()
     {
-        SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync(nameOfScene, LoadSceneMode.Single);
     }
 
     public void LoadScene(string sceneName, float loadTime)
