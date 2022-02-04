@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadTime: 5
-  nameOfScene: GameScene
+  nameOfScene: MainMenu
   imageRNG: {fileID: 181071643}
   images:
   - {fileID: 21300000, guid: d45fa39bf73db1644a1ed5d666c2dd0a, type: 3}
