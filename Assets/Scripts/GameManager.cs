@@ -9,8 +9,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    LoadingController SceneController;
+    Loading SceneController;
     ResolutionSettings ResSettings;
+    Loading loadingController;
 
     [Header("--- volume Setting ---")]
     [SerializeField] private TMP_Text volumeTextValue = null;
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        loadingController = GetComponent<Loading>();
         ResSettings = gameObject.GetComponent<ResolutionSettings>();
         //SceneController = GetComponent<LoadingController>();
         //SceneController.LoadScene();
@@ -63,6 +65,30 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void NewGameDialogYes()
+    {
+        //SceneManager.LoadScene(_newGameLevel);
+        //loadingController.GetComponent<LoadingController>().LoadScene();
+        //loadingController.LoadScene(levelToLoad);
+    }
+
+    public void LoadGameDialogYes()
+    {
+        if (PlayerPrefs.HasKey("SavedLevel"))
+        {
+            levelToLoad = PlayerPrefs.GetString("SavedLevel");
+            //SceneManager.LoadScene(levelToLoad);
+            //LoadingController.instance.LoadScene();
+            //LoadingController.instance.LoadScene(levelToLoad);
+            //loadingController.LoadScene();
+            //loadingController.LoadScene(levelToLoad);
+        }
+        else
+        {
+            noSavedGame.SetActive(true);
+        }
     }
 
     public void ExitButton()

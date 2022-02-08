@@ -9,7 +9,7 @@ public class MenuController : MonoBehaviour
 {
     public static MenuController instance = null;
     ResolutionSettings ResSettings;
-    LoadingController loadingController;
+    Loading loadingController;
 
     [Header("volume Setting")]
     [SerializeField] private TMP_Text volumeTextValue = null;
@@ -36,7 +36,7 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        loadingController = GetComponent<LoadingController>();
+        loadingController = GetComponent<Loading>();
         ResSettings = gameObject.GetComponent<ResolutionSettings>();       
     }    
 
@@ -44,7 +44,9 @@ public class MenuController : MonoBehaviour
     {
         //SceneManager.LoadScene(_newGameLevel);
         //loadingController.GetComponent<LoadingController>().LoadScene();
-        loadingController.LoadScene(levelToLoad);
+        //loadingController.LoadScene();
+        //loadingController.LoadScene(levelToLoad);
+        StartCoroutine(gameObject.GetComponent<LoadingManager>().InGameLoadingScene());
     }
 
     public void LoadGameDialogYes()
@@ -53,8 +55,11 @@ public class MenuController : MonoBehaviour
         {
             levelToLoad = PlayerPrefs.GetString("SavedLevel");
             //SceneManager.LoadScene(levelToLoad);
-            loadingController.LoadScene();
-            loadingController.LoadScene(levelToLoad);
+            //LoadingController.instance.LoadScene();
+            //LoadingController.instance.LoadScene(levelToLoad);
+            //loadingController.LoadScene();
+            StartCoroutine(gameObject.GetComponent<LoadingManager>().InGameLoadingScene());
+            //loadingController.LoadScene(levelToLoad);
         }
         else
         {

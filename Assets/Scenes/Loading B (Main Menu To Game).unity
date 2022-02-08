@@ -302,15 +302,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 458960238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0202e52ef3e7cdf408f122a8b5f99131, type: 3}
+  m_Script: {fileID: 11500000, guid: 525489dd87fc8b64aa44ec39df8a0cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadTime: 5
-  nameOfScene: 
+  loadTimeDelay: 5
+  nameOfScene: GameScene
+  randomizeItems: 1
+  useUserInput: 0
+  userInputTxt: {fileID: 0}
+  loadingIcon: {fileID: 0}
   imageRNG: {fileID: 181071643}
   images:
-  - {fileID: 21300000, guid: d45fa39bf73db1644a1ed5d666c2dd0a, type: 3}
   - {fileID: 21300000, guid: 3d7d725b70a66ff4b83ffdbf33939cdf, type: 3}
+  - {fileID: 21300000, guid: d45fa39bf73db1644a1ed5d666c2dd0a, type: 3}
   quickTipText: {fileID: 534796464}
 --- !u!4 &458960240
 Transform:
@@ -866,7 +870,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606363202}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1606363204
 Camera:
   m_ObjectHideFlags: 0

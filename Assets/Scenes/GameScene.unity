@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 71768542}
   - component: {fileID: 71768543}
-  - component: {fileID: 71768544}
   m_Layer: 0
   m_Name: --- GameManager ---
   m_TagString: Untagged
@@ -168,22 +167,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2797ab2fc09512141853c0701fb5ebe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &71768544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71768541}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0202e52ef3e7cdf408f122a8b5f99131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadTime: 20
-  imageRNG: {fileID: 0}
-  images: []
-  quickTipText: {fileID: 0}
+  volumeTextValue: {fileID: 0}
+  volumeSlider: {fileID: 0}
+  defaulVolume: 1
+  qualtyDropdown: {fileID: 0}
+  fullScreenToggle: {fileID: 0}
+  _newGameLevel: 
+  levelToLoad: 
+  noSavedGame: {fileID: 0}
+  resolutionDropdown: {fileID: 0}
 --- !u!1 &870533639
 GameObject:
   m_ObjectHideFlags: 0
