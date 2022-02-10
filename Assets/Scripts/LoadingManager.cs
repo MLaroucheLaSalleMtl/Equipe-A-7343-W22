@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class LoadingManager : MonoBehaviour
 {
     private AsyncOperation asyncLoad;
-    private const float LOADTIME = 5f;
-    
+    private const float LOADTIME = 5f;    
+
     public IEnumerator InGameLoadingScene()
     {        
         asyncLoad = SceneManager.LoadSceneAsync(2);
