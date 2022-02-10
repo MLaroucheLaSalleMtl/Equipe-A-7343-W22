@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class Loading : MonoBehaviour
 {
     private AsyncOperation _asyncLoad;
-    /*[HideInInspector][SerializeField]public*/ private bool sceneIsReady;
+    private bool sceneIsReady;
 
     [Header("--- Scene Settings ---")]
     [SerializeField] private float loadTimeDelay = 0f;
