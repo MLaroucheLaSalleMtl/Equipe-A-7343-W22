@@ -10,16 +10,16 @@ using UnityEngine.SceneManagement;
 public class Loading : MonoBehaviour
 {
     private AsyncOperation _asyncLoad;
-    /*[HideInInspector][SerializeField]public*/ private bool sceneIsReady;
+    private bool sceneIsReady;
+    //private bool isAnyKeyPressed = Input.anyKey ? true : false;
 
     [Header("--- Scene Settings ---")]
     [SerializeField] private float loadTimeDelay = 0f;
     [SerializeField] private string nameOfScene;
     [SerializeField]private bool randomizeItems = false;
     [Header("--- Only Use If 'Use User Input' Is Checked ---")]
-    [Tooltip("Use Continue Button if you want the player to press a Button on start (Ex. Start Loading Scene)")]
-    [SerializeField] public bool useContinueBtn = false;
-    [SerializeField] public GameObject continueBtn;
+    [Tooltip("Use User Input if you want the player to press a key on start (Ex. Start Loading Scene)")]
+    [SerializeField] public bool useUserInput = false;
     [SerializeField] public GameObject userInputTxt;
     [SerializeField] public GameObject loadingIcon;
  
@@ -38,13 +38,6 @@ public class Loading : MonoBehaviour
         "Random Message C",
         "Random Message D"
     };
-
-    IEnumerator LoadingIconCoroutine() 
-    {
-        yield return new WaitForSeconds(loadTimeDelay);
-        continueBtn.SetActive(true);
-        loadingIcon.SetActive(false);
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +64,7 @@ public class Loading : MonoBehaviour
         _asyncLoad = SceneManager.LoadSceneAsync(nameOfScene);
 
         _asyncLoad.allowSceneActivation = false;
-        if (!useContinueBtn)
+        if (!useUserInput)
         {
             Invoke("isActive", loadTimeDelay);            
         }
@@ -84,19 +77,36 @@ public class Loading : MonoBehaviour
 
     void Update()
     {
-        if (useContinueBtn)
+        if (/*SplashScreen.isFinished &&*/ useUserInput)
         {                
-            if (userInputTxt && continueBtn)
+            if (userInputTxt /*&& isAnyKeyPressed*/)
             {
-                StartCoroutine("LoadingIconCoroutine");             
+                userInputTxt.SetActive(true);
+                loadingIcon.SetActive(false);
+                //sceneIsReady = true;
+                //isAnyKeyPressed = false;
             }
+
+            //if ()
+            //{
+            //    sceneIsReady = true;
+            //}
         }
 
-        if (sceneIsReady)
+        if (/*SplashScreen.isFinished &&*/ sceneIsReady)
         {
             _asyncLoad.allowSceneActivation = true;
         }
-    }    
+    }
+
+    //public static LoadingController GetInstance()
+    //{
+    //    if (instance == null)
+    //    {
+    //        instance = new LoadingController();
+    //    }
+    //    return instance; 
+    //}
 
     void RandomizeLoadingScene()
     {

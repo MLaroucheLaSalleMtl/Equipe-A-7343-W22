@@ -8,7 +8,7 @@ public class PreLoaderScript : MonoBehaviour
     private AsyncOperation asyncLoad;
     private const float LOADTIME = 5f;
 
-    IEnumerator PreLoaderScene()
+    private IEnumerator PreLoaderScene()
     {
         yield return new WaitForSeconds(LOADTIME);
         asyncLoad = SceneManager.LoadSceneAsync(1);
