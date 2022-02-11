@@ -9,9 +9,9 @@ public class RigidBodyFPSController : MonoBehaviour
 {    
     private CharacterController characterController;
     public Camera cam;
-    //public CameraController camLook = new CameraController();
+    public TempCamLook camLook = new TempCamLook();
 
-    //private Rigidbody rigidbody;
+    private Rigidbody rBody;
     private CapsuleCollider capsule;
     private Vector3 playerVel;
     private bool isGrounded = false;
@@ -21,19 +21,22 @@ public class RigidBodyFPSController : MonoBehaviour
     [SerializeField] private float moveSpeed = 1.0f;
     [SerializeField] private float runSpeed  = 2.0f;
     [SerializeField] private float jumpSpeed;
-    [SerializeField] private float peekSpeed;    
+    [SerializeField] private float peekSpeed;
+    [SerializeField] private LayerMask allButPlayer;
 
     //private CapsuleCollider capsule;
 
     Vector2 move = Vector2.zero;
+    Vector2 value;
     private bool sprint = false;
     private bool walk   = false;
     private bool jump   = false;  
     
     void Start()
     {
-        //rigidbody = GetComponent<Rigidbody>();
+        rBody = GetComponent<Rigidbody>();
         capsule   = GetComponent<CapsuleCollider>();
+        camLook.InitSettings(transform, cam.transform);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -54,11 +57,27 @@ public class RigidBodyFPSController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         jump = context.performed;
-    }   
+    }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        value = context.ReadValue<Vector2>();
+        RotPlayerView();
+    }
+
+    void CheckGrouded() 
+    {
+        RaycastHit hitInfo;
+        if (Physics.SphereCast(transform.position, 0.25f, Vector3.down, 
+        out hitInfo, 0.75f, allButPlayer, QueryTriggerInteraction.Ignore)) 
+        {
+            isGrounded = true;
+        }
+    }
 
     void FixedUpdate()
     {
-        isGrounded = characterController.isGrounded;
+        CheckGrouded();
 
         playerVel = new Vector3(move.x, 0f, move.y).normalized;
 
@@ -86,13 +105,15 @@ public class RigidBodyFPSController : MonoBehaviour
 
         //transform.Translate(playerVel.normalized);
 
-        characterController.Move(playerVel.normalized * Time.deltaTime);
+        //characterController.Move(playerVel.normalized * Time.deltaTime);
+        Vector3 playerDestination = rBody.position + playerVel * Time.fixedDeltaTime;
+        rBody.MovePosition(playerDestination);
     }
 
     // Update is called once per frame
     void Update()
     {
-        RotPlayerView();
+        //RotPlayerView();
 
         if (jump && isGrounded)
         {
@@ -102,6 +123,8 @@ public class RigidBodyFPSController : MonoBehaviour
 
     void RotPlayerView() 
     {
-        
+        if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
+
+        camLook.CameraLookRotation(value, transform, cam.transform);
     }
 }
