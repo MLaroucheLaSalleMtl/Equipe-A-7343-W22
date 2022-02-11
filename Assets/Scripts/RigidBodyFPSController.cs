@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
-public class RigidBodyFPSCntroller : MonoBehaviour
+public class RigidBodyFPSController : MonoBehaviour
 {    
     private CharacterController characterController;
     public Camera cam;
