@@ -7,23 +7,33 @@ using UnityEngine.InputSystem;
 public class LocomotionCharacterController : MonoBehaviour
 {    
     private CharacterController characterController;
+    public Camera cam;
+    //public CameraController camLook = new CameraController();
+
+    //private Rigidbody rigidbody;
+    private CapsuleCollider capsule;
+    private Vector3 playerVel;
+    private bool isGrounded = false;
 
     [Header("--- Movement Variables ---")]
     [SerializeField] private float walkSpeed = 0.5f;
     [SerializeField] private float moveSpeed = 1.0f;
     [SerializeField] private float runSpeed  = 2.0f;
     [SerializeField] private float jumpSpeed;
-    [SerializeField] private float peekSpeed;
-    
-    private Vector3 playerVel;
-    private bool isGrounded = false;
+    [SerializeField] private float peekSpeed;    
 
-    private CapsuleCollider capsule;
+    //private CapsuleCollider capsule;
 
     Vector2 move = Vector2.zero;
     private bool sprint = false;
     private bool walk   = false;
-    private bool jump   = false;    
+    private bool jump   = false;  
+    
+    void Start()
+    {
+        //rigidbody = GetComponent<Rigidbody>();
+        capsule   = GetComponent<CapsuleCollider>();
+    }
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -41,13 +51,6 @@ public class LocomotionCharacterController : MonoBehaviour
     {
         jump = context.performed;
     }   
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        characterController = GetComponent<CharacterController>();
-        capsule = GetComponent<CapsuleCollider>();
-    }
 
     void FixedUpdate()
     {
@@ -85,9 +88,16 @@ public class LocomotionCharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RotPlayerView();
+
         if (jump && isGrounded)
         {
             playerVel.y = jumpSpeed;
         }
+    }
+
+    void RotPlayerView() 
+    {
+        
     }
 }
