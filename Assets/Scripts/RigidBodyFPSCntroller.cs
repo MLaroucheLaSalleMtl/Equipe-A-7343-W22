@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(LocomotionCharacterController))]
-public class LocomotionCharacterController : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CapsuleCollider))]
+public class RigidBodyFPSCntroller : MonoBehaviour
 {    
     private CharacterController characterController;
     public Camera cam;
@@ -38,6 +39,9 @@ public class LocomotionCharacterController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         move =  context.ReadValue<Vector2>();
+
+        //Debug
+        Debug.Log("Move X value : " + move.x + ", Move Y value : " + move.y);
     }
     public void OnSprint(InputAction.CallbackContext context)
     {
@@ -56,18 +60,18 @@ public class LocomotionCharacterController : MonoBehaviour
     {
         isGrounded = characterController.isGrounded;
 
+        playerVel = new Vector3(move.x, 0f, move.y).normalized;
+
+        float speed = moveSpeed;
         //if (move.y < 0)
         //{
-        //    speed -= moveSpeed; 
+        //    speed -= moveSpeed;
         //}
         //if (move.y > 0)
         //{
         //    speed = moveSpeed;
-        //}       
+        //}
 
-        playerVel = new Vector3(move.x, 0f, move.y).normalized;
-
-        float speed = moveSpeed;
         if (sprint && isGrounded)
         {
             speed = sprint ? moveSpeed : runSpeed;
