@@ -292,9 +292,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 2017853807}
-  walkSpeed: 0.5
-  moveSpeed: 1
+  forwardMoveSpeed: 1
+  backwardMoveSpeed: 1
+  straffeSpeed: 1
   runSpeed: 2
+  walkSpeed: 0.5
   jumpSpeed: 0
   peekSpeed: 0
   allButPlayer:
@@ -313,7 +315,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!54 &772846872
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -328,7 +330,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &772846873
 MonoBehaviour:
@@ -344,7 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 9415862dbdbe19f4e8a680dd25fa70b8, type: 3}
   m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
+  m_UIInputModule: {fileID: 1352634567}
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -432,10 +434,86 @@ MonoBehaviour:
     m_ActionId: 50667ae4-36e9-494e-955e-af3908baaefc
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: PC_Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1 &1352634566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1352634569}
+  - component: {fileID: 1352634568}
+  - component: {fileID: 1352634567}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1352634567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352634566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 9415862dbdbe19f4e8a680dd25fa70b8, type: 3}
+  m_PointAction: {fileID: -7149272601310274031, guid: 9415862dbdbe19f4e8a680dd25fa70b8, type: 3}
+  m_MoveAction: {fileID: 108952118090448014, guid: 9415862dbdbe19f4e8a680dd25fa70b8, type: 3}
+  m_SubmitAction: {fileID: 1111190687008003966, guid: 9415862dbdbe19f4e8a680dd25fa70b8, type: 3}
+  m_CancelAction: {fileID: -7117834631823724618, guid: 9415862dbdbe19f4e8a680dd25fa70b8, type: 3}
+  m_LeftClickAction: {fileID: -6810729169787760981, guid: 9415862dbdbe19f4e8a680dd25fa70b8, type: 3}
+  m_MiddleClickAction: {fileID: 1533638204103388232, guid: 9415862dbdbe19f4e8a680dd25fa70b8, type: 3}
+  m_RightClickAction: {fileID: -5643824543470907066, guid: 9415862dbdbe19f4e8a680dd25fa70b8, type: 3}
+  m_ScrollWheelAction: {fileID: 1829386097808411810, guid: 9415862dbdbe19f4e8a680dd25fa70b8, type: 3}
+  m_TrackedDevicePositionAction: {fileID: -1098080409336623554, guid: 9415862dbdbe19f4e8a680dd25fa70b8, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 8033231393014860028, guid: 9415862dbdbe19f4e8a680dd25fa70b8, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+--- !u!114 &1352634568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352634566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1352634569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352634566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1546551994
 GameObject:
   m_ObjectHideFlags: 0

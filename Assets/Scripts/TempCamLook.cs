@@ -4,11 +4,11 @@ using UnityEngine.InputSystem;
 
 public class TempCamLook
 {
-    public float XMouseSensitivity = 2f;
-    public float YMouseSensitivity = 2f;
-    public float ClampMinimumX = -90f;   
-    public float ClampMaximumX = 90f;
-    public float smoothTime = 5f;
+    public float XMouseSensitivity = 0.075f;
+    public float YMouseSensitivity = 0.075f;
+    public float ClampMinimumX = -90F;   
+    public float ClampMaximumX = 90F;
+    public float smoothTime = 2.0f;
 
     private Quaternion playerTargetRot;
     private Quaternion camTargetRot;
@@ -21,33 +21,21 @@ public class TempCamLook
     
     public void CameraLookRotation(Vector2 rotValue, Transform player, Transform cam) 
     {
-        rotValue.y = Input.GetAxis("Mouse X") * XMouseSensitivity;
-        rotValue.x = Input.GetAxis("Mouse Y") * YMouseSensitivity;
+        //rotValue.y = Input.GetAxis("Mouse X") * XMouseSensitivity;
+        //rotValue.x = Input.GetAxis("Mouse Y") * YMouseSensitivity;
 
-        playerTargetRot *= Quaternion.Euler(
-            0f, 
-            rotValue.y,
-            0f);
-        camTargetRot    *= Quaternion.Euler(
-            -rotValue.x, 
-            0f, 
-            0f);
+        float yRotation = rotValue.x * XMouseSensitivity;
+        float xRotation = rotValue.y * YMouseSensitivity;
+
+        playerTargetRot *= Quaternion.Euler( 0f, yRotation, 0f);
+        camTargetRot    *= Quaternion.Euler(-xRotation, 0f, 0f);
 
         camTargetRot = ClampCamera(camTargetRot);
 
-        player.localRotation = Quaternion.Slerp
-        (
-            player.localRotation, 
-            cam.localRotation, 
-            smoothTime * Time.deltaTime
-        );
-
-        cam.localRotation = Quaternion.Slerp
-        (
-            cam.localRotation, 
-            player.localRotation, 
-            smoothTime * Time.deltaTime
-        );
+        player.localRotation = Quaternion.Slerp (player.localRotation, playerTargetRot, 
+            smoothTime * Time.deltaTime);
+        cam.localRotation = Quaternion.Slerp (cam.localRotation, camTargetRot, 
+            smoothTime * Time.deltaTime);
 
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -63,7 +51,7 @@ public class TempCamLook
 
         xAngle = Mathf.Clamp(xAngle, ClampMinimumX, ClampMaximumX);
 
-        q.x = Mathf.Tan(0.5f * Mathf.Rad2Deg * xAngle);
+        q.x = Mathf.Tan(0.5f * Mathf.Deg2Rad * xAngle);
 
         return q;
     }
