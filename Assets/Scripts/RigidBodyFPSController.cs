@@ -9,6 +9,7 @@ public class RigidBodyFPSController : MonoBehaviour
 {    
     private CharacterController characterController;
     public Camera cam;
+    public Transform _playerHead;
     public TempCamLook camLook = new TempCamLook();
 
     private Rigidbody rBody;
@@ -40,7 +41,7 @@ public class RigidBodyFPSController : MonoBehaviour
     {
         rBody = GetComponent<Rigidbody>();
         capsule   = GetComponent<CapsuleCollider>();
-        camLook.InitSettings(transform, cam.transform);
+        camLook.InitSettings(transform, _playerHead.transform, cam.transform);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -89,7 +90,7 @@ public class RigidBodyFPSController : MonoBehaviour
         if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
         value = context.ReadValue<Vector2>();
         //float oldYRotation = transform.eulerAngles.y;
-        camLook.CameraLookRotation(value, transform, cam.transform);
+        camLook.CameraLookRotation(value, transform, _playerHead.transform, cam.transform);
         //Quaternion velRotation = Quaternion.AngleAxis(transform.eulerAngles.y - oldYRotation, Vector3.up);
         //rBody.velocity = velRotation * rBody.velocity;
         //RotPlayerView();
@@ -125,7 +126,7 @@ public class RigidBodyFPSController : MonoBehaviour
     {
         CheckGrouded();
 
-        rBody.drag = 5f;
+        //rBody.drag = 5f;
         //move = PlayerInput();
 
         //playerVel = new Vector3(move.x, 0f, move.y).normalized;
@@ -195,6 +196,9 @@ public class RigidBodyFPSController : MonoBehaviour
     {
         if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
 
-        camLook.CameraLookRotation(value, transform, cam.transform);
+        if (_playerHead.transform.localRotation.y == 50f || _playerHead.transform.localRotation.y == -50f)
+        {
+            camLook.CameraLookRotation(value, transform, _playerHead.transform, cam.transform);
+        }
     }
 }
