@@ -8,7 +8,7 @@ public class TempCamLook
     public float YMouseSensitivity = 0.075f;
     public float ClampMinimumX = -60F;   
     public float ClampMaximumX = 60F;
-    public float smoothTime = 2.0f;
+    public float smoothTime = 10.0f;
 
     private Quaternion playerTargetRot;
     //private Quaternion playerHeadTargetRot;
@@ -35,9 +35,9 @@ public class TempCamLook
         camTargetRot = ClampCamera(camTargetRot);
 
         player.localRotation = Quaternion.Slerp (player.localRotation, playerTargetRot, 
-            smoothTime /** Time.fixedDeltaTime*/);
+            smoothTime * Time.fixedDeltaTime);
         cam.localRotation = Quaternion.Slerp (cam.localRotation, camTargetRot, 
-            smoothTime /** Time.fixedDeltaTime*/);
+            smoothTime * Time.fixedDeltaTime);
 
         //playerHead.transform.rotation = cam.transform.rotation;
         //Vector3 localHeadRotation = playerHeadTargetRot.eulerAngles/*playerHead.transform.localRotation.eulerAngles*/;

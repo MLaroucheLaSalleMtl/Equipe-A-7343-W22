@@ -30,9 +30,11 @@ public class RigidBodyFPSController : MonoBehaviour
     Vector2 move  = Vector2.zero;
     Vector2 lookValue = Vector2.zero;
     //Vector3 isGroundedNormal;
-    private bool sprint = false;
-    private bool walk   = false;
-    private bool jump   = false;  
+    private bool sprint   = false;
+    private bool walk     = false;
+    private bool jump     = false;
+    private bool fire     = false;
+    private bool isAiming = false;
     
     void Start()
     {
@@ -77,6 +79,19 @@ public class RigidBodyFPSController : MonoBehaviour
         //Quaternion velRotation = Quaternion.AngleAxis(transform.eulerAngles.y - oldYRotation, Vector3.up);
         //rBody.velocity = velRotation * rBody.velocity;
         //RotPlayerView();
+    }
+
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        fire = context.performed;
+        anim.SetBool("isFiring", fire);
+    }
+
+    public void OnAim(InputAction.CallbackContext context)
+    {
+        isAiming = context.performed;
+        anim.SetBool("isAiming", isAiming);
+        isAiming = false;
     }
 
     bool CheckGrounded() 
@@ -125,7 +140,7 @@ public class RigidBodyFPSController : MonoBehaviour
             //{
             //playerDestination = new Vector3(playerDestination.x/*cam.transform.right.x * move.x*/, 0f, playerDestination.y/*cam.transform.forward.x * move.y*/);
 
-            playerDestination = cam.transform.forward * move.y + cam.transform.right * move.x;
+            playerDestination = transform.forward * move.y + transform.right * move.x;
             //playerDestination = Vector3.ProjectOnPlane(playerDestination, isGroundedNormal).normalized;
 
             //playerDestination.x = playerDestination.x * currentSpeed;
@@ -145,7 +160,7 @@ public class RigidBodyFPSController : MonoBehaviour
             //}
             if (sprint)
             {
-                speedMul *= 1.5f;
+                speedMul *= 1.25f;
             }
             if (walk)
             {
@@ -154,7 +169,9 @@ public class RigidBodyFPSController : MonoBehaviour
 
             playerDestination.x *= speedMul;
             playerDestination.z *= speedMul;
-            playerDestination.y *= 0f;
+            playerDestination.y *= 0f;            
+
+            
 
             if (jump)
             {
@@ -164,11 +181,10 @@ public class RigidBodyFPSController : MonoBehaviour
                 jump = false;
             }
 
-            Vector3 rbDestination = rBody.position + playerDestination * Time.fixedDeltaTime;
-            rBody.MovePosition(rbDestination);
-            Debug.Log("Move X value : " + move.x + ", Move Y value : " + move.y + ", Current Speed : " + playerDestination.magnitude);
         }
-        anim.SetBool("isGrounded", isGrounded);
+
+        Vector3 rbDestination = rBody.position + playerDestination * Time.fixedDeltaTime;
+        rBody.MovePosition(rbDestination);
     }
 
     // Update is called once per frame
@@ -180,6 +196,15 @@ public class RigidBodyFPSController : MonoBehaviour
         //{
         //    jump = true;
         //}
+
+        if (fire)
+        {
+            fire = false;
+        }
+
+        anim.SetBool("isGrounded", CheckGrounded());
+        anim.SetFloat("PlayerVelocity", playerDestination.magnitude);
+        Debug.Log("Move X value : " + move.x + ", Move Y value : " + move.y + ", Current Speed : " + playerDestination.magnitude);
     }
 
     void RotPlayerView()

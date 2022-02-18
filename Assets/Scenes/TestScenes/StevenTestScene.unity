@@ -149,7 +149,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176698880}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4a4009f97e758794ab6aa55d19789022, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -311,7 +311,19 @@ MonoBehaviour:
     m_ActionId: 8bb67ffb-dbdd-4513-b65a-c66cfef2bce9
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 772846870}
+        m_TargetAssemblyTypeName: RigidBodyFPSController, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 7d4051b4-9c18-4e5d-be9d-3b0e49410676
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -402,6 +414,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f1d198e1-1f43-4d08-854d-6161468ce94a
     m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 772846870}
+        m_TargetAssemblyTypeName: RigidBodyFPSController, Assembly-CSharp
+        m_MethodName: OnAim
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d3340b54-6195-4908-89ff-47b935184540
+    m_ActionName: Player/Fire1[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -490,7 +518,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772846867}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0739d6f7b584ddf459c205f00d683ba9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
