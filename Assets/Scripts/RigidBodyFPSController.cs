@@ -6,79 +6,62 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 public class RigidBodyFPSController : MonoBehaviour
-{    
-    private CharacterController characterController;
+{        
     public Camera cam;
-    public Transform _playerHead;
+    //public Transform _playerHead;
     public TempCamLook camLook = new TempCamLook();
 
     private Rigidbody rBody;
+    private Animator anim;
     private CapsuleCollider capsule;
-    private Vector3 playerVel;
+    private Vector3 playerDestination;
     private bool isGrounded = false;
 
     [Header("--- Movement Variables ---")]
-    [HideInInspector] private float currentSpeed = 2.0f;
-    [SerializeField] private float runSpeed  = 4.0f;
-    [SerializeField] private float forwardMoveSpeed = 2.0f;
-    [SerializeField] private float backwardMoveSpeed = 1.0f;
-    [SerializeField] private float straffeSpeed = 1.0f;
-    [SerializeField] private float slowWalkSpeed = 1.0f;
-    [SerializeField] private float jumpSpeed;
+    [SerializeField] private float currentSpeed = 2.0f;    
+    [SerializeField] private float jumpSpeed = 1.5f;
     [SerializeField] private float peekSpeed;
     [SerializeField] private LayerMask allButPlayer;
 
-    //private CapsuleCollider capsule;
+    //Testing
+    //private InputActionMap UIActionMap; /*new PlayerInputActions.UIActions()*/
+    //private InputActionMap PlayerActionMap;    
 
     Vector2 move  = Vector2.zero;
-    Vector2 value = Vector2.zero;
-    Vector2 isGroundedNormal;
+    Vector2 lookValue = Vector2.zero;
+    //Vector3 isGroundedNormal;
     private bool sprint = false;
     private bool walk   = false;
     private bool jump   = false;  
     
     void Start()
     {
+        anim = GetComponent<Animator>();
         rBody = GetComponent<Rigidbody>();
         capsule   = GetComponent<CapsuleCollider>();
-        camLook.InitSettings(transform, _playerHead.transform, cam.transform);
+        camLook.InitSettings(transform, cam.transform);
+
+        //UIActionMap     = new InputActionAsset().FindActionMap("UI");
+        //PlayerActionMap = new InputActionAsset().FindActionMap("Player");
     }
 
+    //Est-ce que c'est mieux de faire une fonction a part pour le mouvement du player
+    //                  ou
+    //Est-ce que c'est correct si on le met dans le void OnMove()
     public void OnMove(InputAction.CallbackContext context)
     {
         move =  context.ReadValue<Vector2>();
-        if (move == Vector2.zero) return;
-        if (move.x > 0 || move.x < 0)
-        {
-            currentSpeed = straffeSpeed;
-        }
-        if (move.y < 0)
-        {
-            currentSpeed = backwardMoveSpeed;
-        }
-        if (move.y > 0)
-        {
-            currentSpeed = forwardMoveSpeed;
-        }
+        
 
         //Debug
-        Debug.Log("Move X value : " + move.x + ", Move Y value : " + move.y);
     }
     public void OnSprint(InputAction.CallbackContext context)
     {
-        sprint = context.performed;
-        if (sprint)
-        {
-            currentSpeed = runSpeed;
-        }
+        sprint = context.performed;        
     }
-    public void OnSlowWalk(InputAction.CallbackContext context)
+    public void OnWalk(InputAction.CallbackContext context)
     {
-        walk = context.performed;
-        if (walk)
-        {
-            currentSpeed = slowWalkSpeed;
-        }
+        walk = context.performed;       
     }
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -87,30 +70,31 @@ public class RigidBodyFPSController : MonoBehaviour
 
     public void OnLook(InputAction.CallbackContext context)
     {
-        if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
-        value = context.ReadValue<Vector2>();
+        //if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
+        lookValue = context.ReadValue<Vector2>();
         //float oldYRotation = transform.eulerAngles.y;
-        camLook.CameraLookRotation(value, transform, _playerHead.transform, cam.transform);
+        //camLook.CameraLookRotation(value, transform, /*_playerHead.transform,*/ cam.transform);
         //Quaternion velRotation = Quaternion.AngleAxis(transform.eulerAngles.y - oldYRotation, Vector3.up);
         //rBody.velocity = velRotation * rBody.velocity;
         //RotPlayerView();
     }
 
-    void CheckGrouded() 
+    bool CheckGrounded() 
     {
         //Vector3 SphereOffset = new Vector3(0f, 1f, 0f);
-        RaycastHit hitInfo;
-        if (Physics.SphereCast(transform.position /*+ SphereOffset*/, 0.25f, Vector3.down,
-        out hitInfo, 0.75f, Physics.AllLayers, QueryTriggerInteraction.Ignore))
-        {
-            isGrounded = true;
-            isGroundedNormal = hitInfo.normal;
-        }
-        else
-            isGrounded = false;
-            isGroundedNormal = Vector2.up;
-
-    }
+        //RaycastHit hitInfo;
+        return Physics.CheckSphere(transform.position, 
+                                   0.25f, 
+                                   allButPlayer, 
+                                   QueryTriggerInteraction.Ignore);
+        //{
+        //    isGrounded = true;
+        //    isGroundedNormal = hitInfo.normal;
+        //}
+        //else        
+        //    isGrounded = false;
+        //    isGroundedNormal = Vector3.up;                   
+    }    
 
     //private Vector2 PlayerInput() 
     //{
@@ -124,81 +108,87 @@ public class RigidBodyFPSController : MonoBehaviour
 
     void FixedUpdate()
     {
-        CheckGrouded();
-
-        //rBody.drag = 5f;
-        //move = PlayerInput();
-
-        //playerVel = new Vector3(move.x, 0f, move.y).normalized;
-
-        //float speed = currentSpeed;
-        //if (move.y < 0)
-        //{
-        //    speed -= moveSpeed;
-        //}
-        //if (move.y > 0)
-        //{
-        //    speed = moveSpeed;
-        //}
-
-        //if (sprint && isGrounded)
-        //{
-        //    speed = sprint ? forwardMoveSpeed : runSpeed;
-        //}
-        //if (walk && isGrounded)
-        //{
-        //    speed = walk ? forwardMoveSpeed : walkSpeed;
-        //}
-        //playerVel *= speed;
-
-        if ((Mathf.Abs(move.x) > float.Epsilon || Mathf.Abs(move.y) > float.Epsilon) /*&& isGrounded*/)
+        isGrounded = CheckGrounded();
+        if (/*(Mathf.Abs(move.x) > float.Epsilon || Mathf.Abs(move.y) > float.Epsilon) &&*/ isGrounded)
         {
-            Vector3 playerDestination = cam.transform.forward * move.y + cam.transform.right * move.x;
+            //rBody.drag = 5f;
+            //if (move.y < 0)
+            //{
+            //    currentSpeed = moveSpeed;
+            //}
+            //if (move.y > 0)
+            //{
+            //    currentSpeed = moveSpeed;
+            //}
 
-            playerDestination = Vector3.ProjectOnPlane(playerDestination, isGroundedNormal).normalized;
+            //if ((Mathf.Abs(move.x) > float.Epsilon || Mathf.Abs(move.y) > float.Epsilon)/* && isGrounded*/)
+            //{
+            //playerDestination = new Vector3(playerDestination.x/*cam.transform.right.x * move.x*/, 0f, playerDestination.y/*cam.transform.forward.x * move.y*/);
 
-            playerDestination.x = playerDestination.x * currentSpeed;
-            playerDestination.z = playerDestination.z * currentSpeed;
-            playerDestination.y = playerDestination.y * currentSpeed;
+            playerDestination = cam.transform.forward * move.y + cam.transform.right * move.x;
+            //playerDestination = Vector3.ProjectOnPlane(playerDestination, isGroundedNormal).normalized;
 
-            rBody.AddForce(playerDestination, ForceMode.Impulse);
-            //rBody.MovePosition(playerDestination);
+            //playerDestination.x = playerDestination.x * currentSpeed;
+            //playerDestination.z = playerDestination.z * currentSpeed;
+            //playerDestination.y = playerDestination.y * currentSpeed;
+
+
+            //rBody.AddForce(playerDestination, ForceMode.Impulse);
+            //}
+                        
+
+            float speedMul = currentSpeed;
+            if (move == Vector2.zero) return;
+            //if (move.x > 0 || move.x < 0)
+            //{
+            //    speedMul *= 0.45f;
+            //}
+            if (sprint)
+            {
+                speedMul *= 1.5f;
+            }
+            if (walk)
+            {
+                speedMul *= 0.5f;
+            }
+
+            playerDestination.x *= speedMul;
+            playerDestination.z *= speedMul;
+            playerDestination.y *= 0f;
+
+            if (jump)
+            {
+                //rBody.drag = 0.0f;
+                float JumpForce = Mathf.Sqrt(jumpSpeed * -2f * Physics.gravity.y);
+                rBody.AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
+                jump = false;
+            }
+
+            Vector3 rbDestination = rBody.position + playerDestination * Time.fixedDeltaTime;
+            rBody.MovePosition(rbDestination);
+            Debug.Log("Move X value : " + move.x + ", Move Y value : " + move.y + ", Current Speed : " + playerDestination.magnitude);
         }
-
-        //if (isGrounded)
-        //{
-        //    rBody.drag = 5f;
-        //}
-        //else
-        //{
-        //    rBody.drag = 0f;
-        //}
-        jump = false;
-        //Quaternion velRotation = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up);
-
-        //transform.Translate(playerVel.normalized);
-
-        //characterController.Move(playerVel.normalized * Time.deltaTime);
+        anim.SetBool("isGrounded", isGrounded);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //RotPlayerView();
+        RotPlayerView();
 
-        if (jump && isGrounded)
-        {
-            playerVel.y = jumpSpeed;
-        }
+        //if (jump /*&& isGrounded*/)
+        //{
+        //    jump = true;
+        //}
     }
 
-    void RotPlayerView() 
+    void RotPlayerView()
     {
         if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
 
-        if (_playerHead.transform.localRotation.y == 50f || _playerHead.transform.localRotation.y == -50f)
-        {
-            camLook.CameraLookRotation(value, transform, _playerHead.transform, cam.transform);
-        }
+        //if (_playerHead.transform.localRotation.y == 50f || _playerHead.transform.localRotation.y == -50f)
+        //{
+        camLook.CameraLookRotation(lookValue, transform, /*_playerHead.transform,*/ cam.transform);
+        //}
     }
 }
