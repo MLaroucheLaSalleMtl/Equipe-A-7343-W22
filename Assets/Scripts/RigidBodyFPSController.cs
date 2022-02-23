@@ -35,7 +35,7 @@ public class RigidBodyFPSController : MonoBehaviour
     Vector2 lookValue = Vector2.zero;
     //Vector3 isGroundedNormal;
     private bool sprint   = false;
-    private bool walk     = false;
+    //private bool walk     = false;
     private bool jump     = false;
     private bool fire     = false;
     private bool isAiming = false;
@@ -59,10 +59,10 @@ public class RigidBodyFPSController : MonoBehaviour
     {
         sprint = context.performed;        
     }
-    public void OnWalk(InputAction.CallbackContext context)
-    {
-        walk = context.performed;       
-    }
+    //public void OnWalk(InputAction.CallbackContext context)
+    //{
+    //    walk = context.performed;       
+    //}
     public void OnJump(InputAction.CallbackContext context)
     {
         jump = context.performed;
@@ -151,10 +151,10 @@ public class RigidBodyFPSController : MonoBehaviour
             {
                 speedMul *= 2.0f;
             }
-            if (walk)
-            {
-                speedMul *= 0.5f;
-            }
+            //if (walk)
+            //{
+            //    speedMul *= 0.5f;
+            //}
 
             //playerDestination.x *= Mathf.SmoothStep(speedMul, MaxSpeed, runSmoothTime);
             //playerDestination.z *= Mathf.SmoothStep(speedMul, MaxSpeed, runSmoothTime);
@@ -211,9 +211,9 @@ public class RigidBodyFPSController : MonoBehaviour
         }
 
         anim.SetBool("Sprint", sprint);
-        anim.SetBool("Walk", walk);
+        //anim.SetBool("Walk", walk);
         anim.SetBool("isGrounded", CheckGrounded());
-        anim.SetFloat("PlayerVelocity", playerDestination.magnitude);
+        anim.SetFloat("PlayerVelocity", playerDestination.magnitude, 0.2f, Time.deltaTime);
         Debug.Log("Move X value : " + move.x + ", Move Y value : " + move.y + ", Current Speed : " + playerDestination.magnitude);
     }
 
