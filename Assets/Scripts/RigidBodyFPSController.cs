@@ -18,10 +18,14 @@ public class RigidBodyFPSController : MonoBehaviour
     private bool isGrounded = false;
 
     [Header("--- Movement Variables ---")]
-    [SerializeField] private float currentSpeed = 2.0f;    
+    [SerializeField] private float currentSpeed = 1.5f;   
     [SerializeField] private float jumpSpeed = 1.5f;
     [SerializeField] private float peekSpeed;
+    [SerializeField] private float runSmoothTime;
     [SerializeField] private LayerMask allButPlayer;
+
+    private const float MaxRunSpeed = 3.0f;
+    //private const float MaxWalkSpeed = 1.5f;
 
     //Testing
     //private InputActionMap UIActionMap; /*new PlayerInputActions.UIActions()*/
@@ -38,7 +42,7 @@ public class RigidBodyFPSController : MonoBehaviour
     
     void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         rBody = GetComponent<Rigidbody>();
         capsule   = GetComponent<CapsuleCollider>();
         camLook.InitSettings(transform, cam.transform);
@@ -46,16 +50,10 @@ public class RigidBodyFPSController : MonoBehaviour
         //UIActionMap     = new InputActionAsset().FindActionMap("UI");
         //PlayerActionMap = new InputActionAsset().FindActionMap("Player");
     }
-
-    //Est-ce que c'est mieux de faire une fonction a part pour le mouvement du player
-    //                  ou
-    //Est-ce que c'est correct si on le met dans le void OnMove()
+    
     public void OnMove(InputAction.CallbackContext context)
     {
-        move =  context.ReadValue<Vector2>();
-        
-
-        //Debug
+        move =  context.ReadValue<Vector2>();        
     }
     public void OnSprint(InputAction.CallbackContext context)
     {
@@ -84,31 +82,23 @@ public class RigidBodyFPSController : MonoBehaviour
     public void OnFire(InputAction.CallbackContext context)
     {
         fire = context.performed;
-        anim.SetBool("isFiring", fire);
+        anim.SetBool("isFiring", fire);        
     }
 
     public void OnAim(InputAction.CallbackContext context)
     {
         isAiming = context.performed;
+        //cam = Vector3.Lerp(cam.transform.localPosition, ); 
         anim.SetBool("isAiming", isAiming);
         isAiming = false;
     }
 
     bool CheckGrounded() 
-    {
-        //Vector3 SphereOffset = new Vector3(0f, 1f, 0f);
-        //RaycastHit hitInfo;
+    {        
         return Physics.CheckSphere(transform.position, 
                                    0.25f, 
                                    allButPlayer, 
-                                   QueryTriggerInteraction.Ignore);
-        //{
-        //    isGrounded = true;
-        //    isGroundedNormal = hitInfo.normal;
-        //}
-        //else        
-        //    isGrounded = false;
-        //    isGroundedNormal = Vector3.up;                   
+                                   QueryTriggerInteraction.Ignore);                       
     }    
 
     //private Vector2 PlayerInput() 
@@ -147,7 +137,6 @@ public class RigidBodyFPSController : MonoBehaviour
             //playerDestination.z = playerDestination.z * currentSpeed;
             //playerDestination.y = playerDestination.y * currentSpeed;
 
-
             //rBody.AddForce(playerDestination, ForceMode.Impulse);
             //}
                         
@@ -160,24 +149,27 @@ public class RigidBodyFPSController : MonoBehaviour
             //}
             if (sprint)
             {
-                speedMul *= 1.25f;
+                speedMul *= 2.0f;
             }
             if (walk)
             {
                 speedMul *= 0.5f;
             }
 
+            //playerDestination.x *= Mathf.SmoothStep(speedMul, MaxSpeed, runSmoothTime);
+            //playerDestination.z *= Mathf.SmoothStep(speedMul, MaxSpeed, runSmoothTime);
+
             playerDestination.x *= speedMul;
             playerDestination.z *= speedMul;
-            playerDestination.y *= 0f;            
-
-            
+            playerDestination.y *= 0f;
 
             if (jump)
             {
                 //rBody.drag = 0.0f;
                 float JumpForce = Mathf.Sqrt(jumpSpeed * -2f * Physics.gravity.y);
                 rBody.AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
+
+                anim.SetTrigger("Jump");
                 jump = false;
             }
 
@@ -197,11 +189,29 @@ public class RigidBodyFPSController : MonoBehaviour
         //    jump = true;
         //}
 
+        //if (isAiming)
+        //{
+        //    isAiming = false;
+        //}
+
+        //if (sprint)
+        //{
+        //    currentSpeed += 3.0f * Time.deltaTime;
+        //    currentSpeed = Mathf.Clamp(currentSpeed, 1.25f, 3.0f);
+        //}
+        //if (walk)
+        //{
+        //    currentSpeed -= 1.0f * Time.deltaTime;
+        //    currentSpeed = Mathf.Clamp(currentSpeed, 0.5f, 1.5f);
+        //}
+
         if (fire)
         {
             fire = false;
         }
 
+        anim.SetBool("Sprint", sprint);
+        anim.SetBool("Walk", walk);
         anim.SetBool("isGrounded", CheckGrounded());
         anim.SetFloat("PlayerVelocity", playerDestination.magnitude);
         Debug.Log("Move X value : " + move.x + ", Move Y value : " + move.y + ", Current Speed : " + playerDestination.magnitude);
