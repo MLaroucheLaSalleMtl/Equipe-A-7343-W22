@@ -213,9 +213,15 @@ public class RigidBodyFPSController : MonoBehaviour
         anim.SetBool("Sprint", sprint);
         //anim.SetBool("Walk", walk);
         anim.SetBool("isGrounded", CheckGrounded());
-        anim.SetFloat("PlayerVelocity", playerDestination.magnitude, 0.2f, Time.deltaTime);
+        anim.SetFloat("PlayerVelocity", playerDestination.magnitude, runSmoothTime, Time.deltaTime);
         Debug.Log("Move X value : " + move.x + ", Move Y value : " + move.y + ", Current Speed : " + playerDestination.magnitude);
     }
+
+    //Temporary Test
+    //private void LateUpdate()
+    //{
+    //    RotPlayerView();
+    //}
 
     void RotPlayerView()
     {

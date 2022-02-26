@@ -905,19 +905,7 @@ MonoBehaviour:
     m_ActionId: 643a3bda-b847-4dad-8cb9-e7309b413eeb
     m_ActionName: Player/New action
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 772846870}
-        m_TargetAssemblyTypeName: RigidBodyFPSController, Assembly-CSharp
-        m_MethodName: OnWalk
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 6f354dca-98de-4657-903f-a4a43227c5ae
     m_ActionName: Player/Sprint1
   - m_PersistentCalls:
@@ -1139,7 +1127,7 @@ MonoBehaviour:
   currentSpeed: 1.5
   jumpSpeed: 1
   peekSpeed: 0
-  runSmoothTime: 0.5
+  runSmoothTime: 0.2
   allButPlayer:
     serializedVersion: 2
     m_Bits: 55
@@ -2884,7 +2872,7 @@ Transform:
   m_Children:
   - {fileID: 239221534}
   m_Father: {fileID: 543450653664127858}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2069980131
 GameObject:
@@ -3120,6 +3108,7 @@ Transform:
   - {fileID: 8126480335694534117}
   - {fileID: 5653519914215504994}
   - {fileID: 1787909891862239525}
+  - {fileID: 2830188580707802843}
   - {fileID: 5465940246553480166}
   - {fileID: 1357434543668256737}
   - {fileID: 8069532377080571763}
@@ -3464,7 +3453,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450653664127858}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1357434545122770678
 Transform:
@@ -4354,8 +4343,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4167280743429981859}
-  m_RootOrder: 0
+  m_Father: {fileID: 543450653664127858}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2853286957202394772
 GameObject:
@@ -5709,8 +5698,7 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2830188580707802843}
+  m_Children: []
   m_Father: {fileID: 543450653664127858}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6190,7 +6178,7 @@ Transform:
   - {fileID: 8169382868703214809}
   - {fileID: 5742672707885906037}
   m_Father: {fileID: 543450653664127858}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5477181763946136131
 Transform:
@@ -6361,7 +6349,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: -9073019736851073122, guid: 72db0eacf32d0fd48a609f80e2b9950a, type: 3}
   m_Bones:
@@ -6764,7 +6752,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6833846119213274803
 Transform:
@@ -7095,7 +7083,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450653664127858}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8126480335694534117
 Transform:
