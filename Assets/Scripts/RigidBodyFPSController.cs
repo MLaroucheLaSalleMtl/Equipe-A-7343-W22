@@ -150,7 +150,9 @@ public class RigidBodyFPSController : MonoBehaviour
             if (sprint)
             {
                 speedMul *= 2.0f;
+                //move.y = 2.0f;
             }
+
             //if (walk)
             //{
             //    speedMul *= 0.5f;
@@ -214,6 +216,8 @@ public class RigidBodyFPSController : MonoBehaviour
         //anim.SetBool("Walk", walk);
         anim.SetBool("isGrounded", CheckGrounded());
         anim.SetFloat("PlayerVelocity", playerDestination.magnitude, runSmoothTime, Time.deltaTime);
+        anim.SetFloat("DirectionH", move.x);
+        anim.SetFloat("DirectionV", move.y);
         Debug.Log("Move X value : " + move.x + ", Move Y value : " + move.y + ", Current Speed : " + playerDestination.magnitude);
     }
 
