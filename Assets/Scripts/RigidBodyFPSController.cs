@@ -35,11 +35,11 @@ public class RigidBodyFPSController : MonoBehaviour
     Vector2 lookValue = Vector2.zero;
     //Vector3 isGroundedNormal;
     private bool sprint   = false;
-    //private bool walk     = false;
+    private bool crouch   = false;
     private bool jump     = false;
     private bool fire     = false;
     private bool isAiming = false;
-    
+
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
@@ -59,10 +59,10 @@ public class RigidBodyFPSController : MonoBehaviour
     {
         sprint = context.performed;        
     }
-    //public void OnWalk(InputAction.CallbackContext context)
-    //{
-    //    walk = context.performed;       
-    //}
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        crouch = context.performed;
+    }
     public void OnJump(InputAction.CallbackContext context)
     {
         jump = context.performed;
@@ -71,7 +71,10 @@ public class RigidBodyFPSController : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         //if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
+        //if (Mathf.Abs(Time.timeScale) < float.Epsilon) return;
         lookValue = context.ReadValue<Vector2>();
+        //camLook.CameraLookRotation(lookValue, transform, /*_playerHead.transform,*/ cam.transform);
+
         //float oldYRotation = transform.eulerAngles.y;
         //camLook.CameraLookRotation(value, transform, /*_playerHead.transform,*/ cam.transform);
         //Quaternion velRotation = Quaternion.AngleAxis(transform.eulerAngles.y - oldYRotation, Vector3.up);
@@ -82,13 +85,14 @@ public class RigidBodyFPSController : MonoBehaviour
     public void OnFire(InputAction.CallbackContext context)
     {
         fire = context.performed;
-        anim.SetBool("isFiring", fire);        
+        anim.SetBool("isFiring", fire);
+        fire = false;
+        //anim.SetTrigger("Fire");
     }
 
     public void OnAim(InputAction.CallbackContext context)
     {
-        isAiming = context.performed;
-        //cam = Vector3.Lerp(cam.transform.localPosition, ); 
+        isAiming = context.performed;        
         anim.SetBool("isAiming", isAiming);
         isAiming = false;
     }
@@ -153,10 +157,10 @@ public class RigidBodyFPSController : MonoBehaviour
                 //move.y = 2.0f;
             }
 
-            //if (walk)
-            //{
-            //    speedMul *= 0.5f;
-            //}
+            if (crouch)
+            {
+                speedMul *= 0.75f;
+            }
 
             //playerDestination.x *= Mathf.SmoothStep(speedMul, MaxSpeed, runSmoothTime);
             //playerDestination.z *= Mathf.SmoothStep(speedMul, MaxSpeed, runSmoothTime);
@@ -207,10 +211,10 @@ public class RigidBodyFPSController : MonoBehaviour
         //    currentSpeed = Mathf.Clamp(currentSpeed, 0.5f, 1.5f);
         //}
 
-        if (fire)
-        {
-            fire = false;
-        }
+        //if (fire)
+        //{            
+        //    fire = false;
+        //}
 
         anim.SetBool("Sprint", sprint);
         //anim.SetBool("Walk", walk);
