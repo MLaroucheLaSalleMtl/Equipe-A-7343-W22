@@ -25,6 +25,7 @@ public class RigidBodyFPSController : MonoBehaviour
     [SerializeField] private LayerMask allButPlayer;
 
     private const float MaxRunSpeed = 3.0f;
+    float t;
     //private const float MaxWalkSpeed = 1.5f;
 
     //Testing
@@ -36,9 +37,11 @@ public class RigidBodyFPSController : MonoBehaviour
     //Vector3 isGroundedNormal;
     private bool sprint   = false;
     private bool crouch   = false;
-    private bool jump     = false;
-    private bool fire     = false;
+    private bool jump     = false;    
     private bool isAiming = false;
+
+    private bool fire;
+    private bool isFiring = false;
 
     void Start()
     {
@@ -84,10 +87,13 @@ public class RigidBodyFPSController : MonoBehaviour
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        fire = context.performed;
-        anim.SetBool("isFiring", fire);
-        fire = false;
-        //anim.SetTrigger("Fire");
+        fire = context.performed;      
+    }
+    public void OnFireHold(InputAction.CallbackContext context)
+    {
+        isFiring = context.performed;
+        anim.SetBool("isFiring", isFiring);
+        isFiring = false;
     }
 
     public void OnAim(InputAction.CallbackContext context)
@@ -135,6 +141,7 @@ public class RigidBodyFPSController : MonoBehaviour
             //playerDestination = new Vector3(playerDestination.x/*cam.transform.right.x * move.x*/, 0f, playerDestination.y/*cam.transform.forward.x * move.y*/);
 
             playerDestination = transform.forward * move.y + transform.right * move.x;
+            //playerDestination = new Vector3(move.x, 0f, move.y);
             //playerDestination = Vector3.ProjectOnPlane(playerDestination, isGroundedNormal).normalized;
 
             //playerDestination.x = playerDestination.x * currentSpeed;
@@ -190,15 +197,20 @@ public class RigidBodyFPSController : MonoBehaviour
     {
         RotPlayerView();
 
+        //if (Input.GetButton("Fire1")) isFiring = true;
+        //if (Input.GetButtonDown("Fire1")) fire = true;
+
         //if (jump /*&& isGrounded*/)
         //{
         //    jump = true;
         //}
 
-        //if (isAiming)
+        //while (isAiming)
         //{
-        //    isAiming = false;
-        //}
+        //    t += Time.deltaTime * 10f;
+        //    t = Mathf.Clamp(t, 0.0f, 10.0f);
+        //    cam.fieldOfView = Mathf.SmoothStep(cam.fieldOfView, 1f, 100000f * Time.deltaTime);
+        //}        
 
         //if (sprint)
         //{
@@ -211,9 +223,15 @@ public class RigidBodyFPSController : MonoBehaviour
         //    currentSpeed = Mathf.Clamp(currentSpeed, 0.5f, 1.5f);
         //}
 
-        //if (fire)
-        //{            
-        //    fire = false;
+        if (fire)
+        {
+            anim.SetTrigger("Fire");
+            fire = false;
+        }
+        //if (isFiring)
+        //{
+        //    anim.SetBool("isFiring", isFiring);
+        //    isFiring = false;
         //}
 
         anim.SetBool("Sprint", sprint);
@@ -222,7 +240,7 @@ public class RigidBodyFPSController : MonoBehaviour
         anim.SetFloat("PlayerVelocity", playerDestination.magnitude, runSmoothTime, Time.deltaTime);
         anim.SetFloat("DirectionH", move.x);
         anim.SetFloat("DirectionV", move.y);
-        Debug.Log("Move X value : " + move.x + ", Move Y value : " + move.y + ", Current Speed : " + playerDestination.magnitude);
+        Debug.Log("Move X value : " + move.x + ", Move Y value : " + move.y + ", Current Speed : " + playerDestination.magnitude + " FOV : " + cam.fieldOfView);
     }
 
     //Temporary Test

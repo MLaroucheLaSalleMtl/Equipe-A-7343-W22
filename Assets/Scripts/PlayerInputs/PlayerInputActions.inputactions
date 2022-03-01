@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "FireHold",
+                    "type": "Button",
+                    "id": "7e6d85dc-ff38-47b8-b044-104bc4e9a56e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Aim",
                     "type": "Button",
                     "id": "d3340b54-6195-4908-89ff-47b935184540",
@@ -309,6 +318,39 @@
                     "processors": "",
                     "groups": "PC_Gamepad_PlayStation",
                     "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9478f751-86b5-440a-b748-c813885e86bf",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Hold(duration=0.2)",
+                    "processors": "",
+                    "groups": ";PC_Keyboard&Mouse",
+                    "action": "FireHold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de0191d4-9000-4fbf-8bf0-da4d5c0e1fbf",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";PC_Gamepad_Xbox",
+                    "action": "FireHold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d023273-c1fa-42d6-949e-74eaad63547a",
+                    "path": "<DualShockGamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC_Gamepad_PlayStation",
+                    "action": "FireHold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
