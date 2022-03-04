@@ -4,86 +4,78 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
+
 public class EnemieController : MonoBehaviour
 {
-    private NavMeshAgent agent;
-    [SerializeField] private Transform target;
-    Rigidbody rb;
-    public float lookRadius = 10;
-    public float radius;
+    NavMeshAgent agent;
+    public Transform target;
+    public float distanceRation = 10f;
+    public float attackRation = 1.5f;
+    public enum AiState { idle, chasing, attacking};
+    public AiState aiState = AiState.idle;
 
+    public Animator anim;
 
-    [SerializeField] private GameObject[] points;
-    private int currPoint;
-
-    //public Vector3 walkPointt;
-    //bool walkPointSet;
-    //public float walkPointRange;
 
     void Start()
     {
-        target = PlayerManager.instance.player.transform;
-        rb = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
-        currPoint = 0;
-        agent.destination = points[currPoint].transform.position;
+        StartCoroutine(Think());
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        ChasingPlayer();
-        RotateToTarget();
-
-        if (Vector3.Distance(this.transform.position, points[currPoint].transform.position) <= 2f)
-        {
-            Iterate();
-        }
+       
+        
     }
-
-    //private void Patroling()
-    //{
-
-    //}
-
-    //private void SearchPlayer()
-    //{
-
-    //}
-
-    private void ChasingPlayer()
+    IEnumerator Think()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
-        if (distance <= lookRadius)
+        while(true)
         {
-            agent.SetDestination(target.position);
+            switch (aiState)
+            {
+                case AiState.idle:
+                    float dist = Vector3.Distance(target.position, transform.position);
+                    if(dist < distanceRation)
+                    {
+                        aiState = AiState.chasing;
+                        anim.SetBool("Chasing", true);
+                    }
+                    agent.SetDestination(transform.position);
+                    break;
+                case AiState.chasing:
+                    dist = Vector3.Distance(target.position, transform.position);
+                    if (dist > distanceRation)
+                    {
+                        aiState = AiState.idle;
+                        anim.SetBool("Chasing", false);
+                    }
+                    if (dist < attackRation)
+                    {
+                        aiState = AiState.attacking;
+                        anim.SetBool("Attacking", true);
+                    }
+                    agent.SetDestination(target.position);
+                    break;
+                case AiState.attacking:
+                    Debug.Log("Attack");
+                    agent.SetDestination(transform.position);
+                    dist = Vector3.Distance(target.position, transform.position);
+                    if (dist > attackRation)
+                    {
+                        aiState = AiState.chasing;
+                        anim.SetBool("Attacking", false);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            yield return new WaitForSeconds(0.2f);
         }
     }
-
-    void Iterate()
-    {
-        if (currPoint < points.Length - 1)
-        {
-            currPoint++;
-        }
-        else
-        {
-            currPoint = 0;
-        }
-        agent.destination = points[currPoint].transform.position;
-
-    }
-
-
-    private void RotateToTarget()
-    {
-        transform.LookAt(target);
-        Vector3 direction = target.position - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
-        transform.rotation = rotation;
-    }
-
-
-
+ 
+   
 }
 
