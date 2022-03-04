@@ -153,6 +153,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.DefaultCompany.ProjetStevenEtJunior
     Standalone: com.DefaultCompany.Projet-Steven-Et-Junior
   buildNumber:
     Standalone: 0

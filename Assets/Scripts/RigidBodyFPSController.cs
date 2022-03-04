@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 public class RigidBodyFPSController : MonoBehaviour
 {        
     public Camera cam;
+    public Camera playerBodyCam;
+
     //public Transform _playerHead;
     public TempCamLook camLook = new TempCamLook();
 
@@ -25,10 +27,13 @@ public class RigidBodyFPSController : MonoBehaviour
     [SerializeField] private LayerMask allButPlayer;
 
     private const float MaxRunSpeed = 3.0f;
-    float t;
+    float t = 10f;
     //private const float MaxWalkSpeed = 1.5f;
 
     //Testing
+    private PlayerInput playerInput;
+    private PlayerInputActions playerInputActions;
+
     //private InputActionMap UIActionMap; /*new PlayerInputActions.UIActions()*/
     //private InputActionMap PlayerActionMap;    
 
@@ -40,7 +45,8 @@ public class RigidBodyFPSController : MonoBehaviour
     private bool jump     = false;    
     private bool isAiming = false;
 
-    private bool fire;
+    private bool fireTrigger;
+    private bool fireBool = false;
     private bool isFiring = false;
 
     void Start()
@@ -48,12 +54,31 @@ public class RigidBodyFPSController : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         rBody = GetComponent<Rigidbody>();
         capsule   = GetComponent<CapsuleCollider>();
+        //cam = GetComponent<Camera>();
         camLook.InitSettings(transform, cam.transform);
+
+        //testing
+        playerInput = GetComponent<PlayerInput>();
 
         //UIActionMap     = new InputActionAsset().FindActionMap("UI");
         //PlayerActionMap = new InputActionAsset().FindActionMap("Player");
     }
-    
+
+    private void OnEnable() {
+        playerInputActions.UI.Enable();
+        playerInput.actions["Pause"].performed += SwitchActionMap;
+    }
+
+    private void OnDisable() {
+        playerInputActions.UI.Disable();
+        playerInput.actions["Pause"].performed -= SwitchActionMap;
+    }
+
+    private void SwitchActionMap(InputAction.CallbackContext context)
+    {
+        playerInput.SwitchCurrentActionMap("UI");
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         move =  context.ReadValue<Vector2>();        
@@ -86,8 +111,12 @@ public class RigidBodyFPSController : MonoBehaviour
     }
 
     public void OnFire(InputAction.CallbackContext context)
-    {
-        fire = context.performed;      
+    {       
+        fireTrigger = context.performed;
+
+        fireBool = context.performed;
+        anim.SetBool("FireBool", fireBool);
+        fireBool = false;        
     }
     public void OnFireHold(InputAction.CallbackContext context)
     {
@@ -98,9 +127,8 @@ public class RigidBodyFPSController : MonoBehaviour
 
     public void OnAim(InputAction.CallbackContext context)
     {
-        isAiming = context.performed;        
+        isAiming = context.performed;
         anim.SetBool("isAiming", isAiming);
-        isAiming = false;
     }
 
     bool CheckGrounded() 
@@ -194,44 +222,41 @@ public class RigidBodyFPSController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        RotPlayerView();
+    {               
+        RotPlayerView();        
 
-        //if (Input.GetButton("Fire1")) isFiring = true;
-        //if (Input.GetButtonDown("Fire1")) fire = true;
-
-        //if (jump /*&& isGrounded*/)
-        //{
-        //    jump = true;
-        //}
-
-        //while (isAiming)
-        //{
-        //    t += Time.deltaTime * 10f;
-        //    t = Mathf.Clamp(t, 0.0f, 10.0f);
-        //    cam.fieldOfView = Mathf.SmoothStep(cam.fieldOfView, 1f, 100000f * Time.deltaTime);
-        //}        
-
-        //if (sprint)
-        //{
-        //    currentSpeed += 3.0f * Time.deltaTime;
-        //    currentSpeed = Mathf.Clamp(currentSpeed, 1.25f, 3.0f);
-        //}
-        //if (walk)
-        //{
-        //    currentSpeed -= 1.0f * Time.deltaTime;
-        //    currentSpeed = Mathf.Clamp(currentSpeed, 0.5f, 1.5f);
-        //}
-
-        if (fire)
+        if (isAiming)
         {
-            anim.SetTrigger("Fire");
-            fire = false;
+            //t += Time.smoothDeltaTime * 2.25f;
+            //t = Mathf.Clamp(t, 0.0f, 1.0f);
+            cam.GetComponent<Camera>().fieldOfView = Mathf.Lerp(cam.fieldOfView, 45f, t * Time.deltaTime);
+            playerBodyCam.GetComponent<Camera>().fieldOfView = Mathf.Lerp(playerBodyCam.fieldOfView, 45f, t * Time.deltaTime);
+            //cam.GetComponent<Camera>().fieldOfView = Mathf.SmoothStep(60f, 30f, Time.deltaTime * 100f;
         }
-        //if (isFiring)
+        if (!isAiming)
+        {
+            //if (t != 1f)
+            //{
+                //t = 0.0f;
+                //t += Time.deltaTime * 5f;
+                //t = Mathf.Clamp(t, 0.0f, 1.0f);
+            cam.GetComponent<Camera>().fieldOfView = Mathf.Lerp(cam.fieldOfView, 60f, t * Time.deltaTime);
+            playerBodyCam.GetComponent<Camera>().fieldOfView = Mathf.Lerp(playerBodyCam.fieldOfView, 60f, t * Time.deltaTime);
+            isAiming = false;
+            //cam.GetComponent<Camera>().fieldOfView = Mathf.SmoothStep(60f, 30f, Time.deltaTime * 100f);
+
+            //}            
+        }
+
+        if (fireTrigger)
+        {
+            anim.SetTrigger("FireTrigger");
+            fireTrigger = false;
+        }
+        //if (fireBool)
         //{
-        //    anim.SetBool("isFiring", isFiring);
-        //    isFiring = false;
+        //    anim.SetBool("FireBool", fireBool);
+        //    fireBool = false;
         //}
 
         anim.SetBool("Sprint", sprint);
@@ -240,7 +265,18 @@ public class RigidBodyFPSController : MonoBehaviour
         anim.SetFloat("PlayerVelocity", playerDestination.magnitude, runSmoothTime, Time.deltaTime);
         anim.SetFloat("DirectionH", move.x);
         anim.SetFloat("DirectionV", move.y);
-        Debug.Log("Move X value : " + move.x + ", Move Y value : " + move.y + ", Current Speed : " + playerDestination.magnitude + " FOV : " + cam.fieldOfView);
+
+        //For Debug
+        Debug.Log("Move X value : " + move.x + 
+                  ", Move Y value : " + move.y + 
+                  ", Current Speed : " + playerDestination.magnitude + 
+                  ", FOV : " + cam.fieldOfView + 
+                  ", isAiming : " + isAiming + ", T : " + t);
+    }
+
+    private void LateUpdate()
+    {
+        
     }
 
     //Temporary Test
