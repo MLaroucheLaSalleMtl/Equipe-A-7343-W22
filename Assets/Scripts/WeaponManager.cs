@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     [SerializeField] private WeaponScriptableObject weaponScriptableObjet;
+    RigidBodyFPSController FPSController;
     private int currDMG;
     private int currMagAmmo;
     private int currAvailableAmmo;
@@ -12,6 +13,7 @@ public class WeaponManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        weaponScriptableObjet = GetComponent<WeaponScriptableObject>();
         currDMG = weaponScriptableObjet.weaponDMG;
         currMagAmmo = weaponScriptableObjet.weaponMagazineAmmo;
         currAvailableAmmo = weaponScriptableObjet.weaponMaxAmmo;
@@ -20,6 +22,12 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if (true)
+        //{
+        //    if (FPSController.fireTrigger || FPSController.fireBool || FPSController.isFiring)
+        //    {
+                  
+        //    }            
+        //}
     }
 }

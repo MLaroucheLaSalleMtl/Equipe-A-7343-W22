@@ -20,7 +20,7 @@ public class RigidBodyFPSController : MonoBehaviour
     private bool isGrounded = false;
 
     [Header("--- Movement Variables ---")]
-    [SerializeField] private float currentSpeed = 1.5f;   
+    [SerializeField] private float currentSpeed = 1.5f;
     [SerializeField] private float jumpSpeed = 1.5f;
     [SerializeField] private float peekSpeed;
     [SerializeField] private float runSmoothTime;
@@ -34,8 +34,8 @@ public class RigidBodyFPSController : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
 
-    //private InputActionMap UIActionMap; /*new PlayerInputActions.UIActions()*/
-    //private InputActionMap PlayerActionMap;    
+    private InputActionMap UIActionMap; /*new PlayerInputActions.UIActions()*/
+    private InputActionMap PlayerActionMap;    
 
     Vector2 move  = Vector2.zero;
     Vector2 lookValue = Vector2.zero;
@@ -45,9 +45,9 @@ public class RigidBodyFPSController : MonoBehaviour
     private bool jump     = false;    
     private bool isAiming = false;
 
-    private bool fireTrigger;
-    private bool fireBool = false;
-    private bool isFiring = false;
+    public bool fireTrigger;
+    public bool fireBool = false;
+    public bool isFiring = false;
 
     void Start()
     {
@@ -58,30 +58,32 @@ public class RigidBodyFPSController : MonoBehaviour
         camLook.InitSettings(transform, cam.transform);
 
         //testing
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = FindObjectOfType<PlayerInput>();
+        playerInputActions = new PlayerInputActions();
 
-        //UIActionMap     = new InputActionAsset().FindActionMap("UI");
-        //PlayerActionMap = new InputActionAsset().FindActionMap("Player");
+        UIActionMap     = new InputActionAsset().FindActionMap("UI");
+        PlayerActionMap = new InputActionAsset().FindActionMap("Player");
     }
 
-    private void OnEnable() {
-        playerInputActions.UI.Enable();
-        playerInput.actions["Pause"].performed += SwitchActionMap;
-    }
+    //private void OnEnable() {
+    //    playerInputActions.UI.Enable();
+    //    playerInput.actions["Pause"].performed += SwitchActionMap;
+    //}
 
-    private void OnDisable() {
-        playerInputActions.UI.Disable();
-        playerInput.actions["Pause"].performed -= SwitchActionMap;
-    }
+    //private void OnDisable() {
+    //    playerInputActions.UI.Disable(); 
+    //    playerInput.actions["Pause"].performed -= SwitchActionMap;
+    //}
 
-    private void SwitchActionMap(InputAction.CallbackContext context)
-    {
-        playerInput.SwitchCurrentActionMap("UI");
-    }
+    //private void SwitchActionMap(InputAction.CallbackContext context)
+    //{
+    //    UIActionMap.Enable();
+    //    PlayerActionMap.Disable();
+    //}
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        move =  context.ReadValue<Vector2>();        
+        move =  context.ReadValue<Vector2>();
     }
     public void OnSprint(InputAction.CallbackContext context)
     {
@@ -136,77 +138,34 @@ public class RigidBodyFPSController : MonoBehaviour
         return Physics.CheckSphere(transform.position, 
                                    0.25f, 
                                    allButPlayer, 
-                                   QueryTriggerInteraction.Ignore);                       
-    }    
-
-    //private Vector2 PlayerInput() 
-    //{
-    //    move = new Vector2
-    //    {
-    //        x = Input.GetAxis("Horizontal"),
-    //        y = Input.GetAxis("Vertical")
-    //    };
-    //    return move;
-    //}
+                                   QueryTriggerInteraction.Ignore);                     
+    }       
 
     void FixedUpdate()
     {
         isGrounded = CheckGrounded();
-        if (/*(Mathf.Abs(move.x) > float.Epsilon || Mathf.Abs(move.y) > float.Epsilon) &&*/ isGrounded)
+        if (isGrounded)
         {
-            //rBody.drag = 5f;
-            //if (move.y < 0)
-            //{
-            //    currentSpeed = moveSpeed;
-            //}
-            //if (move.y > 0)
-            //{
-            //    currentSpeed = moveSpeed;
-            //}
-
-            //if ((Mathf.Abs(move.x) > float.Epsilon || Mathf.Abs(move.y) > float.Epsilon)/* && isGrounded*/)
-            //{
-            //playerDestination = new Vector3(playerDestination.x/*cam.transform.right.x * move.x*/, 0f, playerDestination.y/*cam.transform.forward.x * move.y*/);
-
-            playerDestination = transform.forward * move.y + transform.right * move.x;
-            //playerDestination = new Vector3(move.x, 0f, move.y);
-            //playerDestination = Vector3.ProjectOnPlane(playerDestination, isGroundedNormal).normalized;
-
-            //playerDestination.x = playerDestination.x * currentSpeed;
-            //playerDestination.z = playerDestination.z * currentSpeed;
-            //playerDestination.y = playerDestination.y * currentSpeed;
-
-            //rBody.AddForce(playerDestination, ForceMode.Impulse);
-            //}
-                        
+            playerDestination = transform.forward * move.y + transform.right * move.x;                        
 
             float speedMul = currentSpeed;
-            if (move == Vector2.zero) return;
-            //if (move.x > 0 || move.x < 0)
-            //{
-            //    speedMul *= 0.45f;
-            //}
+            if (move == Vector2.zero) return;            
             if (sprint)
             {
-                speedMul *= 2.0f;
-                //move.y = 2.0f;
+                speedMul *= 2.0f;                
             }
 
             if (crouch)
             {
                 speedMul *= 0.75f;
-            }
-
-            //playerDestination.x *= Mathf.SmoothStep(speedMul, MaxSpeed, runSmoothTime);
-            //playerDestination.z *= Mathf.SmoothStep(speedMul, MaxSpeed, runSmoothTime);
+            }          
 
             playerDestination.x *= speedMul;
             playerDestination.z *= speedMul;
             playerDestination.y *= 0f;
 
             if (jump)
-            {
-                //rBody.drag = 0.0f;
+            {               
                 float JumpForce = Mathf.Sqrt(jumpSpeed * -2f * Physics.gravity.y);
                 rBody.AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
 
@@ -214,7 +173,7 @@ public class RigidBodyFPSController : MonoBehaviour
                 jump = false;
             }
 
-        }
+        }       
 
         Vector3 rbDestination = rBody.position + playerDestination * Time.fixedDeltaTime;
         rBody.MovePosition(rbDestination);
@@ -267,23 +226,13 @@ public class RigidBodyFPSController : MonoBehaviour
         anim.SetFloat("DirectionV", move.y);
 
         //For Debug
-        Debug.Log("Move X value : " + move.x + 
-                  ", Move Y value : " + move.y + 
-                  ", Current Speed : " + playerDestination.magnitude + 
-                  ", FOV : " + cam.fieldOfView + 
-                  ", isAiming : " + isAiming + ", T : " + t);
+        Debug.Log("Move X value : " + move.x +
+                  ", Move Y value : " + move.y +
+                  ", Current Speed : " + playerDestination.magnitude +
+                  ", FOV : " + cam.fieldOfView +
+                  ", isAiming : " + isAiming + ", T : " + t +
+                  ", Current Action Map : " + playerInput.currentActionMap);
     }
-
-    private void LateUpdate()
-    {
-        
-    }
-
-    //Temporary Test
-    //private void LateUpdate()
-    //{
-    //    RotPlayerView();
-    //}
 
     void RotPlayerView()
     {

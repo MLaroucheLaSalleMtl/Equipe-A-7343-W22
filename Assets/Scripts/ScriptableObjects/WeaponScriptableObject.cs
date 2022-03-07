@@ -10,6 +10,8 @@ public class WeaponScriptableObject : ScriptableObject
     public int weaponMagazineAmmo = 30;
     public int weaponMinDMG = 20;
     public int weaponMaxDMG = 25;
+    public int recoilX;
+    public int recoilY;
 
     //Static variables
     public static int stcWeaponMinDMG;

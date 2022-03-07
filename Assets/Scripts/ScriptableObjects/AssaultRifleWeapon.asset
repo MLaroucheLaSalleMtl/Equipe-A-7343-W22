@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bbd4efd456cdb429b438bc85d4cd51, type: 3}
   m_Name: AssaultRifleWeapon
   m_EditorClassIdentifier: 
+  weaponSoundFX: []
   fireRange: 50
   weaponMaxAmmo: 252
   weaponMagazineAmmo: 30
   weaponMinDMG: 20
   weaponMaxDMG: 25
+  recoilX: 5
+  recoilY: 10
