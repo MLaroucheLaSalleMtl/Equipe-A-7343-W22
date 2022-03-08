@@ -31,11 +31,11 @@ public class RigidBodyFPSController : MonoBehaviour
     //private const float MaxWalkSpeed = 1.5f;
 
     //Testing
-    private PlayerInput playerInput;
-    private PlayerInputActions playerInputActions;
+    //private PlayerInput playerInput;
+    //private PlayerInputActions playerInputActions;
 
-    private InputActionMap UIActionMap; /*new PlayerInputActions.UIActions()*/
-    private InputActionMap PlayerActionMap;    
+    //private InputActionMap UIActionMap; /*new PlayerInputActions.UIActions()*/
+    //private InputActionMap PlayerActionMap;    
 
     Vector2 move  = Vector2.zero;
     Vector2 lookValue = Vector2.zero;
@@ -58,11 +58,11 @@ public class RigidBodyFPSController : MonoBehaviour
         camLook.InitSettings(transform, cam.transform);
 
         //testing
-        playerInput = FindObjectOfType<PlayerInput>();
-        playerInputActions = new PlayerInputActions();
+        //playerInput = FindObjectOfType<PlayerInput>();
+        //playerInputActions = new PlayerInputActions();
 
-        UIActionMap     = new InputActionAsset().FindActionMap("UI");
-        PlayerActionMap = new InputActionAsset().FindActionMap("Player");
+        //UIActionMap     = new InputActionAsset().FindActionMap("UI");
+        //PlayerActionMap = new InputActionAsset().FindActionMap("Player");
     }
 
     //private void OnEnable() {
@@ -118,7 +118,8 @@ public class RigidBodyFPSController : MonoBehaviour
 
         fireBool = context.performed;
         anim.SetBool("FireBool", fireBool);
-        fireBool = false;        
+        fireBool = false;
+        //Debug.Log(gameObject.GetComponent<WeaponManager>().currDMG);
     }
     public void OnFireHold(InputAction.CallbackContext context)
     {
@@ -226,12 +227,12 @@ public class RigidBodyFPSController : MonoBehaviour
         anim.SetFloat("DirectionV", move.y);
 
         //For Debug
-        Debug.Log("Move X value : " + move.x +
-                  ", Move Y value : " + move.y +
-                  ", Current Speed : " + playerDestination.magnitude +
-                  ", FOV : " + cam.fieldOfView +
-                  ", isAiming : " + isAiming + ", T : " + t +
-                  ", Current Action Map : " + playerInput.currentActionMap);
+        //Debug.Log("Move X value : " + move.x +
+        //          ", Move Y value : " + move.y +
+        //          ", Current Speed : " + playerDestination.magnitude +
+        //          ", FOV : " + cam.fieldOfView +
+        //          ", isAiming : " + isAiming + ", T : " + t /*+
+        //          ", Current Action Map : " + playerInput.currentActionMap*/);
     }
 
     void RotPlayerView()

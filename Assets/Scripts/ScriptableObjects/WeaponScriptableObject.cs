@@ -13,15 +13,15 @@ public class WeaponScriptableObject : ScriptableObject
     public int recoilX;
     public int recoilY;
 
-    //Static variables
-    public static int stcWeaponMinDMG;
-    public static int stcWeaponMaxDMG;
+    ////Static variables
+    //public static int stcWeaponMinDMG;
+    //public static int stcWeaponMaxDMG;
 
-    private void Awake()
-    {
-        stcWeaponMinDMG = weaponMinDMG;
-        stcWeaponMaxDMG = weaponMaxDMG;
-    }
+    //private void Awake()
+    //{
+    //    stcWeaponMinDMG = weaponMinDMG;
+    //    stcWeaponMaxDMG = weaponMaxDMG;
+    //}
 
-    [SerializeField] public int weaponDMG { get; private set; } = RNG.GetInstance().Next(stcWeaponMinDMG, stcWeaponMaxDMG);
+    //[SerializeField] public int weaponDMG { get; private set; } = RNG.GetInstance().Next(stcWeaponMinDMG, stcWeaponMaxDMG);
 }
