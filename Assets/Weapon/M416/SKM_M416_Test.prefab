@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 3110027926565688897}
   - component: {fileID: 9063816679334857787}
   - component: {fileID: 7886671848261329200}
-  - component: {fileID: 3216608720687616546}
   - component: {fileID: 3075487644407318261}
   m_Layer: 6
   m_Name: SKM_M416_Test
@@ -152,23 +151,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 6735846445617049484}
   m_Enabled: 1
---- !u!114 &3216608720687616546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2333666457890475259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb757603146bb64d943bbc6840fee10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentWeapon: {fileID: 11400000, guid: 226932af0d9374842854fdd4ac373cf3, type: 2}
-  Weapons:
-  - {fileID: 2333666457890475259}
-  - {fileID: 919132149155446097, guid: d9568a01e72f9234c9d28f7de99a12a9, type: 3}
-  _currWeaponType: 0
 --- !u!114 &3075487644407318261
 MonoBehaviour:
   m_ObjectHideFlags: 0

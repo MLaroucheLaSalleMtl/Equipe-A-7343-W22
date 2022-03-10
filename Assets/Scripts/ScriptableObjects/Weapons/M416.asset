@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15bbd4efd456cdb429b438bc85d4cd51, type: 3}
-  m_Name: PistolWeapon
+  m_Name: M416
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 2333666457890475259, guid: 89015128431fdfc4a9016d4d55c80b81, type: 3}
   weaponAnimator: {fileID: 0}
   weaponAnimatorController: {fileID: 0}
   weaponSoundFX: []
   muzzleLocation: {fileID: 0}
   particles: {fileID: 0}
-  fireRange: 25
-  weaponMaxAmmo: 150
-  weaponMagazineAmmo: 12
-  weaponMinDMG: 12
-  weaponMaxDMG: 18
-  recoilX: 0
-  recoilY: 0
-  weaponClass: {fileID: 11400000, guid: 712f4907a4821684398eb0355c0311d1, type: 2}
+  fireRange: 50
+  weaponMaxAmmo: 252
+  weaponMagazineAmmo: 30
+  weaponMinDMG: 20
+  weaponMaxDMG: 25
+  recoilX: 5
+  recoilY: 10
+  weaponClass: {fileID: 11400000, guid: bcdc32374b1f88f4db2ca3907cbf4d8b, type: 2}

@@ -10,8 +10,12 @@ public class RigidBodyFPSController : MonoBehaviour
     WeaponClassScriptableObject weaponClassScriptableObject;
     WeaponType _currentWeaponType;
 
+
     public Camera cam;
     public Camera playerBodyCam;
+
+    private IState currentPlayerState;
+    [SerializeField] private RuntimeAnimatorController[] animators;
 
     //public Transform _playerHead;
     public TempCamLook camLook = new TempCamLook();
@@ -54,6 +58,7 @@ public class RigidBodyFPSController : MonoBehaviour
 
     void Start()
     {
+        currentPlayerState = Normal_State.GetInstance();
         anim = GetComponentInChildren<Animator>();
         anim.runtimeAnimatorController = animators[0] as RuntimeAnimatorController;
         //_currentWeaponType = weaponClassScriptableObject.Current_State.WeaponTypeUpdater(weaponClassScriptableObject.WeaponType);
