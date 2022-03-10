@@ -6,28 +6,15 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 public class RigidBodyFPSController : MonoBehaviour
-{
-    WeaponClassScriptableObject weaponClassScriptableObject;  
-
+{        
     public Camera cam;
     public Camera playerBodyCam;
-    
-    private Animator anim;
-    [Header("--- Animator Settings ---")]
-    [SerializeField] public RuntimeAnimatorController[] animators; 
-    //[SerializeField] public RuntimeAnimatorController _unarmedController;
-    //[SerializeField] public RuntimeAnimatorController _assaultRifleController;
-    //[SerializeField] public RuntimeAnimatorController _pistolController;
-    //[SerializeField] public RuntimeAnimatorController current_Controller;
-    
-    WeaponManager weaponManager;
-
-    private IState currentPlayerState;
 
     //public Transform _playerHead;
     public TempCamLook camLook = new TempCamLook();
 
     private Rigidbody rBody;
+    private Animator anim;
     private CapsuleCollider capsule;
     private Vector3 playerDestination;
     private bool isGrounded = false;
@@ -64,9 +51,7 @@ public class RigidBodyFPSController : MonoBehaviour
 
     void Start()
     {
-        currentPlayerState = Normal_State.GetInstance();        
         anim = GetComponentInChildren<Animator>();
-        //current_Controller = GetComponentInChildren<RuntimeAnimatorController>();
         rBody = GetComponent<Rigidbody>();
         capsule   = GetComponent<CapsuleCollider>();
         //cam = GetComponent<Camera>();
@@ -195,66 +180,13 @@ public class RigidBodyFPSController : MonoBehaviour
         rBody.MovePosition(rbDestination);
     }
 
-    //private void WeaponCheck()
-    //{
-    //    //switch (weaponClassScriptableObject.WeaponType)
-    //    //{
-    //    //    case WeaponType.AssaultRifle:
-    //    //        weaponClassScriptableObject.Current_State = AssaultRifle_State.GetInstance();
-    //    //        //FPSController.anim.runtimeAnimatorController = animators[1];
-    //    //        //Debug.Log(weaponClassScriptableObject.Current_State.ToString());
-    //    //        break;
-    //    //    case WeaponType.Pistol:
-    //    //        weaponClassScriptableObject.Current_State = Pistol_State.GetInstance();
-    //    //        //FPSController.anim.runtimeAnimatorController = animators[2];
-    //    //        //Debug.Log(weaponClassScriptableObject.Current_State.ToString());
-    //    //        break;
-    //    //    case WeaponType.Unarmed:
-    //    //        weaponClassScriptableObject.Current_State = Normal_State.GetInstance();
-    //    //        //FPSController.anim.runtimeAnimatorController = animators[0];
-    //    //        //Debug.Log(weaponClassScriptableObject.Current_State.ToString());
-    //    //        break;
-    //    //        //default:
-    //    //        //    break;
-    //    //}
-    //}
-
     // Update is called once per frame
     void Update()
     {               
-        RotPlayerView();
-
-        if (Input.GetKeyUp("1"))
-        {
-            //WeaponCheck();
-            currentPlayerState = Normal_State.GetInstance();
-            //weaponClassScriptableObject.WeaponType = WeaponType.UnArmed;
-            anim.runtimeAnimatorController = animators[0] as RuntimeAnimatorController;
-            //weaponManager.Weapons[0].SetActive(false);
-            //weaponManager.Weapons[1].SetActive(false);
-        }
-        if (Input.GetKeyUp("2"))
-        {
-            //WeaponCheck();
-            currentPlayerState = AssaultRifle_State.GetInstance();
-            //weaponClassScriptableObject.WeaponType = WeaponType.AssaultRifle;
-            anim.runtimeAnimatorController = animators[1] as RuntimeAnimatorController;
-            //weaponManager.Weapons[0].SetActive(true);
-            //weaponManager.Weapons[1].SetActive(false);
-        }
-        if (Input.GetKeyUp("3"))
-        {
-            //WeaponCheck();
-            currentPlayerState = Pistol_State.GetInstance();
-            //weaponClassScriptableObject.WeaponType = WeaponType.Pistol;
-            anim.runtimeAnimatorController = animators[2] as RuntimeAnimatorController;
-            //weaponManager.Weapons[0].SetActive(false);
-            //weaponManager.Weapons[1].SetActive(true);
-        }
+        RotPlayerView();        
 
         if (isAiming)
         {
-            
             //t += Time.smoothDeltaTime * 2.25f;
             //t = Mathf.Clamp(t, 0.0f, 1.0f);
             cam.GetComponent<Camera>().fieldOfView = Mathf.Lerp(cam.fieldOfView, 45f, t * Time.deltaTime);
@@ -294,9 +226,6 @@ public class RigidBodyFPSController : MonoBehaviour
         anim.SetFloat("DirectionH", move.x);
         anim.SetFloat("DirectionV", move.y);
 
-        Debug.Log(currentPlayerState.ToString());
-
-        //Debug.Log(weaponClassScriptableObject.WeaponType.ToString()/*, anim.runtimeAnimatorController*/);
         //For Debug
         //Debug.Log("Move X value : " + move.x +
         //          ", Move Y value : " + move.y +
