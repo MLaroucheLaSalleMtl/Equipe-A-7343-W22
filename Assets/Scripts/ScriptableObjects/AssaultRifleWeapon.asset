@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bbd4efd456cdb429b438bc85d4cd51, type: 3}
   m_Name: AssaultRifleWeapon
   m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 2333666457890475259, guid: 89015128431fdfc4a9016d4d55c80b81, type: 3}
+  weaponAnimator: {fileID: 0}
+  weaponAnimatorController: {fileID: 0}
   weaponSoundFX: []
+  muzzleLocation: {fileID: 0}
+  particles: {fileID: 0}
   fireRange: 50
   weaponMaxAmmo: 252
   weaponMagazineAmmo: 30
@@ -20,3 +25,4 @@ MonoBehaviour:
   weaponMaxDMG: 25
   recoilX: 5
   recoilY: 10
+  weaponClass: {fileID: 11400000, guid: bcdc32374b1f88f4db2ca3907cbf4d8b, type: 2}

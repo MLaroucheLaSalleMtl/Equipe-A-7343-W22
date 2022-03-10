@@ -3,25 +3,45 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WeaponScriptableObject", menuName = "ScriptableObjects/Weapon")]
 public class WeaponScriptableObject : ScriptableObject
 {
-    [SerializeField]
+    public WeaponScriptableObject()
+    {
+        this.FireRange = fireRange;
+        this.WeaponMagazineAmmo = weaponMagazineAmmo;
+        this.WeaponMaxAmmo = weaponMaxAmmo;
+        this.WeaponMinDMG = weaponMinDMG;
+        this.WeaponMaxDMG = weaponMaxDMG;
+        this.RecoilX = recoilX;
+        this.RecoilY = recoilY;        
+    }
+
+    //Encapsuated Fields
+    public int WeaponMagazineAmmo { get => weaponMagazineAmmo; set => weaponMagazineAmmo = value; }
+    public int WeaponMaxAmmo { get => weaponMaxAmmo; set => weaponMaxAmmo = value; }
+    public int WeaponMinDMG { get => weaponMinDMG; set => weaponMinDMG = value; }
+    public int WeaponMaxDMG { get => weaponMaxDMG; set => weaponMaxDMG = value; }
+    public int RecoilX { get => recoilX; set => recoilX = value; }
+    public int RecoilY { get => recoilY; set => recoilY = value; }
+    public float FireRange { get => fireRange; set => fireRange = value; }
+    public WeaponType WeaponType { get => weaponClass.WeaponType; set => weaponClass.WeaponType /*weaponType*/ = value; }
+
+    [Header("--- Weapon Prefab ---")]
+    [SerializeField] private GameObject weaponPrefab;
+    [Header("--- Weapon Animator Options ---")]
+    public Animator weaponAnimator;
+    public RuntimeAnimatorController weaponAnimatorController;
+    [Header("--- Weapon VFX/SFX Settings ---")]
     public AudioSource[] weaponSoundFX;
-    public float fireRange = 25f;
-    public int weaponMaxAmmo = 252;
-    public int weaponMagazineAmmo = 30;
-    public int weaponMinDMG = 20;
-    public int weaponMaxDMG = 25;
-    public int recoilX;
-    public int recoilY;
-
-    ////Static variables
-    //public static int stcWeaponMinDMG;
-    //public static int stcWeaponMaxDMG;
-
-    //private void Awake()
-    //{
-    //    stcWeaponMinDMG = weaponMinDMG;
-    //    stcWeaponMaxDMG = weaponMaxDMG;
-    //}
-
-    //[SerializeField] public int weaponDMG { get; private set; } = RNG.GetInstance().Next(stcWeaponMinDMG, stcWeaponMaxDMG);
+    public Transform muzzleLocation;
+    public ParticleSystem particles;
+    [Header("--- Weapon Stats ---")]
+    [SerializeField] private float fireRange = 25f;
+    [SerializeField] private int weaponMaxAmmo = 252;
+    [SerializeField] private int weaponMagazineAmmo = 30;
+    [SerializeField] private int weaponMinDMG = 20;
+    [SerializeField] private int weaponMaxDMG = 25;
+    [SerializeField] private int recoilX;
+    [SerializeField] private int recoilY;
+    [Header("--- Weapon Type ---")]
+    [SerializeField] private WeaponClassScriptableObject weaponClass;
+    //private WeaponType weaponType;    
 }
