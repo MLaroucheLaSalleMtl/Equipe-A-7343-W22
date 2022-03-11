@@ -70,6 +70,9 @@ public class EnemieController : MonoBehaviour
         }
     }
  
-   
+    public void Hit()
+    {
+
+    }
 }
 

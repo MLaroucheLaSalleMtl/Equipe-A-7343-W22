@@ -7,6 +7,17 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CapsuleCollider))]
 public class RigidBodyFPSController : MonoBehaviour
 {
+    //Move to GameManager after Demo
+    //public RigidBodyFPSController instance = null;
+
+    //private void Awake()
+    //{
+    //    if (instance == null)
+    //        instance = this;
+    //    else if (instance != this)
+    //        Destroy(gameObject);
+    //}
+
     WeaponClassScriptableObject weaponClassScriptableObject;
     WeaponType _currentWeaponType;
 
@@ -15,7 +26,7 @@ public class RigidBodyFPSController : MonoBehaviour
     public Camera playerBodyCam;
 
     private IState currentPlayerState;
-    [SerializeField] private RuntimeAnimatorController[] animators;
+    //[SerializeField] private RuntimeAnimatorController[] animators;
 
     //public Transform _playerHead;
     public TempCamLook camLook = new TempCamLook();
@@ -60,7 +71,7 @@ public class RigidBodyFPSController : MonoBehaviour
     {
         currentPlayerState = Normal_State.GetInstance();
         anim = GetComponentInChildren<Animator>();
-        anim.runtimeAnimatorController = animators[0] as RuntimeAnimatorController;
+        //anim.runtimeAnimatorController = animators[0] as RuntimeAnimatorController;
         //_currentWeaponType = weaponClassScriptableObject.Current_State.WeaponTypeUpdater(weaponClassScriptableObject.WeaponType);
         //_currentWeaponType = weaponClassScriptableObject.WeaponType;
         //current_Controller = GetComponentInChildren<RuntimeAnimatorController>();
@@ -129,21 +140,21 @@ public class RigidBodyFPSController : MonoBehaviour
         fireTrigger = context.performed;
 
         fireBool = context.performed;
-        anim.SetBool("FireBool", fireBool);
+        //anim.SetBool("FireBool", fireBool);
         fireBool = false;
         //Debug.Log(gameObject.GetComponent<WeaponManager>().currDMG);
     }
     public void OnFireHold(InputAction.CallbackContext context)
     {
         isFiring = context.performed;
-        anim.SetBool("isFiring", isFiring);
+        //anim.SetBool("isFiring", isFiring);
         isFiring = false;
     }
 
     public void OnAim(InputAction.CallbackContext context)
     {
         isAiming = context.performed;
-        anim.SetBool("isAiming", isAiming);
+        //anim.SetBool("isAiming", isAiming);
     }
 
     bool CheckGrounded() 
@@ -182,7 +193,7 @@ public class RigidBodyFPSController : MonoBehaviour
                 float JumpForce = Mathf.Sqrt(jumpSpeed * -2f * Physics.gravity.y);
                 rBody.AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
 
-                anim.SetTrigger("Jump");
+                //anim.SetTrigger("Jump");
                 jump = false;
             }
 
@@ -203,7 +214,7 @@ public class RigidBodyFPSController : MonoBehaviour
             //WeaponCheck();
             currentPlayerState = Normal_State.GetInstance();
             //weaponClassScriptableObject.WeaponType = WeaponType.UnArmed;
-            anim.runtimeAnimatorController = animators[0] as RuntimeAnimatorController;
+            //anim.runtimeAnimatorController = animators[0] as RuntimeAnimatorController;
             isAiming = false;
             //weaponManager.Weapons[0].SetActive(false);
             //weaponManager.Weapons[1].SetActive(false);
@@ -213,7 +224,7 @@ public class RigidBodyFPSController : MonoBehaviour
             //WeaponCheck();
             currentPlayerState = AssaultRifle_State.GetInstance();
             //weaponClassScriptableObject.WeaponType = WeaponType.AssaultRifle;
-            anim.runtimeAnimatorController = animators[1] as RuntimeAnimatorController;
+            //anim.runtimeAnimatorController = animators[1] as RuntimeAnimatorController;
             isAiming = false;
             //weaponManager.Weapons[0].SetActive(true);
             //weaponManager.Weapons[1].SetActive(false);
@@ -223,7 +234,7 @@ public class RigidBodyFPSController : MonoBehaviour
             //WeaponCheck();
             currentPlayerState = Pistol_State.GetInstance();
             //weaponClassScriptableObject.WeaponType = WeaponType.Pistol;
-            anim.runtimeAnimatorController = animators[2] as RuntimeAnimatorController;
+            //anim.runtimeAnimatorController = animators[2] as RuntimeAnimatorController;
             isAiming = false;
             //weaponManager.Weapons[0].SetActive(false);
             //weaponManager.Weapons[1].SetActive(true);
@@ -254,7 +265,7 @@ public class RigidBodyFPSController : MonoBehaviour
 
         if (fireTrigger)
         {
-            anim.SetTrigger("FireTrigger");
+            //anim.SetTrigger("FireTrigger");
             fireTrigger = false;
         }
         //if (fireBool)
@@ -263,12 +274,12 @@ public class RigidBodyFPSController : MonoBehaviour
         //    fireBool = false;
         //}
 
-        anim.SetBool("Sprint", sprint);
-        //anim.SetBool("Walk", walk);
-        anim.SetBool("isGrounded", CheckGrounded());
-        anim.SetFloat("PlayerVelocity", playerDestination.magnitude, runSmoothTime, Time.deltaTime);
-        anim.SetFloat("DirectionH", move.x);
-        anim.SetFloat("DirectionV", move.y);
+        //anim.SetBool("Sprint", sprint);
+        ////anim.SetBool("Walk", walk);
+        //anim.SetBool("isGrounded", CheckGrounded());
+        //anim.SetFloat("PlayerVelocity", playerDestination.magnitude, runSmoothTime, Time.deltaTime);
+        //anim.SetFloat("DirectionH", move.x);
+        //anim.SetFloat("DirectionV", move.y);
 
         //Debug.Log(currentPlayerState.ToString());
 

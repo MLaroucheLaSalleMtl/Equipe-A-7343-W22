@@ -4,11 +4,11 @@ using UnityEngine.InputSystem;
 
 public class TempCamLook
 {
-    public float XMouseSensitivity = 0.075f;
-    public float YMouseSensitivity = 0.075f;
+    public float XMouseSensitivity = 0.1f;
+    public float YMouseSensitivity = 0.1f;
     public float ClampMinimumX = -60F;   
     public float ClampMaximumX = 60F;
-    public float smoothTime = 10.0f;
+    public float smoothTime = 13f;
 
     private Quaternion playerTargetRot;
     //private Quaternion playerHeadTargetRot;

@@ -10,7 +10,7 @@ public class LoadingManager : MonoBehaviour
 
     public IEnumerator InGameLoadingScene()
     {        
-        asyncLoad = SceneManager.LoadSceneAsync(4);
+        asyncLoad = SceneManager.LoadSceneAsync(2);
         yield return new WaitForSeconds(LOADTIME);
     }    
 }

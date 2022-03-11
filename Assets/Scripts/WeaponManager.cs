@@ -6,7 +6,7 @@ public enum WeaponType { Unarmed, AssaultRifle, Pistol }
 
 public class WeaponManager : MonoBehaviour
 {
-    private Weapon weaponScript;
+    private Weapon weaponScript = null;
     [SerializeField] private Transform weaponSocket;
     [SerializeField] private GameObject[] _assaultRiflesPrefab;
     [SerializeField] private GameObject[] _pistolsPrefab;
@@ -24,116 +24,21 @@ public class WeaponManager : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] private WeaponScriptableObject _currentWeapon = null;    
-    /*[SerializeField]*/ /*private Animator weaponAnim;*/
-    RigidBodyFPSController FPSController;
-    private int currDMG;
-    private int currMagAmmo;
-    private int currAvailableAmmo;    
-
+    /*[SerializeField] */public WeaponScriptableObject _currentWeapon = null;    
+    
     //[SerializeField] public RuntimeAnimatorController[] animators;
 
     [SerializeField] private WeaponType _currentWeaponType;
 
-    public WeaponType CurrentWeaponType { get => _currentWeaponType; set => _currentWeaponType = value; }
-
-    ////Static variables
-    //public static int stcWeaponMinDMG;
-    //public static int stcWeaponMaxDMG;
+    public WeaponType CurrentWeaponType { get => _currentWeaponType; set => _currentWeaponType = value; }    
 
     // Start is called before the first frame update
     void Start()
     {
+        weaponScript = Weapon.instance;
         CurrentWeaponType = WeaponType.Unarmed;        
         WeaponSpwanByClass(CurrentWeaponType);
-        
-        if (CurrentWeaponType != WeaponType.Unarmed)
-        {
-            currDMG = Mathf.Clamp(currDMG, _currentWeapon.WeaponMinDMG, _currentWeapon.WeaponMaxDMG);
-            currMagAmmo = _currentWeapon.WeaponMagazineAmmo;
-            currAvailableAmmo = _currentWeapon.WeaponMaxAmmo;
-        }        
-        
-        //_currentWeaponObject.transform.parent = transform;
-        //_currentWeaponObject = _currentWeapon.WeaponPrefab;
-        //weaponType = FindObjectOfType<WeaponTypeEnum>();
-        //_currentWeapon = FindObjectOfType<WeaponScriptableObject>();
-        //weaponType = _currentWeaponClass.weaponScriptableObject.weaponType;
-        //_currentWeaponClass.weaponScriptableObject = _currentWeapon;
-        //for (int i = 0; i < animators.Length; i++)
-        //{
-        //    animators[i] = FPSController.anim.runtimeAnimatorController;
-        //}
-        //animators[0] = FPSController.anim.runtimeAnimatorController;
-        //animators[1] = FPSController.anim.runtimeAnimatorController;
-        //animators[2] = FPSController.anim.runtimeAnimatorController;
-        //weaponType = weaponClassScriptableObject.WeaponType;
-        //weaponScriptableObjet = ScriptableObject.CreateInstance<WeaponScriptableObject>();
-    }
-
-    void NewWeapon(WeaponType weaponType)
-    {
-        Destroy(_currentWeaponInstance);
-
-        if (weaponType == WeaponType.Unarmed)
-        {
-            Destroy(_currentWeaponInstance);
-
-            _currentWeaponInstance = null;
-            _currentWeapon = null;
-        }
-        if (weaponType == WeaponType.Pistol)
-        {
-            Destroy(_currentWeaponInstance);
-
-            _currentWeaponInstance = Instantiate(
-                                        _pistolsPrefab[0], 
-                                        weaponSocket.position, 
-                                        Quaternion.identity, 
-                                        GameObject.Find("-- WeaponManager --").transform
-                                     );
-
-            weaponScript = GetComponentInChildren<Weapon>();
-            _currentWeapon = weaponScript._weapon;
-            CurrentWeaponType = _currentWeapon.WeaponType;
-        }
-        if (weaponType == WeaponType.AssaultRifle)
-        {
-            Destroy(_currentWeaponInstance);
-
-            _currentWeaponInstance = Instantiate(
-                                        _assaultRiflesPrefab[0],
-                                        weaponSocket.position, 
-                                        Quaternion.identity, 
-                                        GameObject.Find("-- WeaponManager --").transform
-                                     );
-
-            weaponScript = GetComponentInChildren<Weapon>();
-            _currentWeapon = weaponScript._weapon;
-            CurrentWeaponType = _currentWeapon.WeaponType;
-        }
-    }
-
-    public void WeaponFire()
-    {
-        //currDMG = new RNG().GetInstance().Next();
-        currMagAmmo--;
-
-        Debug.Log("Current DMG : " + currDMG + 
-                  " , Current Mag Ammo : " + currMagAmmo + 
-                  " , Current Ammo : " + currAvailableAmmo);
-    }
-
-    public void WeaponReload()
-    {
-        currAvailableAmmo -= currMagAmmo;
-        currMagAmmo = _currentWeapon.WeaponMagazineAmmo;
-    }
-
-    //private Vector3 SpawnWeapon() 
-    //{
-
-    //}
+    }     
 
     void WeaponSpwanByClass(WeaponType weaponClass) 
     {
@@ -141,64 +46,46 @@ public class WeaponManager : MonoBehaviour
 
         if (weaponClass is WeaponType.Unarmed)
         {
-            //Destroy(_currentWeaponInstance);
+            Destroy(_currentWeaponInstance);
 
             _currentWeaponInstance = null;
             _currentWeapon = null;
 
-            NewWeapon(weaponClass);
+            //WeaponSpwanByClass(weaponClass);
             Debug.Log("Unarmed");
         }
         if (weaponClass is WeaponType.AssaultRifle)
         {
-            //Destroy(_currentWeaponInstance);
+            Destroy(_currentWeaponInstance);
 
             _currentWeaponInstance = Instantiate(
                                         _assaultRiflesPrefab[0],
-                                        weaponSocket.position,
-                                        Quaternion.identity,
-                                        GameObject.Find("-- WeaponManager --").transform
+                                        //weaponSocket.position,
+                                        //Quaternion.identity,
+                                        GameObject.Find("WeaponLocation").transform
                                      );
 
-            weaponScript = GetComponentInChildren<Weapon>();
+            weaponScript = FindObjectOfType<Weapon>();
             _currentWeapon = weaponScript._weapon;
             CurrentWeaponType = _currentWeapon.WeaponType;            
             Debug.Log("Assault Rifle");
         }
         if (weaponClass is WeaponType.Pistol)
         {
-            //Destroy(_currentWeaponInstance);
+            Destroy(_currentWeaponInstance);
 
             _currentWeaponInstance = Instantiate(
                                         _pistolsPrefab[0],
-                                        weaponSocket.position,
-                                        Quaternion.identity,
-                                        GameObject.Find("-- WeaponManager --").transform
+                                        //weaponSocket.position,
+                                        //Quaternion.identity,
+                                        GameObject.Find("WeaponLocation").transform
                                      );
 
-            weaponScript = GetComponentInChildren<Weapon>();
+            weaponScript = FindObjectOfType<Weapon>();
             _currentWeapon = weaponScript._weapon;
             CurrentWeaponType = _currentWeapon.WeaponType;            
             Debug.Log("Pistol");
-        }
-        //else
-        //    Debug.Log("Unarmed");
-
-        //switch (weaponClass)
-        //{
-        //    case WeaponType.Unarmed:
-                   
-        //        break;
-        //    case WeaponType.AssaultRifle:
-                
-        //        break;
-        //    case WeaponType.Pistol:
-                
-        //        break;
-        //    default:
-                      
-        //        break;
-        //}        
+        }           
     }
 
     // Update is called once per frame
@@ -210,14 +97,14 @@ public class WeaponManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            //Destroy(_currentWeaponInstance);
+            Destroy(_currentWeaponInstance);
             CurrentWeaponType = WeaponType.Unarmed;
             //NewWeapon();            
             WeaponSpwanByClass(CurrentWeaponType);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            //Destroy(_currentWeaponInstance);
+            Destroy(_currentWeaponInstance);
             CurrentWeaponType = WeaponType.AssaultRifle;
             //NewWeapon(CurrentWeaponType);
             //NewWeapon();
@@ -229,7 +116,7 @@ public class WeaponManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            //Destroy(_currentWeaponInstance);
+            Destroy(_currentWeaponInstance);
             CurrentWeaponType = WeaponType.Pistol;
             //NewWeapon(CurrentWeaponType);
             //NewWeapon();

@@ -6,7 +6,7 @@ public class WeaponScriptableObject : ScriptableObject
     public WeaponScriptableObject()
     {
         //this.WeaponPrefab = weaponPrefab;
-        this.FireRange = fireRange;
+        this.MaxFireRange = maxFireRange;
         this.WeaponMagazineAmmo = weaponMagazineAmmo;
         this.WeaponMaxAmmo = weaponMaxAmmo;
         this.WeaponMinDMG = weaponMinDMG;
@@ -23,20 +23,24 @@ public class WeaponScriptableObject : ScriptableObject
     public int WeaponMaxDMG { get => weaponMaxDMG; set => weaponMaxDMG = value; }
     public int RecoilX { get => recoilX; set => recoilX = value; }
     public int RecoilY { get => recoilY; set => recoilY = value; }
-    public float FireRange { get => fireRange; set => fireRange = value; }
+    public float MaxFireRange { get => maxFireRange; set => maxFireRange = value; }
     public WeaponType WeaponType { get => weaponClass.WeaponType; set => weaponClass.WeaponType /*weaponType*/ = value; }
 
-    //[Header("--- Weapon Prefab ---")]
-    //[SerializeField] private GameObject weaponPrefab;
+    [Header("--- Weapon UI Image ---")]
+    [SerializeField] private Sprite weaponUISprite;
     [Header("--- Weapon Animator Options ---")]
     public Animator weaponAnimator;
     public RuntimeAnimatorController weaponAnimatorController;
+    public string Weapon_Fire_Anim;
+    public string Weapon_ADSFire_Anim;
+    public string Weapon_Reload_Anim;
+    public string Weapon_Idle_Anim;
     [Header("--- Weapon VFX/SFX Settings ---")]
     public AudioSource[] weaponSoundFX;
-    public Transform muzzleLocation;
-    public ParticleSystem particles;
+    //public Transform muzzleLocation;
+    //public ParticleSystem particles;
     [Header("--- Weapon Stats ---")]
-    [SerializeField] private float fireRange = 25f;
+    [SerializeField] private float maxFireRange = 25f;
     [SerializeField] private int weaponMaxAmmo = 252;
     [SerializeField] private int weaponMagazineAmmo = 30;
     [SerializeField] private int weaponMinDMG = 20;

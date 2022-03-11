@@ -26,10 +26,10 @@ public class Loading : MonoBehaviour
     [SerializeField] public GameObject continueBtn;
     [SerializeField] public GameObject userInputTxt;
     [SerializeField] public GameObject loadingIcon;
-    [Header("-- Continue Icon depending on the Controller Scheme --")]
-    [SerializeField] public GameObject UserButtonPC;
-    [SerializeField] public GameObject UserButtonXbox;
-    [SerializeField] public GameObject UserButtonPlaystation;
+    //[Header("-- Continue Icon depending on the Controller Scheme --")]
+    //[SerializeField] public GameObject UserButtonPC;
+    //[SerializeField] public GameObject UserButtonXbox;
+    //[SerializeField] public GameObject UserButtonPlaystation;
 
     [Header("--- Loading Images ---")]
     [Tooltip("Add an Image for it to be Randomized")]
@@ -61,9 +61,9 @@ public class Loading : MonoBehaviour
         {
             InputSystem.GetDevice("Keyboard").MakeCurrent();
             continueBtn.SetActive(true);
-            UserButtonPC.SetActive(true);
-            UserButtonXbox.SetActive(false);
-            UserButtonPlaystation.SetActive(false);
+            //UserButtonPC.SetActive(true);
+            //UserButtonXbox.SetActive(false);
+            //UserButtonPlaystation.SetActive(false);
         }
         //if (/*InputSystem.GetDevice("Joystick").enabled &&*/ device.name == "Controller (Xbox One For Windows)")
         //{
@@ -123,10 +123,10 @@ public class Loading : MonoBehaviour
     void StartSettings()
     {
         Time.timeScale = 1.0f;
-        if (Gamepad.current == InputSystem.GetDevice("XInputControllerWindows"))
-        {
-            UserButtonXbox.SetActive(false);
-        }
+        //if (Gamepad.current == InputSystem.GetDevice("XInputControllerWindows"))
+        //{
+        //    UserButtonXbox.SetActive(false);
+        //}
         Input.ResetInputAxes();
         System.GC.Collect();
     }    

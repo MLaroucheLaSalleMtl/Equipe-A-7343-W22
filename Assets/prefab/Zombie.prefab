@@ -1461,8 +1461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5786fa5f6c7b4458ee4c8280b5060b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  distanceRation: 10
+  target: {fileID: 4849563771031022595, guid: 56f147b6bfe15fc43a2dcf7241586754, type: 3}
+  distanceRation: 50
   attackRation: 1.5
   aiState: 0
   anim: {fileID: 8552377542846655902}

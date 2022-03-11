@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bbd4efd456cdb429b438bc85d4cd51, type: 3}
   m_Name: M416
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 2333666457890475259, guid: 89015128431fdfc4a9016d4d55c80b81, type: 3}
+  weaponUISprite: {fileID: 0}
   weaponAnimator: {fileID: 0}
   weaponAnimatorController: {fileID: 0}
+  Weapon_Fire_Anim: M416_Fire
+  Weapon_ADSFire_Anim: 
+  Weapon_Reload_Anim: M416_Reload
+  Weapon_Idle_Anim: M416_Idle
   weaponSoundFX: []
-  muzzleLocation: {fileID: 0}
-  particles: {fileID: 0}
-  fireRange: 50
+  maxFireRange: 250
   weaponMaxAmmo: 252
   weaponMagazineAmmo: 30
   weaponMinDMG: 20

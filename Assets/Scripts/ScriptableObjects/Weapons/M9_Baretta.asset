@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bbd4efd456cdb429b438bc85d4cd51, type: 3}
   m_Name: M9_Baretta
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 0}
+  weaponUISprite: {fileID: 0}
   weaponAnimator: {fileID: 0}
-  weaponAnimatorController: {fileID: 0}
+  weaponAnimatorController: {fileID: 9100000, guid: d170e871ee115d644ac8df91b0ce6972, type: 2}
+  Weapon_Fire_Anim: M9_Baretta_Fire
+  Weapon_ADSFire_Anim: M9_Baretta_ADSFire
+  Weapon_Reload_Anim: M9_Baretta_Reload
+  Weapon_Idle_Anim: M9_Baretta_Idle
   weaponSoundFX: []
-  muzzleLocation: {fileID: 0}
-  particles: {fileID: 0}
-  fireRange: 25
+  maxFireRange: 100
   weaponMaxAmmo: 150
   weaponMagazineAmmo: 12
   weaponMinDMG: 12
