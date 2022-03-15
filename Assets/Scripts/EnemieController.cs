@@ -16,11 +16,6 @@ public class EnemieController : MonoBehaviour
 
     public Animator anim;
 
-    public Transform[] wayPoints;
-    public int speed;
-
-    private int wayPointsIndex;
-    private float dist;
 
     void Start()
     {
@@ -28,35 +23,44 @@ public class EnemieController : MonoBehaviour
         StartCoroutine(Think());
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
-        wayPointsIndex = 0;
-        transform.LookAt(wayPoints[wayPointsIndex].position);
+     
+
+        SetRigidbodyState(true);
+        SetColliderStae(true);
         
     }
      void Update()
     {
-        dist = Vector3.Distance(transform.position, wayPoints[wayPointsIndex].position);
-        if(dist < 1f)
-        {
-            IncreaseIndex();
-        }
-
-        Patrol();
+        
     }
-    void Patrol()
+
+    void Die()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        Destroy(gameObject, 3f);
+        GetComponent<Animator>().enabled = false;
+        SetRigidbodyState(false);
+        SetColliderStae(true);
     }
 
-    void IncreaseIndex()
+    void SetRigidbodyState(bool state)
     {
-        wayPointsIndex++;
-        if(wayPointsIndex >= wayPoints.Length)
+        Rigidbody[] rb = GetComponentsInChildren<Rigidbody>();
+
+        foreach(Rigidbody rigidbody in rb)
         {
-            wayPointsIndex = 0;
-        }
-        transform.LookAt(wayPoints[wayPointsIndex].position);
+            rigidbody.isKinematic = state;
+        } 
     }
 
+    void SetColliderStae(bool state)
+    {
+        Collider[] coll = GetComponentsInChildren<Collider>();
+
+        foreach (Collider collider in coll)
+        {
+            collider.enabled = state;
+        }
+    }
     IEnumerator Think()
     {
         while(true)
