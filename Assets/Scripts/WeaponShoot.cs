@@ -19,7 +19,9 @@ public class WeaponShoot : MonoBehaviour
     private RuntimeAnimatorController WP_runtimeAnimatorController;
     //private WeaponScriptableObject _currentWP = null;
 
-    //private int wpFire, wpReload, wpIdle, wpADSFire/* wpTakeOut, wpStore*/;    
+    //private int wpFire, wpReload, wpIdle, wpADSFire/* wpTakeOut, wpStore*/;
+    public float damage = 10;
+
 
     //Start is called before the first frame update
     void Start()
