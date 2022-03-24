@@ -5,62 +5,33 @@ using UnityEngine.AI;
 
 
 
+
 public class EnemieController : MonoBehaviour
 {
     NavMeshAgent agent;
     public Transform target;
     public float distanceRation = 10f;
     public float attackRation = 1.5f;
+    public int damageAmount = 15;
     public enum AiState { idle, chasing, attacking};
     public AiState aiState = AiState.idle;
 
     public Animator anim;
-
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         StartCoroutine(Think());
         target = GameObject.FindGameObjectWithTag("Player").transform;
-
-     
-
-        SetRigidbodyState(true);
-        SetColliderStae(true);
         
     }
      void Update()
     {
         
     }
+    
 
-    void Die()
-    {
-        Destroy(gameObject, 3f);
-        GetComponent<Animator>().enabled = false;
-        SetRigidbodyState(false);
-        SetColliderStae(true);
-    }
-
-    void SetRigidbodyState(bool state)
-    {
-        Rigidbody[] rb = GetComponentsInChildren<Rigidbody>();
-
-        foreach(Rigidbody rigidbody in rb)
-        {
-            rigidbody.isKinematic = state;
-        } 
-    }
-
-    void SetColliderStae(bool state)
-    {
-        Collider[] coll = GetComponentsInChildren<Collider>();
-
-        foreach (Collider collider in coll)
-        {
-            collider.enabled = state;
-        }
-    }
+   
     IEnumerator Think()
     {
         while(true)
@@ -87,6 +58,7 @@ public class EnemieController : MonoBehaviour
                     {
                         aiState = AiState.attacking;
                         anim.SetBool("Attacking", true);
+                        PlayerDamage.TakeDamage(damageAmount);
                     }
                     agent.SetDestination(target.position);
                     break;
@@ -98,6 +70,7 @@ public class EnemieController : MonoBehaviour
                     {
                         aiState = AiState.chasing;
                         anim.SetBool("Attacking", false);
+                        
                     }
                     break;
                 default:

@@ -20,8 +20,9 @@ public class WeaponShoot : MonoBehaviour
     //private WeaponScriptableObject _currentWP = null;
 
     //private int wpFire, wpReload, wpIdle, wpADSFire/* wpTakeOut, wpStore*/;
-    public float damage = 10;
 
+    [SerializeField]
+    float damageEnemy = 10f;
 
     //Start is called before the first frame update
     void Start()
@@ -83,9 +84,11 @@ public class WeaponShoot : MonoBehaviour
                 if (Physics.Raycast(transform.position, transform.forward, out hit, _weaponManager._currentWeapon.MaxFireRange))
                 {
                     Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.yellow);
-                    if (hit.collider.CompareTag("Zombies"))
+                    if (hit.collider.CompareTag("ZOMBI"))
                     {
                         hit.collider.gameObject.GetComponent<EnemieController>().Hit();
+                        EnemyHealth enemyHealthScript = hit.collider.GetComponent<EnemyHealth>();
+                        enemyHealthScript.DeducHealth(damageEnemy);
                     }
                     muzzleFX.StartEmit(hit.point);
 
