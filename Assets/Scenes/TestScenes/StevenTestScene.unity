@@ -5491,5 +5491,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: RigidbodyController
       objectReference: {fileID: 0}
+    - target: {fileID: 5732085480775887071, guid: 56f147b6bfe15fc43a2dcf7241586754, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56f147b6bfe15fc43a2dcf7241586754, type: 3}

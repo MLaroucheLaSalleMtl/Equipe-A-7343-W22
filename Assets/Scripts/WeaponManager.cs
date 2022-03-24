@@ -42,9 +42,13 @@ public class WeaponManager : MonoBehaviour
 
     void WeaponSpwanByClass(WeaponType weaponClass) 
     {
-        Destroy(_currentWeaponInstance);
+        if (_currentWeaponType != WeaponType.Unarmed)
+        {
+            _currentWeaponType = WeaponType.Unarmed;
+            Destroy(_currentWeaponInstance);
+        }
 
-        if (weaponClass is WeaponType.Unarmed)
+        if (weaponClass == WeaponType.Unarmed)
         {
             Destroy(_currentWeaponInstance);
 
@@ -54,7 +58,7 @@ public class WeaponManager : MonoBehaviour
             //WeaponSpwanByClass(weaponClass);
             Debug.Log("Unarmed");
         }
-        if (weaponClass is WeaponType.AssaultRifle)
+        if (weaponClass == WeaponType.AssaultRifle)
         {
             Destroy(_currentWeaponInstance);
 
@@ -70,7 +74,7 @@ public class WeaponManager : MonoBehaviour
             CurrentWeaponType = _currentWeapon.WeaponType;            
             Debug.Log("Assault Rifle");
         }
-        if (weaponClass is WeaponType.Pistol)
+        if (weaponClass == WeaponType.Pistol)
         {
             Destroy(_currentWeaponInstance);
 
@@ -97,14 +101,14 @@ public class WeaponManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Destroy(_currentWeaponInstance);
+            //Destroy(_currentWeaponInstance);
             CurrentWeaponType = WeaponType.Unarmed;
             //NewWeapon();            
             WeaponSpwanByClass(CurrentWeaponType);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Destroy(_currentWeaponInstance);
+            //Destroy(_currentWeaponInstance);
             CurrentWeaponType = WeaponType.AssaultRifle;
             //NewWeapon(CurrentWeaponType);
             //NewWeapon();
@@ -116,7 +120,7 @@ public class WeaponManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Destroy(_currentWeaponInstance);
+            //Destroy(_currentWeaponInstance);
             CurrentWeaponType = WeaponType.Pistol;
             //NewWeapon(CurrentWeaponType);
             //NewWeapon();
