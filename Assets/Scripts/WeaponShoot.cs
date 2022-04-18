@@ -366,10 +366,10 @@ public class WeaponShoot : MonoBehaviour/*, PlayerInputActions.IWeaponActions*/
             //if (!FPSController.IsAiming)
 
             RaycastHit hit;
-            if (Physics.Raycast(muzzleLocation.transform.position, muzzleLocation.transform.forward, out hit, _weapon.WeaponSO.MaxFireRange))
-            {
-                Debug.DrawRay(muzzleLocation.transform.position, muzzleLocation.transform.forward * hit.distance, Color.yellow);
-                muzzleFX.StartEmit(hit.point);
+            //if (Physics.Raycast(muzzleLocation.transform.position, muzzleLocation.transform.forward, out hit, _weapon.WeaponSO.MaxFireRange))
+            //{
+                Debug.DrawRay(muzzleLocation.transform.position, muzzleLocation.transform.forward * _weapon.WeaponSO.MaxFireRange, Color.yellow);
+                muzzleFX.StartEmit(_weapon.WeaponSO.MaxFireRange);
 
                 GameObject bulletOBJCopy = /*Instantiate(bulletObject, muzzleLocation.transform.position, muzzleLocation.transform.rotation)*/ BulletPool.SharedBulletInstance.GetPooledBullet();
 
@@ -380,58 +380,58 @@ public class WeaponShoot : MonoBehaviour/*, PlayerInputActions.IWeaponActions*/
                     bulletOBJCopy.SetActive(true);
                     bulletOBJCopy.GetComponent<Rigidbody>().AddForce(muzzleLocation.transform.forward * _weapon.WeaponSO.FireRate/* / 60*/, ForceMode.Impulse);
                 }
-                if (hit.collider.CompareTag("Ground"))
-                {
-                    Quaternion rotFX = Quaternion.LookRotation(hit.normal);
-                    GameObject bullet = Instantiate(bulletHole[0], hit.point, rotFX);
-                    bullet.transform.parent = hit.transform;
-                    //bulletOBJCopy.SetActive(false);
-                    _weapon.WeaponSO.PlayBulletImpactSFX(hit.collider.tag, bulletImpactAudioSource);
-                    Destroy(bullet, 2f);
-                }
-                if (hit.collider.CompareTag("Wood"))
-                {
-                    Quaternion rotFX = Quaternion.LookRotation(hit.normal);
-                    GameObject bullet = Instantiate(bulletHole[1], hit.point, rotFX);
-                    bullet.transform.parent = hit.transform;
-                    //bulletOBJCopy.SetActive(false);
-                    _weapon.WeaponSO.PlayBulletImpactSFX(hit.collider.tag, bulletImpactAudioSource);
-                    Destroy(bullet, 2f);
-                }
-                if (hit.collider.CompareTag("Sand"))
-                {
-                    Quaternion rotFX = Quaternion.LookRotation(hit.normal);
-                    GameObject bullet = Instantiate(bulletHole[2], hit.point, rotFX);
-                    bullet.transform.parent = hit.transform;
-                    //bulletOBJCopy.SetActive(false);
-                    _weapon.WeaponSO.PlayBulletImpactSFX(hit.collider.tag, bulletImpactAudioSource);
-                    Destroy(bullet, 2f);
-                }
-                if (hit.collider.CompareTag("Rocks"))
-                {
-                    Quaternion rotFX = Quaternion.LookRotation(hit.normal);
-                    GameObject bullet = Instantiate(bulletHole[3], hit.point, rotFX);
-                    bullet.transform.parent = hit.transform;
-                    //bulletOBJCopy.SetActive(false);
-                    _weapon.WeaponSO.PlayBulletImpactSFX(hit.collider.tag, bulletImpactAudioSource);
-                    Destroy(bullet, 2f);
-                }
-                if (hit.collider.CompareTag("Zombies"))
-                {
-                    hit.collider.gameObject.GetComponent<EnemieController>().Hit();
-                    Quaternion rotFX = Quaternion.LookRotation(hit.normal);
-                    GameObject bullet = Instantiate(bulletHole[4], hit.point, rotFX);
-                    bullet.transform.parent = hit.transform;
-                    //bulletOBJCopy.SetActive(false);
-                    _weapon.WeaponSO.PlayBulletImpactSFX(hit.collider.tag, bulletImpactAudioSource);
-                    Destroy(bullet, 2f);
-                }
-            }
-            else
-            {
-                Debug.DrawRay(muzzleLocation.transform.position, muzzleLocation.transform.forward * _weapon.WeaponSO.MaxFireRange, Color.red);
-                muzzleFX.StartEmit(_weapon.WeaponSO.MaxFireRange);
-            }
+                //if (GetComponent<Collider>().CompareTag("Ground"))
+                //{
+                //    Quaternion rotFX = Quaternion.LookRotation(hit.normal);
+                //        GameObject bullet = Instantiate(bulletHole[0], hit.point, rotFX);
+                //        bullet.transform.parent = hit.transform;
+                //        //bulletOBJCopy.SetActive(false);
+                //        _weapon.WeaponSO.PlayBulletImpactSFX(hit.collider.tag, bulletImpactAudioSource);
+                //        Destroy(bullet, 2f);
+                //}
+                //if (hit.collider.CompareTag("Wood"))
+                //{
+                //    Quaternion rotFX = Quaternion.LookRotation(hit.normal);
+                //    GameObject bullet = Instantiate(bulletHole[1], hit.point, rotFX);
+                //    bullet.transform.parent = hit.transform;
+                //    //bulletOBJCopy.SetActive(false);
+                //    _weapon.WeaponSO.PlayBulletImpactSFX(hit.collider.tag, bulletImpactAudioSource);
+                //    Destroy(bullet, 2f);
+                //}
+                //if (hit.collider.CompareTag("Sand"))
+                //{
+                //    Quaternion rotFX = Quaternion.LookRotation(hit.normal);
+                //    GameObject bullet = Instantiate(bulletHole[2], hit.point, rotFX);
+                //    bullet.transform.parent = hit.transform;
+                //    //bulletOBJCopy.SetActive(false);
+                //    _weapon.WeaponSO.PlayBulletImpactSFX(hit.collider.tag, bulletImpactAudioSource);
+                //    Destroy(bullet, 2f);
+                //}
+                //if (hit.collider.CompareTag("Rocks"))
+                //{
+                //    Quaternion rotFX = Quaternion.LookRotation(hit.normal);
+                //    GameObject bullet = Instantiate(bulletHole[3], hit.point, rotFX);
+                //    bullet.transform.parent = hit.transform;
+                //    //bulletOBJCopy.SetActive(false);
+                //    _weapon.WeaponSO.PlayBulletImpactSFX(hit.collider.tag, bulletImpactAudioSource);
+                //    Destroy(bullet, 2f);
+                //}
+                //if (hit.collider.CompareTag("Zombies"))
+                //{
+                //    hit.collider.gameObject.GetComponent<EnemieController>().Hit();
+                //    Quaternion rotFX = Quaternion.LookRotation(hit.normal);
+                //    GameObject bullet = Instantiate(bulletHole[4], hit.point, rotFX);
+                //    bullet.transform.parent = hit.transform;
+                //    //bulletOBJCopy.SetActive(false);
+                //    _weapon.WeaponSO.PlayBulletImpactSFX(hit.collider.tag, bulletImpactAudioSource);
+                //    Destroy(bullet, 2f);
+                //}
+            //}
+            //else
+            //{
+                //Debug.DrawRay(muzzleLocation.transform.position, muzzleLocation.transform.forward * _weapon.WeaponSO.MaxFireRange, Color.red);
+                //muzzleFX.StartEmit(_weapon.WeaponSO.MaxFireRange);
+            //}
 
             Debug.Log("Current DMG : " + currDMG +
                     " , Current Mag Ammo : " + currMagAmmo +
