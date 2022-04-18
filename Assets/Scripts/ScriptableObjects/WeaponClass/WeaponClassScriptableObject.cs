@@ -6,5 +6,7 @@ using UnityEngine;
 public class WeaponClassScriptableObject : ScriptableObject
 {
     [SerializeField] private WeaponType weaponType;     
-    public WeaponType WeaponType { get => weaponType; set => weaponType = value; }    
+    [SerializeField] private WeaponFireMode weaponFireMode;
+    public WeaponType WeaponType { get => weaponType; set => weaponType = value; }
+    public WeaponFireMode WeaponFireMode { get => weaponFireMode; set => weaponFireMode = value; }
 }

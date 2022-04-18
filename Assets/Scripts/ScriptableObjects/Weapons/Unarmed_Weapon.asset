@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bbd4efd456cdb429b438bc85d4cd51, type: 3}
+  m_Name: Unarmed_Weapon
+  m_EditorClassIdentifier: 
+  weaponUISprite: {fileID: 0}
+  ArmsAnimator: {fileID: 8685496709752207042, guid: 4ffbc6abc4ff53b449ad2e0cd7d39ef0,
+    type: 3}
+  weaponAnimator: {fileID: 8685496709752207042, guid: 4ffbc6abc4ff53b449ad2e0cd7d39ef0,
+    type: 3}
+  weaponAnimatorController: {fileID: 9100000, guid: d6a254c8c71bbc543876b408c16a6395,
+    type: 2}
+  ArmsRaiseAnim: {fileID: 7400000, guid: 0035517c7e4c1424e9bd1ad381889c53, type: 2}
+  ArmsLowerAnim: {fileID: 7400000, guid: 0035517c7e4c1424e9bd1ad381889c53, type: 2}
+  ArmsFireAnim: {fileID: 7400000, guid: 0035517c7e4c1424e9bd1ad381889c53, type: 2}
+  ArmsADSFireAnim: {fileID: 7400000, guid: 0035517c7e4c1424e9bd1ad381889c53, type: 2}
+  ArmsReloadAnim: {fileID: 7400000, guid: 0035517c7e4c1424e9bd1ad381889c53, type: 2}
+  WeaponFireAnim: {fileID: 7400000, guid: 0035517c7e4c1424e9bd1ad381889c53, type: 2}
+  WeaponReloadAnim: {fileID: 7400000, guid: 0035517c7e4c1424e9bd1ad381889c53, type: 2}
+  weaponSoundFX: []
+  maxFireRange: 3
+  weaponMaxAmmo: 2147483647
+  weaponMagazineAmmo: 2147483647
+  weaponMinDMG: 10
+  weaponMaxDMG: 10
+  recoilX: 0
+  recoilY: 0
+  weaponClass: {fileID: 11400000, guid: 297da6b383baac04e8767b613f8e0d65, type: 2}

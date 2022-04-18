@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 28d9841a7976e2144baffb1b6d98e720, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44944453, g: 0.4829576, b: 0.52523184, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 176698881}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,6 +221,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &198947087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 198947089}
+  - component: {fileID: 198947088}
+  m_Layer: 1
+  m_Name: Post-process Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &198947088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198947087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: c983e4d5d4294b54fb800be266dd0d3d, type: 2}
+--- !u!4 &198947089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198947087}
+  m_LocalRotation: {x: -0.0067379787, y: -0.029782934, z: 0.9748962, w: 0.22055613}
+  m_LocalPosition: {x: 0, y: 97.22496, z: -54.64287}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 3.159, y: -1.508, z: 154.463}
 --- !u!1 &416326242
 GameObject:
   m_ObjectHideFlags: 0
@@ -5123,22 +5172,6 @@ MonoBehaviour:
     m_ActionId: 8bb67ffb-dbdd-4513-b65a-c66cfef2bce9
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 772846870}
-        m_TargetAssemblyTypeName: RigidBodyFPSController, Assembly-CSharp
-        m_MethodName: OnFire
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 7d4051b4-9c18-4e5d-be9d-3b0e49410676
-    m_ActionName: Player/Fire[/Mouse/leftButton]
-  - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 3dfd3908-6256-489f-8392-071532c8de12
     m_ActionName: UI/Navigate[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
@@ -5195,10 +5228,6 @@ MonoBehaviour:
     m_ActionId: 643a3bda-b847-4dad-8cb9-e7309b413eeb
     m_ActionName: Player/New action
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6f354dca-98de-4657-903f-a4a43227c5ae
-    m_ActionName: Player/Sprint1
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 772846870}
         m_TargetAssemblyTypeName: RigidBodyFPSController, Assembly-CSharp
@@ -5231,10 +5260,14 @@ MonoBehaviour:
     m_ActionId: d3340b54-6195-4908-89ff-47b935184540
     m_ActionName: Player/Fire1[/Mouse/leftButton]
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8e691d4e-a0ae-4a5a-b766-58778072e277
+    m_ActionName: Player/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 772846870}
         m_TargetAssemblyTypeName: RigidBodyFPSController, Assembly-CSharp
-        m_MethodName: OnFireHold
+        m_MethodName: OnReload
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5244,12 +5277,52 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 7e6d85dc-ff38-47b8-b044-104bc4e9a56e
-    m_ActionName: Player/FireHold[/Mouse/leftButton]
+    m_ActionId: 74dac3bb-db19-4a66-911f-82d53dd7f5ab
+    m_ActionName: Player/Reload[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 772846870}
+        m_TargetAssemblyTypeName: RigidBodyFPSController, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 88c8c8e3-dbde-4537-98ce-b364e3426b5e
+    m_ActionName: Player/Fire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 989217845}
+        m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
+        m_MethodName: OnMouseWeaponChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 65c25320-0968-45dc-b21f-aa5edb41c623
+    m_ActionName: Player/MouseScrollChangeWeapon[/Mouse/scroll/y]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 8e691d4e-a0ae-4a5a-b766-58778072e277
-    m_ActionName: Player/Pause[/Keyboard/escape]
+    m_ActionId: 826dcfa4-48cb-46c5-961b-34a1085c0dd9
+    m_ActionName: Player/ControllerChangeWeapon
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ea78b8fe-5a12-4929-8920-6cb968948956
+    m_ActionName: Weapon/Reload[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f267aa49-f44e-41e1-bfda-a46151cc0768
+    m_ActionName: Weapon/Fire[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -5264,6 +5337,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7e83feb1cecbf440a8f4ef7dcf3b1ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &989217845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6931748496676511657, guid: 56f147b6bfe15fc43a2dcf7241586754, type: 3}
+  m_PrefabInstance: {fileID: 4849563770260347159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb757603146bb64d943bbc6840fee10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1352634566
@@ -5352,6 +5436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1546551996}
   - component: {fileID: 1546551995}
+  - component: {fileID: 1546551997}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -5410,7 +5495,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -5428,14 +5513,34 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546551994}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.8846374, y: 0.40675032, z: 0.10517716, w: 0.20225872}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 375.801, y: -561.37, z: -232.38501}
+--- !u!114 &1546551997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546551994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1001 &4849563770260347159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5490,10 +5595,6 @@ PrefabInstance:
     - target: {fileID: 4849563771031022596, guid: 56f147b6bfe15fc43a2dcf7241586754, type: 3}
       propertyPath: m_Name
       value: RigidbodyController
-      objectReference: {fileID: 0}
-    - target: {fileID: 5732085480775887071, guid: 56f147b6bfe15fc43a2dcf7241586754, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56f147b6bfe15fc43a2dcf7241586754, type: 3}

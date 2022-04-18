@@ -6,8 +6,8 @@ public class TempCamLook
 {
     public float XMouseSensitivity = 0.1f;
     public float YMouseSensitivity = 0.1f;
-    public float ClampMinimumX = -60F;   
-    public float ClampMaximumX = 60F;
+    public float ClampMinimumX = -70F;   
+    public float ClampMaximumX = 70F;
     public float smoothTime = 13f;
 
     private Quaternion playerTargetRot;

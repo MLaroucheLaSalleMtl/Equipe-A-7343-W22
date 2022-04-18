@@ -1,178 +1,259 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public enum WeaponType { Unarmed, AssaultRifle, Pistol }
+public enum WeaponType { Unarmed, Pistol, AssaultRifle }
+public enum WeaponFireMode { None, Auto, Semi_Auto, Both }
 
 public class WeaponManager : MonoBehaviour
 {
-    private Weapon weaponScript = null;
+    public Animator ArmsAnim;
+    private Weapon _weaponScript;
+    public WeaponShoot weaponShoot;
+    private RigidBodyFPSController rbController;
+
     [SerializeField] private Transform weaponSocket;
-    [SerializeField] private GameObject[] _assaultRiflesPrefab;
-    [SerializeField] private GameObject[] _pistolsPrefab;
-    private GameObject _currentWeaponInstance = null;
+    [SerializeField] private WeaponScriptableObject[] defaultWeapon;
+    [SerializeField] private GameObject[] _weaponPrefabs;
+
+    public List<GameObject> weaponPickUpList = new List<GameObject>();
+
+    //[SerializeField] private GameObject[] _pistolsPrefab;
+    //private GameObject _currentWeaponInstance = null;
 
     #region Singleton
     public static WeaponManager instance = null;
 
     private void Awake()
     {
-        if (instance == null)        
-            instance = this;        
-        else if (instance != this)
-            Destroy(gameObject);
+        rbController = GetComponentInParent<RigidBodyFPSController>();
+
+        _weaponScript = /*FindObjectOfType*/GetComponentInChildren<Weapon>();
+        ArmsAnim = GetComponentInChildren<Animator>();
+
+        if (weaponPickUpList.Count > 0)
+        {
+            foreach (GameObject weapon in weaponPickUpList) 
+            {                
+                Instantiate(weapon, this.transform);
+                weapon.SetActive(true);
+                WeaponPrefabs = GameObject.FindGameObjectsWithTag("Weapon");
+                //weapon.SetActive(false);
+            }
+        }
+
+        //if (weaponShoot == null)
+        //    weaponShoot.CanFire = false;
+
+        //if (instance == null)
+        //    instance = this;
+        //else if (instance != this)
+        //    Destroy(gameObject);
     }
     #endregion
 
-    /*[SerializeField] */public WeaponScriptableObject _currentWeapon = null;    
-    
-    //[SerializeField] public RuntimeAnimatorController[] animators;
+    [SerializeField] private KeyCode[] keys;
+    [SerializeField] private Vector2 _mouseScrollWheel;
+    public int weaponSelect;
+
+    public IState _currentWeaponState;
+
+    /*[SerializeField] */
+    [SerializeField] public RuntimeAnimatorController[] animators;
+
+    public WeaponScriptableObject _currentWeapon/* = null*/;   
 
     [SerializeField] private WeaponType _currentWeaponType;
+    [SerializeField] private WeaponFireMode _currentWeaponFireMode;
 
-    public WeaponType CurrentWeaponType { get => _currentWeaponType; set => _currentWeaponType = value; }    
+    public WeaponType CurrentWeaponType { get => _currentWeaponType; set => _currentWeaponType = value; }
+    public WeaponFireMode CurrentWeaponFireMode { get => _currentWeaponFireMode; set => _currentWeaponFireMode = value; }
+    public GameObject[] WeaponPrefabs { get => _weaponPrefabs; set => _weaponPrefabs = value; }
+    public IState CurrentWeaponState { get => _currentWeaponState; set => _currentWeaponState = value; }
+
+    //private void OnEnable()
+    //{
+    //    test.Play(_currentWeapon.ArmsRaiseAnim.ToString());
+    //}
+
+    //private void OnDisable()
+    //{
+    //    test.Play(_currentWeapon.ArmsLowerAnim.ToString());   
+    //}
 
     // Start is called before the first frame update
     void Start()
-    {
-        weaponScript = Weapon.instance;
-        CurrentWeaponType = WeaponType.Unarmed;        
-        WeaponSpwanByClass(CurrentWeaponType);
+    {        
+        CurrentWeaponType = WeaponType.Unarmed;
+        WeaponSpawnByClass(CurrentWeaponType);
+        GetCurrentWeaponState((int)CurrentWeaponType);
     }     
 
-    void WeaponSpwanByClass(WeaponType weaponClass) 
+    private IState GetCurrentWeaponState(int weaponIndex)
     {
-        if (_currentWeaponType != WeaponType.Unarmed)
+        switch (weaponIndex)
         {
-            _currentWeaponType = WeaponType.Unarmed;
-            Destroy(_currentWeaponInstance);
+            case 0:
+                CurrentWeaponState = Normal_State.GetInstance();
+                break;
+            case 1:
+                CurrentWeaponState = Pistol_State.GetInstance();
+                break;
+            case 2:
+                CurrentWeaponState = AssaultRifle_State.GetInstance();
+                break;
         }
 
-        if (weaponClass == WeaponType.Unarmed)
+        Debug.Log(CurrentWeaponState.ToString());
+
+        return CurrentWeaponState;
+    }
+
+    public void WeaponSpawnByClass(WeaponType weaponClass) 
+    {
+        for (int i = 0; i < _weaponPrefabs.Length; i++)
         {
-            Destroy(_currentWeaponInstance);
+            //if (ArmsAnim.runtimeAnimatorController.name == animators[0].name)                
+            //    WeaponPrefabs[i].gameObject.SetActive(i == (int)weaponClass);
+            //else
+            //{
+            //    ArmsAnim.SetTrigger("WeaponSwap");
+            WeaponPrefabs[i].gameObject.SetActive(i == (int)weaponClass);
+            //}
+            //if (i != (int)weaponClass)
+            //{
+            //    GameObject.FindGameObjectsWithTag("Weapon");
+            //    _weaponPrefabs[i].gameObject.SetActive(false/*i != (int)weaponClass*/);
+            //}
 
-            _currentWeaponInstance = null;
-            _currentWeapon = null;
+            if (WeaponPrefabs[(int)weaponClass].activeInHierarchy)
+            {
+                _currentWeapon = GetComponentInChildren<Weapon>().WeaponSO;
+                rbController.currentPlayerState = _currentWeapon.weaponState;
+                CurrentWeaponFireMode = _currentWeapon.WeaponFireMode; 
+                ArmsAnim = GetComponentInChildren<Animator>();
 
-            //WeaponSpwanByClass(weaponClass);
-            Debug.Log("Unarmed");
-        }
-        if (weaponClass == WeaponType.AssaultRifle)
+                if (WeaponPrefabs[(int)weaponClass] != WeaponPrefabs[0])
+                {
+                    weaponShoot = WeaponPrefabs[(int)weaponClass].GetComponentInChildren<WeaponShoot>();
+                }
+                else
+                    weaponShoot = null;
+
+                //FindObjectOfType<WeaponShoot>().playerInputActions.Weapon.Enable();
+                //PlayerInputActions.PlayerActions playerActions = new PlayerInputActions.PlayerActions();
+                //playerActions.Fire.Enable();
+                //PlayerUIManager.onPlayerSprint += 
+
+                if (ArmsAnim.runtimeAnimatorController != animators[0])
+                {
+                    ArmsAnim.Play(_currentWeapon.ArmsRaiseAnim.name);
+                }  
+                
+                //Debug.Log(GetCurrentWeaponState(i).ToString());
+            }
+        }    
+    }
+
+    public void OnMouseWeaponChange(InputAction.CallbackContext context)
+    {
+        _mouseScrollWheel.y = context.ReadValue<float>();
+        
+        Debug.Log("Scroll Wheel Y Axis Value : " + _mouseScrollWheel.y);
+        
+        int previousWeaponSelect = weaponSelect;
+
+        _mouseScrollWheel.y = Mathf.Clamp(_mouseScrollWheel.y, -120f, 120f);
+
+        //int i = 0;
+
+        if (/*int i = 0;*/ _weaponPrefabs.Length != 0/*; i++*/)
         {
-            Destroy(_currentWeaponInstance);
+            if (_mouseScrollWheel.y > 0f/* && weaponSelect > 0*/)
+            {
+                //i += (int)_mouseScrollWheel.normalized.y;
+                rbController.IsAiming = false;
+                ArmsAnim = GetComponentInChildren<Animator>();
+                //if (ArmsAnim.runtimeAnimatorController != animators[0])
+                //{
+                //    ArmsAnim.Play(_currentWeapon.ArmsLowerAnim.name);
+                //}
+                //if(i == 1)
+                weaponSelect = Mathf.Clamp(weaponSelect/*(int)_mouseScrollWheel.y*/, 0, _weaponPrefabs.Length - 2);
 
-            _currentWeaponInstance = Instantiate(
-                                        _assaultRiflesPrefab[0],
-                                        //weaponSocket.position,
-                                        //Quaternion.identity,
-                                        GameObject.Find("WeaponLocation").transform
-                                     );
+                weaponSelect++/*(int)_mouseScrollWheel.normalized.y*/;                
 
-            weaponScript = FindObjectOfType<Weapon>();
-            _currentWeapon = weaponScript._weapon;
-            CurrentWeaponType = _currentWeapon.WeaponType;            
-            Debug.Log("Assault Rifle");
-        }
-        if (weaponClass == WeaponType.Pistol)
-        {
-            Destroy(_currentWeaponInstance);
+                GetCurrentWeaponState(weaponSelect);
 
-            _currentWeaponInstance = Instantiate(
-                                        _pistolsPrefab[0],
-                                        //weaponSocket.position,
-                                        //Quaternion.identity,
-                                        GameObject.Find("WeaponLocation").transform
-                                     );
+                if (previousWeaponSelect != weaponSelect)                
+                        WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);
+                
+                //else
+                //weaponSelect = i;
+            }
 
-            weaponScript = FindObjectOfType<Weapon>();
-            _currentWeapon = weaponScript._weapon;
-            CurrentWeaponType = _currentWeapon.WeaponType;            
-            Debug.Log("Pistol");
-        }           
+            if (_mouseScrollWheel.y < 0f/* && weaponSelect > 0*/)
+            {
+                //i -= (int)_mouseScrollWheel.normalized.y;
+                rbController.IsAiming = false;
+                ArmsAnim = GetComponentInChildren<Animator>();               
+
+                if(weaponSelect > 0)
+                    weaponSelect--;
+
+                //if (ArmsAnim.runtimeAnimatorController != animators[0] && previousWeaponSelect != weaponSelect)
+                //{
+                //    ArmsAnim.Play(_currentWeapon.ArmsLowerAnim.name);
+                //    ArmsAnim.SetTrigger("WeaponSwap");
+                //    WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);
+                //}
+
+                //if (ArmsAnim.runtimeAnimatorController != animators[0])
+                //{
+                //    ArmsAnim.Play(_currentWeapon.ArmsLowerAnim.name);
+                //}
+
+                GetCurrentWeaponState(weaponSelect);
+
+                if (previousWeaponSelect != weaponSelect)                
+                        WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);                
+
+                //if (previousWeaponSelect != weaponSelect)
+                //    WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);
+            }
+
+            //if (ArmsAnim.runtimeAnimatorController != animators[0])
+            //{
+            //    ArmsAnim.Play(_currentWeapon.ArmsLowerAnim.name);
+            //}
+
+            //if (previousWeaponSelect != weaponSelect)
+            //    WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);
+        }        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //CurrentWeaponType = _currentWeapon.WeaponType;
-
-        //WeaponClass(CurrentWeaponType);
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            //Destroy(_currentWeaponInstance);
-            CurrentWeaponType = WeaponType.Unarmed;
-            //NewWeapon();            
-            WeaponSpwanByClass(CurrentWeaponType);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            //Destroy(_currentWeaponInstance);
-            CurrentWeaponType = WeaponType.AssaultRifle;
-            //NewWeapon(CurrentWeaponType);
-            //NewWeapon();
-            //_currentWeapon = weaponScript._weapon;
-            //_currentWeaponObject = _currentWeapon.WeaponPrefab;
-            //CurrentWeaponType = _currentWeapon.WeaponType;
-            //_currentWeapon = Resources.Load<WeaponScriptableObject>("Scripts/ScriptableObjects/Weapons/M416");
-            WeaponSpwanByClass(CurrentWeaponType);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            //Destroy(_currentWeaponInstance);
-            CurrentWeaponType = WeaponType.Pistol;
-            //NewWeapon(CurrentWeaponType);
-            //NewWeapon();
-            //_currentWeapon = weaponScript._weapon;
-            //CurrentWeaponType = _currentWeapon.WeaponType;
-            //_currentWeapon = Resources.Load<WeaponScriptableObject>("Scripts/ScriptableObjects/Weapons/M9_Baretta");
-            WeaponSpwanByClass(CurrentWeaponType);
-        }
-        //else 
+        //
+        //for (int i = 0; i < keys.Length; i++)
         //{
-        //    CurrWeaponType = WeaponType.Unarmed;
-        //    WeaponClass(CurrWeaponType);
-        //}
+        //    int previousWeaponSelect = weaponSelect;
 
-        //switch (weaponClassScriptableObject.WeaponType)
-        //{
-        //    case WeaponType.AssaultRifle:
-        //        weaponClassScriptableObject.Current_State = AssaultRifle_State.GetInstance();
-        //        //FPSController.anim.runtimeAnimatorController = animators[1];
-        //        //Debug.Log(weaponClassScriptableObject.Current_State.ToString());
-        //        break;
-        //    case WeaponType.Pistol:
-        //        weaponClassScriptableObject.Current_State = Pistol_State.GetInstance();
-        //        //FPSController.anim.runtimeAnimatorController = animators[2];
-        //        //Debug.Log(weaponClassScriptableObject.Current_State.ToString());
-        //        break;
-        //    case WeaponType.UnArmed:
-        //        weaponClassScriptableObject.Current_State = Normal_State.GetInstance();
-        //        //FPSController.anim.runtimeAnimatorController = animators[0];
-        //        //Debug.Log(weaponClassScriptableObject.Current_State.ToString());
-        //        break;
-        //    //default:
-        //    //    break;
-        //}
-
-        //if (weaponClassScriptableObject.Current_State is Normal_State)
-        //{
-        //}
-        //else if (weaponClassScriptableObject.Current_State is AssaultRifle_State)
-        //{
-        //}
-        //else if (weaponClassScriptableObject.Current_State is Pistol_State)
-        //{
-
-        //}
-
-        //if (true)
-        //{
-        //    if (FPSController.fireTrigger || FPSController.fireBool || FPSController.isFiring)
+        //    if (Input.GetKeyDown(keys[i]))
         //    {
-                  
-        //    }            
+        //        rbController.IsAiming = false;
+        //        ArmsAnim = GetComponentInChildren<Animator>();
+        //        if (ArmsAnim.runtimeAnimatorController != animators[0])
+        //        {
+        //            ArmsAnim.Play(_currentWeapon.ArmsLowerAnim.name);
+        //        }                
+        //        weaponSelect = i;
+        //    }
+
+        //    if (previousWeaponSelect != weaponSelect)                           
+        //        WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);
         //}
     }
 }
