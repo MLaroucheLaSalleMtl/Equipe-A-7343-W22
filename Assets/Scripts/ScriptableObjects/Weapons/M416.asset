@@ -13,13 +13,53 @@ MonoBehaviour:
   m_Name: M416
   m_EditorClassIdentifier: 
   weaponUISprite: {fileID: 0}
-  weaponAnimator: {fileID: 0}
-  weaponAnimatorController: {fileID: 0}
-  Weapon_Fire_Anim: M416_Fire
-  Weapon_ADSFire_Anim: 
-  Weapon_Reload_Anim: M416_Reload
-  Weapon_Idle_Anim: M416_Idle
-  weaponSoundFX: []
+  ArmsAnimator: {fileID: 8685496709752207042, guid: 99bc635e996167f4e8cc5bd51be057a4, type: 3}
+  weaponAnimator: {fileID: 1846120535868809136, guid: b82a30b6113c5ff48a5ee076c61a0861, type: 3}
+  weaponAnimatorController: {fileID: 9100000, guid: 5b7814306b8e03e4f83b19aa60137ed8, type: 2}
+  ArmsRaiseAnim: {fileID: 7400000, guid: f03c94ee4b5200249a42f42ca8aef0f4, type: 2}
+  ArmsLowerAnim: {fileID: 7400000, guid: 87352a0e0d0ea594b8285ae7c747c4e3, type: 2}
+  ArmsFireAnim: {fileID: 7400000, guid: 0fc46ab4c0273b345a16366edfb193c8, type: 2}
+  ArmsADSFireAnim: {fileID: 7400000, guid: 45d0bd6e86afe2b458306a37da0eb356, type: 2}
+  ArmsReloadAnim: {fileID: 7400000, guid: 79b6cd292496fa94eb0324c808e821ad, type: 2}
+  WeaponFireAnim: {fileID: 7400000, guid: b9fd3d5f07f636b4fbc3e5d4fab6470e, type: 2}
+  WeaponADSFireAnim: {fileID: 0}
+  WeaponReloadAnim: {fileID: 7400000, guid: 0bd58fd0121bbb743a81592105da3480, type: 2}
+  weaponDryFire: {fileID: 0}
+  weaponFire: {fileID: 0}
+  weaponImpact: {fileID: 0}
+  weaponFireStartSoundFX:
+  - {fileID: 8300000, guid: e5a567dc863293f4eacf4ffbf16ac337, type: 3}
+  - {fileID: 8300000, guid: 2081ac432f4bcab4aaa12b3bede92424, type: 3}
+  - {fileID: 8300000, guid: 1b53ede6a26912140b269884cafc1078, type: 3}
+  - {fileID: 8300000, guid: e2ce75692881f38438be72fac1ff8a23, type: 3}
+  - {fileID: 8300000, guid: 998793854358ae54d9f0890ac9787119, type: 3}
+  - {fileID: 8300000, guid: 48c23aa14334a36499395af649f30d1c, type: 3}
+  weaponFireEndSoundFX:
+  - {fileID: 8300000, guid: ef8721c7d909ed14a9d20598f83f1d73, type: 3}
+  - {fileID: 8300000, guid: de7b6243e2cc6b048bd05ac73d62b645, type: 3}
+  - {fileID: 8300000, guid: 6143f88d916babd45a176d28d61aea58, type: 3}
+  weaponReloadSoundFX: []
+  weaponImpactSoundFX:
+  - {fileID: 8300000, guid: bf993883fb51b3d4c98e5c14ddfb03a5, type: 3}
+  - {fileID: 8300000, guid: f87309bbdb64133498e403cff7eb397d, type: 3}
+  - {fileID: 8300000, guid: 1adc83f00e0782a458119bbf5d81e822, type: 3}
+  - {fileID: 8300000, guid: c9ad9e94159aa5440acdeb1701768390, type: 3}
+  - {fileID: 8300000, guid: a86935864df474b4b9ffb503bc95f750, type: 3}
+  - {fileID: 8300000, guid: 3246fac0ca62d1d4984fe8e49bd2c4eb, type: 3}
+  weaponImpactBodySoundFX:
+  - {fileID: 8300000, guid: 7f740a6a6055f564aaeabfad9f7c197e, type: 3}
+  - {fileID: 8300000, guid: 1cb3eed636d3b3943a575af51d620235, type: 3}
+  - {fileID: 8300000, guid: 3f6917c44dea73f49b78df8952f9c65b, type: 3}
+  - {fileID: 8300000, guid: 40037b2363d707e4cae914e87a810e81, type: 3}
+  - {fileID: 8300000, guid: 54d82a9ae51e36d4489f577f053a0208, type: 3}
+  - {fileID: 8300000, guid: 469934d9bdd8c814fb91a608980bd6d7, type: 3}
+  weaponWhipSoundFX:
+  - {fileID: 8300000, guid: 25cd1d77fa78773448d687cac47729a8, type: 3}
+  - {fileID: 8300000, guid: e7e8a8dd16760f246b690357712b8bfc, type: 3}
+  - {fileID: 8300000, guid: 2a5606f483d55924893d7578124781bd, type: 3}
+  - {fileID: 8300000, guid: a149a62a303abba4eb577b1a426680bf, type: 3}
+  - {fileID: 8300000, guid: 41c311ead95f3cb438aa2da466fa4e49, type: 3}
+  fireRate: 850
   maxFireRange: 250
   weaponMaxAmmo: 252
   weaponMagazineAmmo: 30

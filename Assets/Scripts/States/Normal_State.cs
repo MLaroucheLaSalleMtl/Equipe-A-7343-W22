@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Normal_State : IState
 {
+    //public bool IsFiring = false;
     #region Singleton
     static WeaponClassScriptableObject _weaponClassScriptableObject;
     //private static WeaponTypeEnum _weaponType;
@@ -27,17 +29,17 @@ public class Normal_State : IState
         return instance;
     }
     #endregion
-
-    public bool CanFire()
+       
+    void IState.OnFire(InputAction.CallbackContext context, bool _isFiring)
     {
-        return false;
+        _isFiring = false;
     }
 
-    public WeaponType WeaponTypeUpdater(WeaponType _weaponType)
-    {
-        _weaponType = _weaponClassScriptableObject.WeaponType;
-        return _weaponType;
-    }
+    //public WeaponType WeaponTypeUpdater(WeaponType _weaponType)
+    //{
+    //    _weaponType = _weaponClassScriptableObject.WeaponType;
+    //    return _weaponType;
+    //}
 
     //public Animator playerAimator(Animator _playerAnimator) 
     //{
