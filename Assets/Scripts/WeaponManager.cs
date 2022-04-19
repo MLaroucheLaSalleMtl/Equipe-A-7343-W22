@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,10 +16,16 @@ public class WeaponManager : MonoBehaviour
     private RigidBodyFPSController rbController;
 
     [SerializeField] private Transform weaponSocket;
-    [SerializeField] private WeaponScriptableObject[] defaultWeapon;
+
+    public GameObject defaultWeapon;
+    public GameObject M9Weapon;
+    public GameObject M416Weapon;
+
     [SerializeField] private GameObject[] _weaponPrefabs;
 
     public List<GameObject> weaponPickUpList = new List<GameObject>();
+    //public List<GameObject> itemPickUpList = new List<GameObject>();
+    public List<GameObject> keyItemPickUpList = new List<GameObject>();
 
     //[SerializeField] private GameObject[] _pistolsPrefab;
     //private GameObject _currentWeaponInstance = null;
@@ -34,8 +42,10 @@ public class WeaponManager : MonoBehaviour
 
         if (weaponPickUpList.Count > 0)
         {
-            foreach (GameObject weapon in weaponPickUpList) 
-            {                
+            //UpdateWeaponList();
+
+            foreach (GameObject weapon in weaponPickUpList)
+            {
                 Instantiate(weapon, this.transform);
                 weapon.SetActive(true);
                 WeaponPrefabs = GameObject.FindGameObjectsWithTag("Weapon");
@@ -82,11 +92,43 @@ public class WeaponManager : MonoBehaviour
     //    test.Play(_currentWeapon.ArmsLowerAnim.ToString());   
     //}
 
+    public void UpdateWeaponList()
+    {
+        foreach (GameObject weapon in weaponPickUpList)
+        {
+            if (weapon == defaultWeapon/* || weapon != M9Weapon || weapon != M416Weapon*/)
+            {                
+                continue;
+            }
+            //if (weapon == M416Weapon)
+            //{
+            //    continue;
+            //}
+            //else
+            //{
+                Instantiate(weapon, this.transform);
+                weapon.SetActive(true);
+                WeaponPrefabs = GameObject.FindGameObjectsWithTag("Weapon");
+                //break;
+                //Instantiate(weapon, this.transform);
+                //weapon.SetActive(true);
+                //WeaponPrefabs = GameObject.FindGameObjectsWithTag("Weapon");
+            //}                    
+         }        
+    }
+
+    public void AddToList(GameObject wpPrefab)
+    {
+        weaponPickUpList.Add(wpPrefab);
+        weaponPickUpList = new List<GameObject>();
+        _weaponPrefabs = weaponPickUpList.ToArray();
+    }
+
     // Start is called before the first frame update
     void Start()
     {        
         CurrentWeaponType = WeaponType.Unarmed;
-        WeaponSpawnByClass(CurrentWeaponType);
+        WeaponSpawnByClass((int)CurrentWeaponType);
         GetCurrentWeaponState((int)CurrentWeaponType);
     }     
 
@@ -110,7 +152,7 @@ public class WeaponManager : MonoBehaviour
         return CurrentWeaponState;
     }
 
-    public void WeaponSpawnByClass(WeaponType weaponClass) 
+    public void WeaponSpawnByClass(int weaponClass) 
     {
         for (int i = 0; i < _weaponPrefabs.Length; i++)
         {
@@ -132,6 +174,7 @@ public class WeaponManager : MonoBehaviour
                 _currentWeapon = GetComponentInChildren<Weapon>().WeaponSO;
                 rbController.currentPlayerState = _currentWeapon.weaponState;
                 CurrentWeaponFireMode = _currentWeapon.WeaponFireMode;
+                CurrentWeaponType = _currentWeapon.WeaponType;
                 ArmsAnim = GetComponentInChildren<Animator>();
 
                 if (WeaponPrefabs[(int)weaponClass] != WeaponPrefabs[0])
@@ -184,7 +227,7 @@ public class WeaponManager : MonoBehaviour
                 GetCurrentWeaponState(weaponSelect);
 
                 if (previousWeaponSelect != weaponSelect)                
-                        WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);               
+                        WeaponSpawnByClass(/*CurrentWeaponType = (WeaponType)*/weaponSelect);               
             }
 
             if (_mouseScrollWheel.y < 0f)
@@ -210,7 +253,7 @@ public class WeaponManager : MonoBehaviour
                 GetCurrentWeaponState(weaponSelect);
 
                 if (previousWeaponSelect != weaponSelect)                
-                        WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);
+                        WeaponSpawnByClass(/*CurrentWeaponType = (WeaponType)*/weaponSelect);
             }
         }        
     }
@@ -233,7 +276,7 @@ public class WeaponManager : MonoBehaviour
             }
 
             if (previousWeaponSelect != weaponSelect)
-                WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);
+                WeaponSpawnByClass(/*CurrentWeaponType = (WeaponType)*/weaponSelect);
         }
     }
 
@@ -245,6 +288,13 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (weaponPickUpList.Count > 1)
+        //{
+           // WeaponPrefabs = GameObject.FindGameObjectsWithTag("Weapon");
+        //}
+
+        //_weaponPrefabs = weaponPickUpList.ToArray();
+
         //
         //for (int i = 0; i < keys.Length; i++)
         //{

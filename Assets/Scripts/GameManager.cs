@@ -8,13 +8,14 @@ public class GameManager : MonoBehaviour
 {
     public GameObject completLevelUi;
     public void CompletTheGame()
-    {
+    {        
         completLevelUi.SetActive(true);
     }
     
     public void Start()
     {
-
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame

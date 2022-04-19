@@ -11,21 +11,6 @@ using System;
 
 public class WeaponShoot : MonoBehaviour
 {
-    //public delegate void TestOnFireAutoDelegate(InputAction.CallbackContext context);
-    //public static TestOnFireAutoDelegate testOnFireAutoDelegate;
-
-    //public delegate void OnFireAutoDelegate();
-    //public static OnFireAutoDelegate onFireAutoDelegate;
-
-    //public delegate void OnFireSemiDelegate();
-    //public static OnFireSemiDelegate onFireSemiDelegate;
-
-    //public delegate void OnReloadDelegate();
-    //public static OnReloadDelegate onReloadDelegate;
-
-    PlayerInputActions playerInputActions;
-    PlayerInputActions.PlayerActions playerActions;
-
     //Temp Variables
     private float m_reloadTime;
 
@@ -116,8 +101,24 @@ public class WeaponShoot : MonoBehaviour
             {
                 //Play Dry Fire SFX Here instead of inside the FireEvent Funcion
                 dryFireAudioSource.PlayOneShot(_wpManager._currentWeapon.weaponDryFire);
+
+                //if (currAvailableAmmo == 0)
+                //{
+                //    StartCoroutine(GiveAmmo());         
+                //}
+
+                //if (currAvailableAmmo == 0)
+                //{
+                //    StartCoroutine(GiveAmmo());
+                //}
             }
         }
+    }
+
+    public IEnumerator GiveAmmo()
+    {
+        yield return new WaitForSeconds(5f);
+        currAvailableAmmo += _weapon.WeaponSO.WeaponMaxAmmo;
     }
 
     public IEnumerator Reloading()
@@ -219,8 +220,6 @@ public class WeaponShoot : MonoBehaviour
         _canReload = true;
         
         _armsAnim = _weapon.WeaponSO.ArmsAnimator;
-
-        //onReloadDelegate += OnReload;
     }
 
     private void OnDisable()
@@ -229,70 +228,7 @@ public class WeaponShoot : MonoBehaviour
         _canReload = false;
         IsReloading = false;
         _isFiring = false;
-
-        //onReloadDelegate -= OnReload;
-    }
-    
-    //public void OnFirePistols(InputAction.CallbackContext context)
-    //{
-    //    if (_canFire && context.interaction is TapInteraction)
-    //    {
-    //        //IsFiring = context.performed;
-    //        FireEvent();
-    //    } 
-
-    //    IsFiring = false;
-    //}
-
-    //public void OnFire(InputAction.CallbackContext context)
-    //{
-    //    if (_canFire && !IsReloading)
-    //    {
-    //        switch (context.phase)
-    //        {
-    //            //case InputActionPhase.Disabled:
-    //            //    break;
-    //            //case InputActionPhase.Waiting:
-    //            //    break;
-    //            case InputActionPhase.Performed:
-    //                if (context.interaction is HoldInteraction)
-    //                {
-    //                    //AutoFireEvent();
-    //                }
-    //                else
-    //                {
-    //                    FireEvent();
-    //                }
-    //                IsFiring = false;
-    //                break;
-
-    //            case InputActionPhase.Started:
-    //                if (context.interaction is HoldInteraction)
-    //                    IsFiring = true;
-    //                break;
-
-    //            case InputActionPhase.Canceled:
-    //                IsFiring = false;
-    //                break;
-    //        }
-    //    }
-    //}
-
-    //public void OnFireAssaultRifles(InputAction.CallbackContext context)
-    //{
-    //    if (_canFire)
-    //    {            
-    //        if (context.performed)
-    //        {
-    //            _isFiring = true;
-    //            //AutoFireEvent();
-    //        }
-    //        if (context.canceled)
-    //        {
-    //            _isFiring = false;
-    //        }
-    //    }
-    //}    
+    }    
 
     #region FireEvents
     public void FireEvent()
@@ -300,7 +236,20 @@ public class WeaponShoot : MonoBehaviour
         //IsFiring = true;
 
         if (IsReloading)
-            StopCoroutine(Firing());      
+            StopCoroutine(Firing());
+
+        if (currAvailableAmmo <= 0)
+        {
+            StartCoroutine(GiveAmmo());
+            CanFire = false;
+            print("!!! -- No more Available Ammo -- !!!");
+        }
+
+        if (currMagAmmo <= 0)
+        {
+            CanFire = false;
+            print("!!! -- Magazine is Empty -- !!!");
+        }
 
         if (currMagAmmo > 0)
         {
@@ -319,13 +268,7 @@ public class WeaponShoot : MonoBehaviour
                 WeaponAnim.SetTrigger("IsFiring"); _wpManager.ArmsAnim.SetTrigger("IsFiring");
             }
 
-            _isFiring = false;
-
-            //if (!FPSController.IsAiming)
-
-            //RaycastHit hit;
-            //if (Physics.Raycast(muzzleLocation.transform.position, muzzleLocation.transform.forward, out hit, _weapon.WeaponSO.MaxFireRange))
-            //{
+            _isFiring = false;            
 
             Debug.DrawRay(muzzleLocation.transform.position, muzzleLocation.transform.forward * _weapon.WeaponSO.MaxFireRange, Color.yellow);
             muzzleFX.StartEmit(_weapon.WeaponSO.MaxFireRange);
@@ -342,23 +285,10 @@ public class WeaponShoot : MonoBehaviour
             Debug.Log("Current DMG : " + currDMG +
                     " , Current Mag Ammo : " + currMagAmmo +
                     " , Current Ammo : " + currAvailableAmmo);
-        }
-        //if (IsFiring && IsAiming)
-        //    GetComponentInParent<Animator>().SetBool("isAiming&Firing", true);
+        }        
         else if (/*FPSController.fireBool || FPSController.*//*IsFiring*/ /*|| FPSController.fireTrigger*/ /*&&*/ currAvailableAmmo <= 0 || currMagAmmo <= 0 && !IsReloading)
         {
-            if (currAvailableAmmo <= 0)
-            {
-                CanFire = false;
-                print("!!! -- No more Available Ammo -- !!!");
-            }
-
-            if (currMagAmmo <= 0)
-            {
-                CanFire = false;
-                print("!!! -- Magazine is Empty -- !!!");
-            }
-
+            
             //if (_weaponScript._weapon.weaponSoundFX[1] /*&& !manager.isPaused */ /* && currMagAmmo >= 0*/)
             //    _weaponScript._weapon.weaponSoundFX[1].PlayOneShot(_weaponScript._weapon.weaponSoundFX[0].clip);
             //FPSController.fireTrigger = false;
@@ -413,12 +343,8 @@ public class WeaponShoot : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (currAvailableAmmo == 0)
-        {
-            CantShoot();
-            CanReload = false;
-        }
+    {       
+        
 
         if (IsReloading)
         {

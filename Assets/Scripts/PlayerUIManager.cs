@@ -10,28 +10,25 @@ public class PlayerUIManager : MonoBehaviour
 
     RigidBodyFPSController FPSController;
 
-    public Slider playerHealthSlider;
-    public Slider playerArmorSlider;
     public Slider playerStaminaSlider;
 
     private void Awake()
     {
         FPSController = FindObjectOfType<RigidBodyFPSController>();
-        playerStaminaUpdate += OnPlayerSprint;
+        playerStaminaUpdate += PlayerStamina;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         //Move the player stats to a scriptable OBJ 
-        playerArmorSlider.value = FPSController.playerStatsSO.PlayerArmor;
-        playerHealthSlider.value = FPSController.playerStatsSO.PlayerHealth;
+       
         playerStaminaSlider.value = FPSController.playerStatsSO.PlayerStamina;
     }
 
-    public void OnPlayerSprint()
+    public void PlayerStamina()
     {
-        playerStaminaSlider.value -= 0.1f;
+        playerStaminaSlider.value = FPSController.playerStamina;
     }
 
     // Update is called once per frame

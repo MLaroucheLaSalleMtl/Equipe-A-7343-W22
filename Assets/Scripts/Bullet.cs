@@ -39,8 +39,8 @@ public class Bullet : MonoBehaviour
             Quaternion rotFX = Quaternion.LookRotation(collision.contacts[0].normal);
             GameObject bullet = Instantiate(bulletHole[0], collision.contacts[0].point, rotFX);
             bullet.transform.parent = collision.collider.transform;
-            gameObject.SetActive(false);
             wp.WeaponSO.PlayBulletImpactSFX(collision.collider.tag, bulletImpactAudioSource);
+            gameObject.SetActive(false);
             Destroy(bullet, 2f);
         }
         if (collision.collider.CompareTag("Wood"))
@@ -48,8 +48,8 @@ public class Bullet : MonoBehaviour
             Quaternion rotFX = Quaternion.LookRotation(collision.contacts[0].normal);
             GameObject bullet = Instantiate(bulletHole[1], collision.contacts[0].point, rotFX);
             bullet.transform.parent = collision.collider.transform;
-            gameObject.SetActive(false);
             wp.WeaponSO.PlayBulletImpactSFX(collision.collider.tag, bulletImpactAudioSource);
+            gameObject.SetActive(false);
             Destroy(bullet, 2f);
         }
         if (collision.collider.CompareTag("Sand"))
@@ -66,8 +66,8 @@ public class Bullet : MonoBehaviour
             Quaternion rotFX = Quaternion.LookRotation(collision.contacts[0].normal);
             GameObject bullet = Instantiate(bulletHole[3], collision.contacts[0].point, rotFX);
             bullet.transform.parent = collision.collider.transform;
-            gameObject.SetActive(false);
             wp.WeaponSO.PlayBulletImpactSFX(collision.collider.tag, bulletImpactAudioSource);
+            gameObject.SetActive(false);
             Destroy(bullet, 2f);
         }
         if (collision.collider.CompareTag("Zombies"))
@@ -77,8 +77,8 @@ public class Bullet : MonoBehaviour
             Quaternion rotFX = Quaternion.LookRotation(collision.contacts[0].normal);
             GameObject bullet = Instantiate(bulletHole[4], collision.contacts[0].point, rotFX);
             bullet.transform.parent = collision.collider.transform;
-            gameObject.SetActive(false);
             wp.WeaponSO.PlayBulletImpactSFX(collision.collider.tag, bulletImpactAudioSource);
+            gameObject.SetActive(false);
             Destroy(bullet, 2f);
         }
     }

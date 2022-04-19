@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spray Brush Tool
   m_EditorClassIdentifier: 
   BrushSettings:
-    _brushSpacing: 5
-    _brushSize: 118
+    _brushSpacing: 30
+    _brushSize: 100
     BrushSettingsEditor:
       brushSettingsFoldout: 1

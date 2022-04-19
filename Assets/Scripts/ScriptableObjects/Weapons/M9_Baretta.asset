@@ -24,14 +24,35 @@ MonoBehaviour:
   WeaponFireAnim: {fileID: 7400000, guid: e23c7534d5a7f1e43aca35fbbdbb9a72, type: 2}
   WeaponADSFireAnim: {fileID: 7400000, guid: a598d65fb75f08e41b77e160b28c5a8b, type: 2}
   WeaponReloadAnim: {fileID: 7400000, guid: be7673d273feb3546a92ff0c815b5122, type: 2}
-  weaponDryFire: {fileID: 0}
-  weaponFireStartSoundFX: []
-  weaponFireEndSoundFX: []
-  weaponReloadSoundFX: []
-  weaponImpactSoundFX: []
-  weaponImpactBodySoundFX: []
+  weaponDryFire: {fileID: 8300000, guid: f01697ad00027a6499450d9b8223534c, type: 3}
+  weaponFireStartSoundFX:
+  - {fileID: 8300000, guid: c3c46106c5e70b74f99c12d3f7f726ec, type: 3}
+  - {fileID: 8300000, guid: c3c46106c5e70b74f99c12d3f7f726ec, type: 3}
+  - {fileID: 8300000, guid: c3c46106c5e70b74f99c12d3f7f726ec, type: 3}
+  - {fileID: 8300000, guid: c3c46106c5e70b74f99c12d3f7f726ec, type: 3}
+  - {fileID: 8300000, guid: c3c46106c5e70b74f99c12d3f7f726ec, type: 3}
+  weaponFireEndSoundFX:
+  - {fileID: 8300000, guid: c3c46106c5e70b74f99c12d3f7f726ec, type: 3}
+  - {fileID: 8300000, guid: c3c46106c5e70b74f99c12d3f7f726ec, type: 3}
+  - {fileID: 8300000, guid: c3c46106c5e70b74f99c12d3f7f726ec, type: 3}
+  weaponReloadSoundFX:
+  - {fileID: 8300000, guid: d64ded8dfd116c94cbc105f1b5317a2d, type: 3}
+  weaponImpactSoundFX:
+  - {fileID: 8300000, guid: bf993883fb51b3d4c98e5c14ddfb03a5, type: 3}
+  - {fileID: 8300000, guid: f87309bbdb64133498e403cff7eb397d, type: 3}
+  - {fileID: 8300000, guid: 1adc83f00e0782a458119bbf5d81e822, type: 3}
+  - {fileID: 8300000, guid: c9ad9e94159aa5440acdeb1701768390, type: 3}
+  - {fileID: 8300000, guid: a86935864df474b4b9ffb503bc95f750, type: 3}
+  - {fileID: 8300000, guid: 3246fac0ca62d1d4984fe8e49bd2c4eb, type: 3}
+  weaponImpactBodySoundFX:
+  - {fileID: 8300000, guid: 7f740a6a6055f564aaeabfad9f7c197e, type: 3}
+  - {fileID: 8300000, guid: 1cb3eed636d3b3943a575af51d620235, type: 3}
+  - {fileID: 8300000, guid: 3f6917c44dea73f49b78df8952f9c65b, type: 3}
+  - {fileID: 8300000, guid: 40037b2363d707e4cae914e87a810e81, type: 3}
+  - {fileID: 8300000, guid: 54d82a9ae51e36d4489f577f053a0208, type: 3}
+  - {fileID: 8300000, guid: 469934d9bdd8c814fb91a608980bd6d7, type: 3}
   weaponWhipSoundFX: []
-  fireRate: 0
+  fireRate: 5000
   maxFireRange: 100
   weaponMaxAmmo: 150
   weaponMagazineAmmo: 12

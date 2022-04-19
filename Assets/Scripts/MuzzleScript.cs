@@ -7,7 +7,7 @@ public class MuzzleScript : MonoBehaviour
     //private WeaponScriptableObject weaponScriptable;
     [SerializeField] private Transform _weaponMuzzleLocation;
     private ParticleSystem wpVFX;
-    private LineRenderer wpLine;
+    //private LineRenderer wpLine;
 
     private float duration = 0.03f;
 
@@ -17,14 +17,14 @@ public class MuzzleScript : MonoBehaviour
     void Start()
     {
         wpVFX = GetComponent<ParticleSystem>();
-        wpLine = GetComponentInChildren<LineRenderer>();
+        //wpLine = GetComponentInChildren<LineRenderer>();
     }
 
     // Update is called once per frame
     public void StartEmit(float lineDistance)
     {
         wpVFX.Play();
-        wpVFX.TriggerSubEmitter(0);
+        //wpVFX.TriggerSubEmitter(0);
 
         //GameObject bulletOBJCopy = BulletPool.SharedBulletInstance.GetPooledBullet();
         //if (bulletOBJCopy != null)
@@ -34,8 +34,8 @@ public class MuzzleScript : MonoBehaviour
         //    bulletOBJCopy.SetActive(true);
         //}
 
-        Vector3 endPosition = transform.position + transform.forward * lineDistance;
-        DrawLine(endPosition);
+        //Vector3 endPosition = transform.position + transform.forward * lineDistance;
+        //DrawLine(endPosition);
     }
 
     public void StartEmit(Vector3 endPosition)
@@ -43,23 +43,23 @@ public class MuzzleScript : MonoBehaviour
         wpVFX.Play();
         wpVFX.TriggerSubEmitter(0);
         
-        DrawLine(endPosition);
+        //DrawLine(endPosition);
     }
 
-    void DrawLine(Vector3 endPosition)
-    {
-        wpLine.enabled = true;
-        Vector3[] points = new Vector3[2];
-        points[0] = transform.position;
-        points[1] = endPosition;
-        wpLine.positionCount = points.Length;
-        wpLine.SetPositions(points);
+    //void DrawLine(Vector3 endPosition)
+    //{
+    //    wpLine.enabled = true;
+    //    Vector3[] points = new Vector3[2];
+    //    points[0] = transform.position;
+    //    points[1] = endPosition;
+    //    wpLine.positionCount = points.Length;
+    //    //wpLine.SetPositions(points);
 
-        Invoke("StopEmit", duration);
-    }
+    //    Invoke("StopEmit", duration);
+    //}
 
-    void StopEmit() 
-    {
-        wpLine.enabled = false; 
-    }
+    //void StopEmit() 
+    //{
+    //    wpLine.enabled = false; 
+    //}
 }

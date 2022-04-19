@@ -4232,7 +4232,7 @@ GameObject:
   - component: {fileID: 6931748496676511657}
   m_Layer: 3
   m_Name: WeaponSwitch
-  m_TagString: Untagged
+  m_TagString: WeaponSwitch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -4267,12 +4267,14 @@ MonoBehaviour:
   ArmsAnim: {fileID: 0}
   weaponShoot: {fileID: 0}
   weaponSocket: {fileID: 0}
-  defaultWeapon: []
+  defaultWeapon: {fileID: 2675957613276378626, guid: 4ffbc6abc4ff53b449ad2e0cd7d39ef0, type: 3}
+  M9Weapon: {fileID: 2675957613276378626, guid: 3c43110a4108be44db334c8c98180c2d, type: 3}
+  M416Weapon: {fileID: 2675957613276378626, guid: 99bc635e996167f4e8cc5bd51be057a4, type: 3}
   _weaponPrefabs: []
   weaponPickUpList:
   - {fileID: 2675957613276378626, guid: 4ffbc6abc4ff53b449ad2e0cd7d39ef0, type: 3}
-  - {fileID: 2675957613276378626, guid: 3c43110a4108be44db334c8c98180c2d, type: 3}
   - {fileID: 2675957613276378626, guid: 99bc635e996167f4e8cc5bd51be057a4, type: 3}
+  keyItemPickUpList: []
   keys: 310000003200000033000000
   _mouseScrollWheel: {x: 0, y: 0}
   weaponSelect: 0
@@ -4695,9 +4697,12 @@ MonoBehaviour:
   ArmsAnim: {fileID: 0}
   weaponShoot: {fileID: 0}
   weaponSocket: {fileID: 4849563771092399799}
-  defaultWeapon: []
+  defaultWeapon: {fileID: 0}
+  M9Weapon: {fileID: 0}
+  M416Weapon: {fileID: 0}
   _weaponPrefabs: []
   weaponPickUpList: []
+  keyItemPickUpList: []
   keys: 
   _mouseScrollWheel: {x: 0, y: 0}
   weaponSelect: 0
@@ -5101,6 +5106,7 @@ GameObject:
   - component: {fileID: 4849563771031022607}
   - component: {fileID: 4849563771031022592}
   - component: {fileID: 4849563771031022593}
+  - component: {fileID: 2290481676561091352}
   m_Layer: 3
   m_Name: RigidbodyController
   m_TagString: Player
@@ -5167,6 +5173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatsSO: {fileID: 11400000, guid: 4739bd7396604f549b45ef5d717f72ca, type: 2}
+  playerHealth: 0
+  playerArmor: 0
+  playerStamina: 0
+  _weaponManager: {fileID: 0}
   cam: {fileID: 4849563771732940920}
   playerBodyCam: {fileID: 4849563770491167240}
   PlayerArms: {fileID: 2675957613276378626, guid: 99bc635e996167f4e8cc5bd51be057a4, type: 3}
@@ -5176,9 +5186,21 @@ MonoBehaviour:
   runSmoothTime: 0.2
   allButPlayer:
     serializedVersion: 2
-    m_Bits: 4151
+    m_Bits: 183
   fireTrigger: 0
   fireBool: 0
+--- !u!114 &2290481676561091352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4849563771031022596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d276d6149b0037445b6e0c2c9db9b39c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4849563771039771764
 GameObject:
   m_ObjectHideFlags: 0
@@ -6211,7 +6233,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 98103
+    m_Bits: 98231
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

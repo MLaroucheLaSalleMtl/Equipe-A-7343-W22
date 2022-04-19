@@ -13,6 +13,9 @@ public class RigidBodyFPSController : MonoBehaviour
     PlayerInputActions.PlayerActions playerMovement;
 
     public PlayerStatsSO playerStatsSO;
+    public float playerHealth;
+    public float playerArmor;
+    public float playerStamina;
 
     //WeaponShoot wpShoot;
 
@@ -23,8 +26,8 @@ public class RigidBodyFPSController : MonoBehaviour
 
     private void Awake()
     {
-        //controls = new PlayerInputActions();
-        //playerMovement = controls.Player;
+        controls = new PlayerInputActions();
+        playerMovement = controls.Player;
 
 
         //playerMovement.Fire.started += context => 
@@ -50,7 +53,7 @@ public class RigidBodyFPSController : MonoBehaviour
         }
     }
 
-    WeaponManager _weaponManager = null;    
+    public WeaponManager _weaponManager = null;    
 
     public Camera cam;
     public Camera playerBodyCam;
@@ -113,9 +116,53 @@ public class RigidBodyFPSController : MonoBehaviour
         currentPlayerState = Normal_State.GetInstance();        
         rBody = GetComponent<Rigidbody>();
         capsule   = GetComponent<CapsuleCollider>();        
-        camLook.InitSettings(transform, cam.transform);       
+        camLook.InitSettings(transform, cam.transform);
+
+        playerHealth = playerStatsSO.PlayerHealth;
+        playerArmor = playerStatsSO.PlayerArmor;
+        playerStamina = playerStatsSO.PlayerStamina;
     }
-    
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    switch (other.tag)
+    //    {
+    //        case "ArmorSO":
+    //            AmmoCollect.onAmmoCollect?.Invoke();
+    //            break;
+    //        case "HealthPackSO":
+    //            HealthCollect.onHealthCollect?.Invoke();
+    //            break;
+    //        case "AmmoSO":
+    //            AmmoCollect.onAmmoCollect?.Invoke();
+    //            break;
+    //        case "WeaponItemSO":
+    //            //WeaponCollect.onWeaponDelegate?.Invoke();
+    //            break;
+    //    }
+
+    //    //if (other.CompareTag("ArmorSO"))
+    //    //{
+
+    //    //}
+    //    //if (other.CompareTag("HealthPackSO"))
+    //    //{
+
+    //    //}
+    //    //if (other.CompareTag("AmmoSO"))
+    //    //{
+
+    //    //}
+    //    //if (other.CompareTag("KeyItem"))
+    //    //{
+    //    //    _weaponManager.keyItemPickUpList.Add(other.gameObject);
+    //    //}
+    //    //if (other.CompareTag("WeaponItemSO"))
+    //    //{
+    //    //    _weaponManager.weaponPickUpList.Add(other.gameObject);
+    //    //}
+    //}
+
     public void OnMove(InputAction.CallbackContext context)
     {
         move =  context.ReadValue<Vector2>();
@@ -123,7 +170,7 @@ public class RigidBodyFPSController : MonoBehaviour
     public void OnSprint(InputAction.CallbackContext context)
     {
         if(_canSprint)
-            IsSprinting = context.performed;        
+            IsSprinting = context.performed;          
     }
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -221,17 +268,36 @@ public class RigidBodyFPSController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsSprinting)
+        if (_weaponManager.weaponShoot != null)
         {
-            if(_weaponManager.CurrentWeaponType != WeaponType.Unarmed)
+            if (Time.timeScale <= 0f)
+                playerMovement.Fire.Disable();
+            else
+                playerMovement.Fire.Enable();
+        }
+
+
+        if (playerStamina <= 0)
+        {
+            StartCoroutine(RegainStamina());
+        }
+
+        if (IsSprinting && playerStamina > 0)
+        {            
+            playerStamina -= 0.1f;
+
+            if (_weaponManager.CurrentWeaponType != WeaponType.Unarmed)
             {
                 _weaponManager.weaponShoot.CantShoot();
             }
             PlayerUIManager.playerStaminaUpdate?.Invoke();
         }
-        else if(!IsSprinting && _weaponManager.CurrentWeaponType != WeaponType.Unarmed)
+        else if(!IsSprinting)
         {
-            _weaponManager.weaponShoot.CanFire = true;
+            if (_weaponManager.CurrentWeaponType != WeaponType.Unarmed)
+            {
+                _weaponManager.weaponShoot.CanFire = true;
+            }
         }
 
         RotPlayerView();            
@@ -242,6 +308,13 @@ public class RigidBodyFPSController : MonoBehaviour
         {
             _weaponManager.ArmsAnim.SetFloat("PlayerVelocity", playerDestination.magnitude, runSmoothTime, Time.deltaTime);
         }        
+    }
+
+    IEnumerator RegainStamina()
+    {
+        yield return new WaitForSeconds(10f);
+        playerStamina = playerStatsSO.PlayerStamina;
+        PlayerUIManager.playerStaminaUpdate?.Invoke();
     }
 
     private void AimCheck()
