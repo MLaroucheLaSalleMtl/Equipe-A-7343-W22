@@ -10,6 +10,14 @@ TagManager:
   - Sand
   - Rocks
   - Wood
+  - AmmoSO
+  - M9 - Mag
+  - WeaponSO
+  - HealthPackSO
+  - WeaponSwitch
+  - M416 - Mag
+  - ArmorSO
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -18,7 +26,7 @@ TagManager:
   - Water
   - UI
   - Hands&Gun
-  - 
+  - Ground
   - 
   - 
   - 
