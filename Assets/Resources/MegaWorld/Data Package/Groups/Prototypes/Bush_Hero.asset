@@ -1,0 +1,546 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8468480915776284022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e985c48cdb0c6545958a6143e407cc0, type: 3}
+  m_Name: Rotation
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  RandomizeOrientationX: 5
+  RandomizeOrientationY: 100
+  RandomizeOrientationZ: 5
+--- !u!114 &-7859123678946522275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7039b6dcfa7104fbd84e60512e6420, type: 3}
+  m_Name: PositionOffset
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  MinPositionOffsetY: -0.15
+  MaxPositionOffsetY: 0
+--- !u!114 &-7416079864829922198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f318add6161414440bd38e0738a1683d, type: 3}
+  m_Name: TransformComponentSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+    Init: 1
+--- !u!114 &-6847238357612804949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f318add6161414440bd38e0738a1683d, type: 3}
+  m_Name: TransformComponentSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+    Init: 1
+--- !u!114 &-5994346567798261097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0732a68bca73e4dbda80a1306e7ed9, type: 3}
+  m_Name: Scale
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  UniformScale: 1
+  MinScale: {x: 0.8, y: 0.8, z: 0.8}
+  MaxScale: {x: 1.2, y: 1.2, z: 1.2}
+--- !u!114 &-5661997059387393182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0732a68bca73e4dbda80a1306e7ed9, type: 3}
+  m_Name: Scale
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  UniformScale: 1
+  MinScale: {x: 0.8, y: 0.8, z: 0.8}
+  MaxScale: {x: 1.2, y: 1.2, z: 1.2}
+--- !u!114 &-5262490197882932191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e489eb6e5f2294c94b95073fcd57cd, type: 3}
+  m_Name: OverlapCheckSettings
+  m_EditorClassIdentifier: 
+  OverlapShape: 2
+  BoundsCheck:
+    BoundsType: 1
+    UniformBoundsSize: 0
+    BoundsSize: {x: 1, y: 1, z: 1}
+    MultiplyBoundsSize: 1
+  SphereCheck:
+    VegetationMode: 1
+    Size: 3.5
+    Priority: 0
+    ViabilitySize: 4
+    TrunkSize: 0.8
+  CollisionCheck:
+    multiplyBoundsSize: 1
+    collisionCheckType: 0
+    checkCollisionLayers:
+      serializedVersion: 2
+      m_Bits: 0
+  "Overlap\u0421heckTypeEditor":
+    "overlap\u0421heckFoldout": 1
+--- !u!114 &-4910387584773737041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7039b6dcfa7104fbd84e60512e6420, type: 3}
+  m_Name: PositionOffset
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  MinPositionOffsetY: -0.15
+  MaxPositionOffsetY: 0
+--- !u!114 &-4287002065723602066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7039b6dcfa7104fbd84e60512e6420, type: 3}
+  m_Name: PositionOffset
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  MinPositionOffsetY: -0.15
+  MaxPositionOffsetY: 0
+--- !u!114 &-4066438790100689376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e985c48cdb0c6545958a6143e407cc0, type: 3}
+  m_Name: Rotation
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  RandomizeOrientationX: 5
+  RandomizeOrientationY: 100
+  RandomizeOrientationZ: 5
+--- !u!114 &-2634536214962430440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f318add6161414440bd38e0738a1683d, type: 3}
+  m_Name: TransformComponentSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings:
+    - {fileID: 6415518337700672571}
+    Init: 1
+--- !u!114 &-2566790871824132070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dbff3033880396498eb169a60677ebd, type: 3}
+  m_Name: SuccessSettings
+  m_EditorClassIdentifier: 
+  SuccessValue: 100
+--- !u!114 &-1561205021563407973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0a78d02653aa7409a846c747aee876, type: 3}
+  m_Name: AdditionalEraseSettings
+  m_EditorClassIdentifier: 
+  SuccessForErase: 100
+--- !u!114 &-572246174358006324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f318add6161414440bd38e0738a1683d, type: 3}
+  m_Name: TransformComponentSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings:
+    - {fileID: 826104092333378282}
+    Init: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e7609c036f1704796bb1177ca81bf7, type: 3}
+  m_Name: Bush_Hero
+  m_EditorClassIdentifier: 
+  _type: {fileID: 11400000, guid: ab4c9c18bb653c04885875e3144c0456, type: 2}
+  Prefab: {fileID: 919132149155446097, guid: cd096e279624f8b4a89b9d3ef5e223a4, type: 3}
+  Selected: 1
+  Active: 1
+  ToolSettingsStack:
+    ToolSettings:
+    - ToolTypeName: VladislavTsurikov.MegaWorldSystem.SprayBrush.SprayBrushTool
+      SettingsStack:
+        Settings: []
+    - ToolTypeName: VladislavTsurikov.MegaWorldSystem.BrushErase.BrushEraseTool
+      SettingsStack:
+        Settings:
+        - {fileID: -1561205021563407973}
+  SettingsStack:
+    Settings:
+    - {fileID: -2566790871824132070}
+  ID: 32228
+  Extents: {x: 1.2783983, y: 1.4058421, z: 1.2783983}
+--- !u!114 &826104092333378282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7039b6dcfa7104fbd84e60512e6420, type: 3}
+  m_Name: PositionOffset
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  MinPositionOffsetY: -0.15
+  MaxPositionOffsetY: 0
+--- !u!114 &1465784022012006732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e489eb6e5f2294c94b95073fcd57cd, type: 3}
+  m_Name: OverlapCheckSettings
+  m_EditorClassIdentifier: 
+  OverlapShape: 2
+  BoundsCheck:
+    BoundsType: 1
+    UniformBoundsSize: 0
+    BoundsSize: {x: 1, y: 1, z: 1}
+    MultiplyBoundsSize: 1
+  SphereCheck:
+    VegetationMode: 1
+    Size: 3.5
+    Priority: 0
+    ViabilitySize: 4
+    TrunkSize: 0.8
+  CollisionCheck:
+    multiplyBoundsSize: 1
+    collisionCheckType: 0
+    checkCollisionLayers:
+      serializedVersion: 2
+      m_Bits: 0
+  "Overlap\u0421heckTypeEditor":
+    "overlap\u0421heckFoldout": 1
+--- !u!114 &2141315073148392933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e489eb6e5f2294c94b95073fcd57cd, type: 3}
+  m_Name: OverlapCheckSettings
+  m_EditorClassIdentifier: 
+  OverlapShape: 2
+  BoundsCheck:
+    BoundsType: 1
+    UniformBoundsSize: 0
+    BoundsSize: {x: 1, y: 1, z: 1}
+    MultiplyBoundsSize: 1
+  SphereCheck:
+    VegetationMode: 1
+    Size: 3.5
+    Priority: 0
+    ViabilitySize: 4
+    TrunkSize: 0.8
+  CollisionCheck:
+    multiplyBoundsSize: 1
+    collisionCheckType: 0
+    checkCollisionLayers:
+      serializedVersion: 2
+      m_Bits: 0
+  "Overlap\u0421heckTypeEditor":
+    "overlap\u0421heckFoldout": 1
+--- !u!114 &2153029638511072911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f318add6161414440bd38e0738a1683d, type: 3}
+  m_Name: TransformComponentSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings:
+    - {fileID: 6191911243411172905}
+    Init: 1
+--- !u!114 &3031590791273588929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e985c48cdb0c6545958a6143e407cc0, type: 3}
+  m_Name: Rotation
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  RandomizeOrientationX: 5
+  RandomizeOrientationY: 100
+  RandomizeOrientationZ: 5
+--- !u!114 &5213579662225270680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e489eb6e5f2294c94b95073fcd57cd, type: 3}
+  m_Name: OverlapCheckSettings
+  m_EditorClassIdentifier: 
+  OverlapShape: 2
+  BoundsCheck:
+    BoundsType: 1
+    UniformBoundsSize: 0
+    BoundsSize: {x: 1, y: 1, z: 1}
+    MultiplyBoundsSize: 1
+  SphereCheck:
+    VegetationMode: 1
+    Size: 3.5
+    Priority: 0
+    ViabilitySize: 4
+    TrunkSize: 0.8
+  CollisionCheck:
+    multiplyBoundsSize: 1
+    collisionCheckType: 0
+    checkCollisionLayers:
+      serializedVersion: 2
+      m_Bits: 0
+  "Overlap\u0421heckTypeEditor":
+    "overlap\u0421heckFoldout": 1
+--- !u!114 &6191911243411172905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7039b6dcfa7104fbd84e60512e6420, type: 3}
+  m_Name: PositionOffset
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  MinPositionOffsetY: -0.15
+  MaxPositionOffsetY: 0
+--- !u!114 &6415518337700672571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0732a68bca73e4dbda80a1306e7ed9, type: 3}
+  m_Name: Scale
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  UniformScale: 1
+  MinScale: {x: 0.8, y: 0.8, z: 0.8}
+  MaxScale: {x: 1.2, y: 1.2, z: 1.2}
+--- !u!114 &6929600845920959640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e489eb6e5f2294c94b95073fcd57cd, type: 3}
+  m_Name: OverlapCheckSettings
+  m_EditorClassIdentifier: 
+  OverlapShape: 2
+  BoundsCheck:
+    BoundsType: 1
+    UniformBoundsSize: 0
+    BoundsSize: {x: 1, y: 1, z: 1}
+    MultiplyBoundsSize: 1
+  SphereCheck:
+    VegetationMode: 1
+    Size: 3.5
+    Priority: 0
+    ViabilitySize: 4
+    TrunkSize: 0.8
+  CollisionCheck:
+    multiplyBoundsSize: 1
+    collisionCheckType: 0
+    checkCollisionLayers:
+      serializedVersion: 2
+      m_Bits: 0
+  "Overlap\u0421heckTypeEditor":
+    "overlap\u0421heckFoldout": 1
+--- !u!114 &6956404938133198452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0732a68bca73e4dbda80a1306e7ed9, type: 3}
+  m_Name: Scale
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  UniformScale: 1
+  MinScale: {x: 0.8, y: 0.8, z: 0.8}
+  MaxScale: {x: 1.2, y: 1.2, z: 1.2}
+--- !u!114 &7816074601586760859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e985c48cdb0c6545958a6143e407cc0, type: 3}
+  m_Name: Rotation
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  RandomizeOrientationX: 5
+  RandomizeOrientationY: 100
+  RandomizeOrientationZ: 5
+--- !u!114 &7964763942552905497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e985c48cdb0c6545958a6143e407cc0, type: 3}
+  m_Name: Rotation
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  RandomizeOrientationX: 5
+  RandomizeOrientationY: 100
+  RandomizeOrientationZ: 5
+--- !u!114 &8927837983261917363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0732a68bca73e4dbda80a1306e7ed9, type: 3}
+  m_Name: Scale
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  UniformScale: 1
+  MinScale: {x: 0.8, y: 0.8, z: 0.8}
+  MaxScale: {x: 1.2, y: 1.2, z: 1.2}

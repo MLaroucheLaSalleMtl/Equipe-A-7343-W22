@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6432438595191369745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13fddeffbaf047745b673f2fde749e84, type: 3}
+  m_Name: SprayBrushTool
+  m_EditorClassIdentifier: 
+  Enabled: 0
+--- !u!114 &-536335617727515771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4453c6e469ed32c4d9863540acc4267a, type: 3}
+  m_Name: BrushEraseTool
+  m_EditorClassIdentifier: 
+  Enabled: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68546926876480645a2807ab8ab0b2f3, type: 3}
+  m_Name: Common Data Package
+  m_EditorClassIdentifier: 
+  toolStack:
+    Tools:
+    - {fileID: 7952050039708621866}
+  layerSettings:
+    PaintLayers:
+      serializedVersion: 2
+      m_Bits: 128
+    LayerSettingsEditor:
+      layerSettingsFoldout: 1
+  TransformSpace: 0
+  SelectedTool: {fileID: 0}
+  ResourcesControllerEditor:
+    ResourcesControllerFoldout: 1
+--- !u!114 &7952050039708621866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13fddeffbaf047745b673f2fde749e84, type: 3}
+  m_Name: SprayBrushTool
+  m_EditorClassIdentifier: 
+  Enabled: 0
+--- !u!114 &9103918807947276023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806b7e7e388685b4b95efe10c5b0ee46, type: 3}
+  m_Name: AdvancedBrushTool
+  m_EditorClassIdentifier: 
+  Enabled: 0

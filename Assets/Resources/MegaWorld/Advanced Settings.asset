@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b11183928ad05e4dbd0a579735cd235, type: 3}
+  m_Name: Advanced Settings
+  m_EditorClassIdentifier: 
+  EditorSettings:
+    maxBrushSize: 200
+    maxChecks: 100
+    raycastSettings:
+      RaycastType: 0
+      MaxRayDistance: 6500
+      Offset: 500
+      raycastSettingsEditor:
+        raycastSettingsFoldout: 1
+    editorSettingsEditor:
+      editorSettingsFoldout: 1
+  VisualisationSettings:
+    VisualizeOverlapCheckSettings: 0
+    BrushHandlesSettings:
+      DrawSolidDisc: 1
+      CircleColor: {r: 0.2, g: 0.5, b: 0.7, a: 1}
+      CirclePixelWidth: 5
+    MaskFiltersSettings:
+      Color: {r: 128, g: 171, b: 78, a: 255}
+      EnableStripe: 1
+      ColorSpace: 1
+      EnableDefaultPreviewMaterial: 0
+      AlphaVisualisationType: 2
+      CustomAlpha: 0.3
+    SimpleFilterSettings:
+      EnableSpawnVisualization: 1
+      VisualiserResolution: 15
+      CustomHandleSize: 0.3
+      HandlesType: 1
+      HandleResizingType: 0
+      ColorHandlesType: 1
+      Alpha: 0.6
+      ActiveColor: {r: 0, g: 1, b: 0, a: 1}
+      InactiveColor: {r: 1, g: 0, b: 0, a: 1}

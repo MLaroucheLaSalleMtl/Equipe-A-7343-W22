@@ -1,0 +1,1210 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8902962768691545292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f461b09dd6c83714ba2a04329fec9d71, type: 3}
+  m_Name: Grid
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  VisualOrigin: {x: 0, y: 0, z: 0}
+  RandomisationType: 1
+  Vastness: 1
+  UniformGrid: 1
+  GridStep: {x: 3, y: 3}
+  GridAngle: 0
+--- !u!114 &-8522646445502440587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e296bb335886d04da22754aca060f6a, type: 3}
+  m_Name: FailureRate
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  Value: 70
+--- !u!114 &-8464097642665193985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e296bb335886d04da22754aca060f6a, type: 3}
+  m_Name: FailureRate
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  Value: 70
+--- !u!114 &-8405670232923596116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e296bb335886d04da22754aca060f6a, type: 3}
+  m_Name: FailureRate
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  Value: 70
+--- !u!114 &-8396682666623122431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a29ec31073de41b4c908b58668001, type: 3}
+  m_Name: ScatterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+    Init: 1
+--- !u!114 &-8355596490256497657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f461b09dd6c83714ba2a04329fec9d71, type: 3}
+  m_Name: Grid
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  VisualOrigin: {x: 0, y: 0, z: 0}
+  RandomisationType: 1
+  Vastness: 1
+  UniformGrid: 1
+  GridStep: {x: 3, y: 3}
+  GridAngle: 0
+--- !u!114 &-8203203702146078412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc931f37e65f644d9c46c195d6ccce9, type: 3}
+  m_Name: SimpleFilterSettings
+  m_EditorClassIdentifier: 
+  UseFalloff: 1
+  CheckHeight: 0
+  CheckSlope: 0
+  CheckGlobalFractalNoise: 0
+  MinHeight: 0
+  MaxHeight: 0
+  HeightFalloffType: 1
+  HeightFalloffMinMax: 0
+  MinAddHeightFalloff: 20
+  MaxAddHeightFalloff: 20
+  AddHeightFalloff: 20
+  MinSlope: 0
+  MaxSlope: 20
+  SlopeFalloffType: 1
+  SlopeFalloffMinMax: 1
+  MinAddSlopeFalloff: 30
+  MaxAddSlopeFalloff: 30
+  AddSlopeFalloff: 30
+  NoiseTexture: {fileID: 0}
+  Fractal:
+    noiseType: 0
+    seed: 0
+    octaves: 3
+    frequency: 0.03
+    lacunarity: 2
+    persistence: 0.5
+  RangeMin: -0.5
+  RangeMax: 0.5
+  NoisePreviewTexture: 0
+  RemapNoiseMin: 0
+  RemapNoiseMax: 1
+  Invert: 0
+  SimpleFilterSettingsEditor:
+    FilterSettingsFoldout: 1
+    AdditionalNoiseSettingsFoldout: 1
+--- !u!114 &-6659813580754451884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc931f37e65f644d9c46c195d6ccce9, type: 3}
+  m_Name: SimpleFilterSettings
+  m_EditorClassIdentifier: 
+  UseFalloff: 1
+  CheckHeight: 0
+  CheckSlope: 0
+  CheckGlobalFractalNoise: 0
+  MinHeight: 0
+  MaxHeight: 0
+  HeightFalloffType: 1
+  HeightFalloffMinMax: 0
+  MinAddHeightFalloff: 20
+  MaxAddHeightFalloff: 20
+  AddHeightFalloff: 20
+  MinSlope: 0
+  MaxSlope: 20
+  SlopeFalloffType: 1
+  SlopeFalloffMinMax: 1
+  MinAddSlopeFalloff: 30
+  MaxAddSlopeFalloff: 30
+  AddSlopeFalloff: 30
+  NoiseTexture: {fileID: 0}
+  Fractal:
+    noiseType: 0
+    seed: 0
+    octaves: 3
+    frequency: 0.03
+    lacunarity: 2
+    persistence: 0.5
+  RangeMin: -0.5
+  RangeMax: 0.5
+  NoisePreviewTexture: 0
+  RemapNoiseMin: 0
+  RemapNoiseMax: 1
+  Invert: 0
+  SimpleFilterSettingsEditor:
+    FilterSettingsFoldout: 1
+    AdditionalNoiseSettingsFoldout: 1
+--- !u!114 &-6341726941327932234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f461b09dd6c83714ba2a04329fec9d71, type: 3}
+  m_Name: Grid
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  VisualOrigin: {x: 0, y: 0, z: 0}
+  RandomisationType: 1
+  Vastness: 1
+  UniformGrid: 1
+  GridStep: {x: 3, y: 3}
+  GridAngle: 0
+--- !u!114 &-6080049497312506626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f461b09dd6c83714ba2a04329fec9d71, type: 3}
+  m_Name: Grid
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  VisualOrigin: {x: 0, y: 0, z: 0}
+  RandomisationType: 1
+  Vastness: 1
+  UniformGrid: 1
+  GridStep: {x: 3, y: 3}
+  GridAngle: 0
+--- !u!114 &-4727029258349260737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e296bb335886d04da22754aca060f6a, type: 3}
+  m_Name: FailureRate
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  Value: 70
+--- !u!114 &-4398669503064701663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a29ec31073de41b4c908b58668001, type: 3}
+  m_Name: ScatterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings:
+    - {fileID: -3616777117077131562}
+    Init: 1
+--- !u!114 &-4129019874487759934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a29ec31073de41b4c908b58668001, type: 3}
+  m_Name: ScatterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+    Init: 1
+--- !u!114 &-3702522286061538976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e296bb335886d04da22754aca060f6a, type: 3}
+  m_Name: FailureRate
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  Value: 70
+--- !u!114 &-3616777117077131562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e296bb335886d04da22754aca060f6a, type: 3}
+  m_Name: FailureRate
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  Value: 70
+--- !u!114 &-3370930396996955138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a29ec31073de41b4c908b58668001, type: 3}
+  m_Name: ScatterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+    Init: 1
+--- !u!114 &-3342002233984814233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc931f37e65f644d9c46c195d6ccce9, type: 3}
+  m_Name: SimpleFilterSettings
+  m_EditorClassIdentifier: 
+  UseFalloff: 1
+  CheckHeight: 0
+  CheckSlope: 0
+  CheckGlobalFractalNoise: 0
+  MinHeight: 0
+  MaxHeight: 0
+  HeightFalloffType: 1
+  HeightFalloffMinMax: 0
+  MinAddHeightFalloff: 20
+  MaxAddHeightFalloff: 20
+  AddHeightFalloff: 20
+  MinSlope: 0
+  MaxSlope: 20
+  SlopeFalloffType: 1
+  SlopeFalloffMinMax: 1
+  MinAddSlopeFalloff: 30
+  MaxAddSlopeFalloff: 30
+  AddSlopeFalloff: 30
+  NoiseTexture: {fileID: 0}
+  Fractal:
+    noiseType: 0
+    seed: 0
+    octaves: 3
+    frequency: 0.03
+    lacunarity: 2
+    persistence: 0.5
+  RangeMin: -0.5
+  RangeMax: 0.5
+  NoisePreviewTexture: 0
+  RemapNoiseMin: 0
+  RemapNoiseMax: 1
+  Invert: 0
+  SimpleFilterSettingsEditor:
+    FilterSettingsFoldout: 1
+    AdditionalNoiseSettingsFoldout: 1
+--- !u!114 &-3201435212813994775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e296bb335886d04da22754aca060f6a, type: 3}
+  m_Name: FailureRate
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  Value: 70
+--- !u!114 &-2998132076305277027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a29ec31073de41b4c908b58668001, type: 3}
+  m_Name: ScatterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+    Init: 1
+--- !u!114 &-2919907236294913016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc931f37e65f644d9c46c195d6ccce9, type: 3}
+  m_Name: SimpleFilterSettings
+  m_EditorClassIdentifier: 
+  UseFalloff: 1
+  CheckHeight: 0
+  CheckSlope: 0
+  CheckGlobalFractalNoise: 0
+  MinHeight: 0
+  MaxHeight: 0
+  HeightFalloffType: 1
+  HeightFalloffMinMax: 0
+  MinAddHeightFalloff: 20
+  MaxAddHeightFalloff: 20
+  AddHeightFalloff: 20
+  MinSlope: 0
+  MaxSlope: 20
+  SlopeFalloffType: 1
+  SlopeFalloffMinMax: 1
+  MinAddSlopeFalloff: 30
+  MaxAddSlopeFalloff: 30
+  AddSlopeFalloff: 30
+  NoiseTexture: {fileID: 0}
+  Fractal:
+    noiseType: 0
+    seed: 0
+    octaves: 3
+    frequency: 0.03
+    lacunarity: 2
+    persistence: 0.5
+  RangeMin: -0.5
+  RangeMax: 0.5
+  NoisePreviewTexture: 0
+  RemapNoiseMin: 0
+  RemapNoiseMax: 1
+  Invert: 0
+  SimpleFilterSettingsEditor:
+    FilterSettingsFoldout: 1
+    AdditionalNoiseSettingsFoldout: 1
+--- !u!114 &-2767961664679465694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e296bb335886d04da22754aca060f6a, type: 3}
+  m_Name: FailureRate
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  Value: 70
+--- !u!114 &-2404712462844824412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e296bb335886d04da22754aca060f6a, type: 3}
+  m_Name: FailureRate
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  Value: 70
+--- !u!114 &-2218095066073460002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e296bb335886d04da22754aca060f6a, type: 3}
+  m_Name: FailureRate
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  Value: 70
+--- !u!114 &-2067156680816040378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc931f37e65f644d9c46c195d6ccce9, type: 3}
+  m_Name: SimpleFilterSettings
+  m_EditorClassIdentifier: 
+  UseFalloff: 1
+  CheckHeight: 0
+  CheckSlope: 0
+  CheckGlobalFractalNoise: 0
+  MinHeight: 0
+  MaxHeight: 0
+  HeightFalloffType: 1
+  HeightFalloffMinMax: 0
+  MinAddHeightFalloff: 20
+  MaxAddHeightFalloff: 20
+  AddHeightFalloff: 20
+  MinSlope: 0
+  MaxSlope: 20
+  SlopeFalloffType: 1
+  SlopeFalloffMinMax: 1
+  MinAddSlopeFalloff: 30
+  MaxAddSlopeFalloff: 30
+  AddSlopeFalloff: 30
+  NoiseTexture: {fileID: 0}
+  Fractal:
+    noiseType: 0
+    seed: 0
+    octaves: 3
+    frequency: 0.03
+    lacunarity: 2
+    persistence: 0.5
+  RangeMin: -0.5
+  RangeMax: 0.5
+  NoisePreviewTexture: 0
+  RemapNoiseMin: 0
+  RemapNoiseMax: 1
+  Invert: 0
+  SimpleFilterSettingsEditor:
+    FilterSettingsFoldout: 1
+    AdditionalNoiseSettingsFoldout: 1
+--- !u!114 &-1555209903191267284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3524fccb9bb63b34ab1eb792acf2a9d6, type: 3}
+  m_Name: MaskFilterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+  FilterMaskTexture2D: {fileID: 0}
+--- !u!114 &-407885513796882903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f461b09dd6c83714ba2a04329fec9d71, type: 3}
+  m_Name: Grid
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  VisualOrigin: {x: 0, y: 0, z: 0}
+  RandomisationType: 1
+  Vastness: 1
+  UniformGrid: 1
+  GridStep: {x: 3, y: 3}
+  GridAngle: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2667aae7eaa2da44eb7c5015b5d2be5a, type: 3}
+  m_Name: New Group 2
+  m_EditorClassIdentifier: 
+  Name: Default
+  Selected: 1
+  ResourceType: 1
+  ProtoInstantItemList: []
+  ProtoGameObjectList:
+  - {fileID: 11400000, guid: 6a51348712f32d345b59719d8566bc11, type: 2}
+  - {fileID: 11400000, guid: 123de0a79271c594a8c003b73159d974, type: 2}
+  - {fileID: 11400000, guid: 62817b8b89948704986cb64dd052b0b9, type: 2}
+  - {fileID: 11400000, guid: 54fe5018123c6e546a3724af7b9dc41e, type: 2}
+  - {fileID: 11400000, guid: 58a8f22e9a2eebd48a4fd1e85569e8b5, type: 2}
+  - {fileID: 11400000, guid: 880c6de6b236d1647a1126721459d73d, type: 2}
+  - {fileID: 11400000, guid: 063712e39053cd24aa8eb42fd400a267, type: 2}
+  - {fileID: 11400000, guid: e16224dee8a5a094da30ee78fabb6090, type: 2}
+  ProtoTerrainDetailList: []
+  ProtoTerrainTextureList: []
+  PrototypeWindowsScroll: {x: 0, y: 185}
+  RenamingName: Default
+  Renaming: 0
+  ToolSettingsStack:
+    ToolSettings:
+    - ToolTypeName: VladislavTsurikov.MegaWorldSystem.SprayBrush.SprayBrushTool
+      SettingsStack:
+        Settings:
+        - {fileID: 7861254784136379419}
+  SettingsStack:
+    Settings:
+    - {fileID: -8203203702146078412}
+    - {fileID: 1926155217632258743}
+  FilterType: 0
+  ContainerForGameObjects: {fileID: 0}
+  RandomSeed: 0
+  GenerateRandomSeed: 0
+--- !u!114 &313831930300568816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3524fccb9bb63b34ab1eb792acf2a9d6, type: 3}
+  m_Name: MaskFilterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+  FilterMaskTexture2D: {fileID: 0}
+--- !u!114 &482408706749786960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3524fccb9bb63b34ab1eb792acf2a9d6, type: 3}
+  m_Name: MaskFilterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+  FilterMaskTexture2D: {fileID: 0}
+--- !u!114 &733328254942038620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f461b09dd6c83714ba2a04329fec9d71, type: 3}
+  m_Name: Grid
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  VisualOrigin: {x: 0, y: 0, z: 0}
+  RandomisationType: 1
+  Vastness: 1
+  UniformGrid: 1
+  GridStep: {x: 3, y: 3}
+  GridAngle: 0
+--- !u!114 &882544881656294827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3524fccb9bb63b34ab1eb792acf2a9d6, type: 3}
+  m_Name: MaskFilterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+  FilterMaskTexture2D: {fileID: 0}
+--- !u!114 &1926155217632258743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3524fccb9bb63b34ab1eb792acf2a9d6, type: 3}
+  m_Name: MaskFilterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+  FilterMaskTexture2D: {fileID: 0}
+--- !u!114 &2074246778089158626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3524fccb9bb63b34ab1eb792acf2a9d6, type: 3}
+  m_Name: MaskFilterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+  FilterMaskTexture2D: {fileID: 0}
+--- !u!114 &2207199713579764252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a29ec31073de41b4c908b58668001, type: 3}
+  m_Name: ScatterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+    Init: 1
+--- !u!114 &2635052379444423603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f461b09dd6c83714ba2a04329fec9d71, type: 3}
+  m_Name: Grid
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  VisualOrigin: {x: 0, y: 0, z: 0}
+  RandomisationType: 1
+  Vastness: 1
+  UniformGrid: 1
+  GridStep: {x: 3, y: 3}
+  GridAngle: 0
+--- !u!114 &2831571469567734514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3524fccb9bb63b34ab1eb792acf2a9d6, type: 3}
+  m_Name: MaskFilterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+  FilterMaskTexture2D: {fileID: 0}
+--- !u!114 &3458310053513545832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc931f37e65f644d9c46c195d6ccce9, type: 3}
+  m_Name: SimpleFilterSettings
+  m_EditorClassIdentifier: 
+  UseFalloff: 1
+  CheckHeight: 0
+  CheckSlope: 0
+  CheckGlobalFractalNoise: 0
+  MinHeight: 0
+  MaxHeight: 0
+  HeightFalloffType: 1
+  HeightFalloffMinMax: 0
+  MinAddHeightFalloff: 20
+  MaxAddHeightFalloff: 20
+  AddHeightFalloff: 20
+  MinSlope: 0
+  MaxSlope: 20
+  SlopeFalloffType: 1
+  SlopeFalloffMinMax: 1
+  MinAddSlopeFalloff: 30
+  MaxAddSlopeFalloff: 30
+  AddSlopeFalloff: 30
+  NoiseTexture: {fileID: 0}
+  Fractal:
+    noiseType: 0
+    seed: 0
+    octaves: 3
+    frequency: 0.03
+    lacunarity: 2
+    persistence: 0.5
+  RangeMin: -0.5
+  RangeMax: 0.5
+  NoisePreviewTexture: 0
+  RemapNoiseMin: 0
+  RemapNoiseMax: 1
+  Invert: 0
+  SimpleFilterSettingsEditor:
+    FilterSettingsFoldout: 1
+    AdditionalNoiseSettingsFoldout: 1
+--- !u!114 &3472074993477238276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f461b09dd6c83714ba2a04329fec9d71, type: 3}
+  m_Name: Grid
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  VisualOrigin: {x: 0, y: 0, z: 0}
+  RandomisationType: 1
+  Vastness: 1
+  UniformGrid: 1
+  GridStep: {x: 3, y: 3}
+  GridAngle: 0
+--- !u!114 &4215620606934373388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f461b09dd6c83714ba2a04329fec9d71, type: 3}
+  m_Name: Grid
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  VisualOrigin: {x: 0, y: 0, z: 0}
+  RandomisationType: 1
+  Vastness: 1
+  UniformGrid: 1
+  GridStep: {x: 3, y: 3}
+  GridAngle: 0
+--- !u!114 &4795015077248513277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a29ec31073de41b4c908b58668001, type: 3}
+  m_Name: ScatterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+    Init: 1
+--- !u!114 &4868276488193200735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a29ec31073de41b4c908b58668001, type: 3}
+  m_Name: ScatterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings:
+    - {fileID: -8355596490256497657}
+    Init: 1
+--- !u!114 &4899075954319747739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a29ec31073de41b4c908b58668001, type: 3}
+  m_Name: ScatterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings:
+    - {fileID: 6577906304092312324}
+    Init: 1
+--- !u!114 &4907158320646958582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a29ec31073de41b4c908b58668001, type: 3}
+  m_Name: ScatterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+    Init: 0
+--- !u!114 &5044601370018186196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f461b09dd6c83714ba2a04329fec9d71, type: 3}
+  m_Name: Grid
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  VisualOrigin: {x: 0, y: 0, z: 0}
+  RandomisationType: 1
+  Vastness: 1
+  UniformGrid: 1
+  GridStep: {x: 3, y: 3}
+  GridAngle: 0
+--- !u!114 &5175424662125318854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f461b09dd6c83714ba2a04329fec9d71, type: 3}
+  m_Name: Grid
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  VisualOrigin: {x: 0, y: 0, z: 0}
+  RandomisationType: 1
+  Vastness: 1
+  UniformGrid: 1
+  GridStep: {x: 3, y: 3}
+  GridAngle: 0
+--- !u!114 &5231809812046133909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a29ec31073de41b4c908b58668001, type: 3}
+  m_Name: ScatterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+    Init: 1
+--- !u!114 &5484391097529984369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc931f37e65f644d9c46c195d6ccce9, type: 3}
+  m_Name: SimpleFilterSettings
+  m_EditorClassIdentifier: 
+  UseFalloff: 1
+  CheckHeight: 0
+  CheckSlope: 0
+  CheckGlobalFractalNoise: 0
+  MinHeight: 0
+  MaxHeight: 0
+  HeightFalloffType: 1
+  HeightFalloffMinMax: 0
+  MinAddHeightFalloff: 20
+  MaxAddHeightFalloff: 20
+  AddHeightFalloff: 20
+  MinSlope: 0
+  MaxSlope: 20
+  SlopeFalloffType: 1
+  SlopeFalloffMinMax: 1
+  MinAddSlopeFalloff: 30
+  MaxAddSlopeFalloff: 30
+  AddSlopeFalloff: 30
+  NoiseTexture: {fileID: 0}
+  Fractal:
+    noiseType: 0
+    seed: 0
+    octaves: 3
+    frequency: 0.03
+    lacunarity: 2
+    persistence: 0.5
+  RangeMin: -0.5
+  RangeMax: 0.5
+  NoisePreviewTexture: 0
+  RemapNoiseMin: 0
+  RemapNoiseMax: 1
+  Invert: 0
+  SimpleFilterSettingsEditor:
+    FilterSettingsFoldout: 1
+    AdditionalNoiseSettingsFoldout: 1
+--- !u!114 &6229456410862064033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f461b09dd6c83714ba2a04329fec9d71, type: 3}
+  m_Name: Grid
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  VisualOrigin: {x: 0, y: 0, z: 0}
+  RandomisationType: 1
+  Vastness: 1
+  UniformGrid: 1
+  GridStep: {x: 3, y: 3}
+  GridAngle: 0
+--- !u!114 &6254422559390786663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3524fccb9bb63b34ab1eb792acf2a9d6, type: 3}
+  m_Name: MaskFilterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+  FilterMaskTexture2D: {fileID: 0}
+--- !u!114 &6466816538392658500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f461b09dd6c83714ba2a04329fec9d71, type: 3}
+  m_Name: Grid
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  VisualOrigin: {x: 0, y: 0, z: 0}
+  RandomisationType: 1
+  Vastness: 1
+  UniformGrid: 1
+  GridStep: {x: 3, y: 3}
+  GridAngle: 0
+--- !u!114 &6577906304092312324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e296bb335886d04da22754aca060f6a, type: 3}
+  m_Name: FailureRate
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  Value: 70
+--- !u!114 &6705369885827929736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a29ec31073de41b4c908b58668001, type: 3}
+  m_Name: ScatterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+    Init: 0
+--- !u!114 &7185695629808071993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46a29ec31073de41b4c908b58668001, type: 3}
+  m_Name: ScatterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+    Init: 0
+--- !u!114 &7192380073668676918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e296bb335886d04da22754aca060f6a, type: 3}
+  m_Name: FailureRate
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  Value: 70
+--- !u!114 &7861254784136379419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc931f37e65f644d9c46c195d6ccce9, type: 3}
+  m_Name: SimpleFilterSettings
+  m_EditorClassIdentifier: 
+  UseFalloff: 1
+  CheckHeight: 0
+  CheckSlope: 0
+  CheckGlobalFractalNoise: 0
+  MinHeight: 0
+  MaxHeight: 0
+  HeightFalloffType: 1
+  HeightFalloffMinMax: 0
+  MinAddHeightFalloff: 20
+  MaxAddHeightFalloff: 20
+  AddHeightFalloff: 20
+  MinSlope: 0
+  MaxSlope: 20
+  SlopeFalloffType: 1
+  SlopeFalloffMinMax: 1
+  MinAddSlopeFalloff: 30
+  MaxAddSlopeFalloff: 30
+  AddSlopeFalloff: 30
+  NoiseTexture: {fileID: 0}
+  Fractal:
+    noiseType: 0
+    seed: 0
+    octaves: 3
+    frequency: 0.03
+    lacunarity: 2
+    persistence: 0.5
+  RangeMin: -0.5
+  RangeMax: 0.5
+  NoisePreviewTexture: 0
+  RemapNoiseMin: 0
+  RemapNoiseMax: 1
+  Invert: 0
+  SimpleFilterSettingsEditor:
+    FilterSettingsFoldout: 1
+    AdditionalNoiseSettingsFoldout: 1
+--- !u!114 &8495576947048009451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e296bb335886d04da22754aca060f6a, type: 3}
+  m_Name: FailureRate
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  Value: 70
+--- !u!114 &8902307923516991409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3524fccb9bb63b34ab1eb792acf2a9d6, type: 3}
+  m_Name: MaskFilterSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+  FilterMaskTexture2D: {fileID: 0}

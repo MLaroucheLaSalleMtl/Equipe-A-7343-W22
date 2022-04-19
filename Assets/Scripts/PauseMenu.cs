@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuUi;
@@ -36,11 +36,20 @@ public class PauseMenu : MonoBehaviour
 
     public void MenuDesactive()
     {
-        Time.timeScale = 1.0f;
+        Time.timeScale = 1f;
         pauseMenuUi.SetActive(false);
         isPaused = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
+    public void LoadMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
