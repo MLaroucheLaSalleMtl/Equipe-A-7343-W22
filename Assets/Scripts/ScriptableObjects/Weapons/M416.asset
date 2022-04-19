@@ -25,8 +25,6 @@ MonoBehaviour:
   WeaponADSFireAnim: {fileID: 0}
   WeaponReloadAnim: {fileID: 7400000, guid: 0bd58fd0121bbb743a81592105da3480, type: 2}
   weaponDryFire: {fileID: 0}
-  weaponFire: {fileID: 0}
-  weaponImpact: {fileID: 0}
   weaponFireStartSoundFX:
   - {fileID: 8300000, guid: e5a567dc863293f4eacf4ffbf16ac337, type: 3}
   - {fileID: 8300000, guid: 2081ac432f4bcab4aaa12b3bede92424, type: 3}
@@ -59,7 +57,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2a5606f483d55924893d7578124781bd, type: 3}
   - {fileID: 8300000, guid: a149a62a303abba4eb577b1a426680bf, type: 3}
   - {fileID: 8300000, guid: 41c311ead95f3cb438aa2da466fa4e49, type: 3}
-  fireRate: 850
+  fireRate: 15000
   maxFireRange: 250
   weaponMaxAmmo: 252
   weaponMagazineAmmo: 30

@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 7256980173464846511}
   - component: {fileID: 7539895100240017841}
   - component: {fileID: 9148282805054779722}
-  - component: {fileID: 5668498293232969286}
+  - component: {fileID: 3166443518929756893}
   m_Layer: 6
   m_Name: SKM_Beretta_M9
   m_TagString: Untagged
@@ -385,7 +385,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3000582629726760292}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -394,7 +394,7 @@ Transform:
   - {fileID: 5298959606776590197}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!95 &8363125654557797796
 Animator:
   serializedVersion: 4
@@ -479,6 +479,7 @@ MonoBehaviour:
   dryFireAudioSource: {fileID: 0}
   fireStartAudioSource: {fileID: 0}
   fireEndAudioSource: {fileID: 0}
+  bulletImpactAudioSource: {fileID: 0}
   _weaponAnim: {fileID: 8363125654557797796}
   _armsAnim: {fileID: 0}
   bulletHole:
@@ -490,7 +491,7 @@ MonoBehaviour:
   bulletObject: {fileID: 0}
   _isReloading: 0
   autoFire: 0
---- !u!114 &5668498293232969286
+--- !u!114 &3166443518929756893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -499,10 +500,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3000582629726760292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8eafb5b176149c4ea242de19299a7d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5acd689c786a728429efd381c3416767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletsList: []
+  magTransfrom: {fileID: 4171825314426099263}
+  _m9BulletsList: []
   bulletToPool: {fileID: 919132149155446097, guid: 7637020c802215747bd32de024676768, type: 3}
 --- !u!1 &3578649740738125826
 GameObject:
@@ -546,7 +548,7 @@ GameObject:
   - component: {fileID: 4171825314426099263}
   m_Layer: 6
   m_Name: m9_magazine
-  m_TagString: Untagged
+  m_TagString: M9 - Mag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -592,7 +594,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6347416705979440671}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.9330223e-17, y: -0.22216357, z: 0.09316769}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -600,7 +602,7 @@ Transform:
   - {fileID: 7769430102688050743}
   m_Father: {fileID: 3347894666072429001}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1898854279758838117
 MonoBehaviour:
   m_ObjectHideFlags: 0

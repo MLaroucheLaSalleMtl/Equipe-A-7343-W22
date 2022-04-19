@@ -109,6 +109,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""KeyboardChangeWeapon"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""987fac8f-1523-4acb-90cf-6c89d5f09fdb"",
+                    ""expectedControlType"": ""Key"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""ControllerChangeWeapon"",
                     ""type"": ""PassThrough"",
                     ""id"": ""826dcfa4-48cb-46c5-961b-34a1085c0dd9"",
@@ -481,6 +490,50 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Two Modifiers"",
+                    ""id"": ""12dc10b9-3124-4b97-abaa-02de6af7d955"",
+                    ""path"": ""TwoModifiers"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KeyboardChangeWeapon"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""fa385be0-ad00-4ef8-b77b-d9ce5cec13b9"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC_Keyboard&Mouse"",
+                    ""action"": ""KeyboardChangeWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""bd831778-6398-42d6-bd20-74dca4151125"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC_Keyboard&Mouse"",
+                    ""action"": ""KeyboardChangeWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""800768d9-2437-497e-8f88-7f88c4bfe918"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC_Keyboard&Mouse"",
+                    ""action"": ""KeyboardChangeWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -980,6 +1033,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_MouseScrollChangeWeapon = m_Player.FindAction("MouseScrollChangeWeapon", throwIfNotFound: true);
+        m_Player_KeyboardChangeWeapon = m_Player.FindAction("KeyboardChangeWeapon", throwIfNotFound: true);
         m_Player_ControllerChangeWeapon = m_Player.FindAction("ControllerChangeWeapon", throwIfNotFound: true);
         // Weapon
         m_Weapon = asset.FindActionMap("Weapon", throwIfNotFound: true);
@@ -1065,6 +1119,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_MouseScrollChangeWeapon;
+    private readonly InputAction m_Player_KeyboardChangeWeapon;
     private readonly InputAction m_Player_ControllerChangeWeapon;
     public struct PlayerActions
     {
@@ -1079,6 +1134,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @MouseScrollChangeWeapon => m_Wrapper.m_Player_MouseScrollChangeWeapon;
+        public InputAction @KeyboardChangeWeapon => m_Wrapper.m_Player_KeyboardChangeWeapon;
         public InputAction @ControllerChangeWeapon => m_Wrapper.m_Player_ControllerChangeWeapon;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -1116,6 +1172,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @MouseScrollChangeWeapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseScrollChangeWeapon;
                 @MouseScrollChangeWeapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseScrollChangeWeapon;
                 @MouseScrollChangeWeapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseScrollChangeWeapon;
+                @KeyboardChangeWeapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnKeyboardChangeWeapon;
+                @KeyboardChangeWeapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnKeyboardChangeWeapon;
+                @KeyboardChangeWeapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnKeyboardChangeWeapon;
                 @ControllerChangeWeapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerChangeWeapon;
                 @ControllerChangeWeapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerChangeWeapon;
                 @ControllerChangeWeapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnControllerChangeWeapon;
@@ -1150,6 +1209,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @MouseScrollChangeWeapon.started += instance.OnMouseScrollChangeWeapon;
                 @MouseScrollChangeWeapon.performed += instance.OnMouseScrollChangeWeapon;
                 @MouseScrollChangeWeapon.canceled += instance.OnMouseScrollChangeWeapon;
+                @KeyboardChangeWeapon.started += instance.OnKeyboardChangeWeapon;
+                @KeyboardChangeWeapon.performed += instance.OnKeyboardChangeWeapon;
+                @KeyboardChangeWeapon.canceled += instance.OnKeyboardChangeWeapon;
                 @ControllerChangeWeapon.started += instance.OnControllerChangeWeapon;
                 @ControllerChangeWeapon.performed += instance.OnControllerChangeWeapon;
                 @ControllerChangeWeapon.canceled += instance.OnControllerChangeWeapon;
@@ -1341,6 +1403,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnMouseScrollChangeWeapon(InputAction.CallbackContext context);
+        void OnKeyboardChangeWeapon(InputAction.CallbackContext context);
         void OnControllerChangeWeapon(InputAction.CallbackContext context);
     }
     public interface IWeaponActions

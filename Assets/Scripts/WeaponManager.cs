@@ -131,7 +131,7 @@ public class WeaponManager : MonoBehaviour
             {
                 _currentWeapon = GetComponentInChildren<Weapon>().WeaponSO;
                 rbController.currentPlayerState = _currentWeapon.weaponState;
-                CurrentWeaponFireMode = _currentWeapon.WeaponFireMode; 
+                CurrentWeaponFireMode = _currentWeapon.WeaponFireMode;
                 ArmsAnim = GetComponentInChildren<Animator>();
 
                 if (WeaponPrefabs[(int)weaponClass] != WeaponPrefabs[0])
@@ -166,13 +166,10 @@ public class WeaponManager : MonoBehaviour
 
         _mouseScrollWheel.y = Mathf.Clamp(_mouseScrollWheel.y, -120f, 120f);
 
-        //int i = 0;
-
-        if (/*int i = 0;*/ _weaponPrefabs.Length != 0/*; i++*/)
+        if (_weaponPrefabs.Length != 0)
         {
-            if (_mouseScrollWheel.y > 0f/* && weaponSelect > 0*/)
-            {
-                //i += (int)_mouseScrollWheel.normalized.y;
+            if (_mouseScrollWheel.y > 0f)
+            {               
                 rbController.IsAiming = false;
                 ArmsAnim = GetComponentInChildren<Animator>();
                 //if (ArmsAnim.runtimeAnimatorController != animators[0])
@@ -180,22 +177,18 @@ public class WeaponManager : MonoBehaviour
                 //    ArmsAnim.Play(_currentWeapon.ArmsLowerAnim.name);
                 //}
                 //if(i == 1)
-                weaponSelect = Mathf.Clamp(weaponSelect/*(int)_mouseScrollWheel.y*/, 0, _weaponPrefabs.Length - 2);
+                weaponSelect = Mathf.Clamp(weaponSelect, 0, _weaponPrefabs.Length - 2);
 
-                weaponSelect++/*(int)_mouseScrollWheel.normalized.y*/;                
+                weaponSelect++;      
 
                 GetCurrentWeaponState(weaponSelect);
 
                 if (previousWeaponSelect != weaponSelect)                
-                        WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);
-                
-                //else
-                //weaponSelect = i;
+                        WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);               
             }
 
-            if (_mouseScrollWheel.y < 0f/* && weaponSelect > 0*/)
+            if (_mouseScrollWheel.y < 0f)
             {
-                //i -= (int)_mouseScrollWheel.normalized.y;
                 rbController.IsAiming = false;
                 ArmsAnim = GetComponentInChildren<Animator>();               
 
@@ -217,20 +210,36 @@ public class WeaponManager : MonoBehaviour
                 GetCurrentWeaponState(weaponSelect);
 
                 if (previousWeaponSelect != weaponSelect)                
-                        WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);                
+                        WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);
+            }
+        }        
+    }
 
-                //if (previousWeaponSelect != weaponSelect)
-                //    WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);
+    public void OnKeyboardWeaponChange(InputAction.CallbackContext ctx)
+    {
+        for (int i = 0; i < keys.Length; i++)
+        {
+            int previousWeaponSelect = weaponSelect;
+
+            if (Input.GetKeyDown(keys[i]))
+            {
+                rbController.IsAiming = false;
+                ArmsAnim = GetComponentInChildren<Animator>();
+                if (ArmsAnim.runtimeAnimatorController != animators[0])
+                {
+                    ArmsAnim.Play(_currentWeapon.ArmsLowerAnim.name);
+                }
+                weaponSelect = i;
             }
 
-            //if (ArmsAnim.runtimeAnimatorController != animators[0])
-            //{
-            //    ArmsAnim.Play(_currentWeapon.ArmsLowerAnim.name);
-            //}
+            if (previousWeaponSelect != weaponSelect)
+                WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);
+        }
+    }
 
-            //if (previousWeaponSelect != weaponSelect)
-            //    WeaponSpawnByClass(CurrentWeaponType = (WeaponType)weaponSelect);
-        }        
+    public void OnControllerWeaponChange(InputAction.CallbackContext context)
+    {
+
     }
 
     // Update is called once per frame

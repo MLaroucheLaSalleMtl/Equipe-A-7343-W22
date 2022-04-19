@@ -13,12 +13,9 @@ MonoBehaviour:
   m_Name: M9_Baretta
   m_EditorClassIdentifier: 
   weaponUISprite: {fileID: 0}
-  ArmsAnimator: {fileID: 8685496709752207042, guid: 3c43110a4108be44db334c8c98180c2d,
-    type: 3}
-  weaponAnimator: {fileID: 8363125654557797796, guid: 0241d901a88d05243b173198253aaf44,
-    type: 3}
-  weaponAnimatorController: {fileID: 9100000, guid: d170e871ee115d644ac8df91b0ce6972,
-    type: 2}
+  ArmsAnimator: {fileID: 8685496709752207042, guid: 3c43110a4108be44db334c8c98180c2d, type: 3}
+  weaponAnimator: {fileID: 8363125654557797796, guid: 0241d901a88d05243b173198253aaf44, type: 3}
+  weaponAnimatorController: {fileID: 9100000, guid: d170e871ee115d644ac8df91b0ce6972, type: 2}
   ArmsRaiseAnim: {fileID: 7400000, guid: 76540d06d891e8246b4ea5368224973d, type: 2}
   ArmsLowerAnim: {fileID: 7400000, guid: f42cf88c4b7406248ba591da3c058d1f, type: 2}
   ArmsFireAnim: {fileID: 7400000, guid: 064ae2b36c68c9148a05944d315e877a, type: 2}
@@ -27,7 +24,13 @@ MonoBehaviour:
   WeaponFireAnim: {fileID: 7400000, guid: e23c7534d5a7f1e43aca35fbbdbb9a72, type: 2}
   WeaponADSFireAnim: {fileID: 7400000, guid: a598d65fb75f08e41b77e160b28c5a8b, type: 2}
   WeaponReloadAnim: {fileID: 7400000, guid: be7673d273feb3546a92ff0c815b5122, type: 2}
-  weaponSoundFX: []
+  weaponDryFire: {fileID: 0}
+  weaponFireStartSoundFX: []
+  weaponFireEndSoundFX: []
+  weaponReloadSoundFX: []
+  weaponImpactSoundFX: []
+  weaponImpactBodySoundFX: []
+  weaponWhipSoundFX: []
   fireRate: 0
   maxFireRange: 100
   weaponMaxAmmo: 150

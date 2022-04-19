@@ -10,7 +10,6 @@ public class PlayerUIManager : MonoBehaviour
 
     RigidBodyFPSController FPSController;
 
-
     public Slider playerHealthSlider;
     public Slider playerArmorSlider;
     public Slider playerStaminaSlider;

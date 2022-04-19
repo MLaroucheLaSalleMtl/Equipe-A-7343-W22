@@ -9,10 +9,26 @@ public class Bullet : MonoBehaviour
     [SerializeField] private AudioSource bulletImpactAudioSource;
     [SerializeField] private GameObject[] bulletHole;
 
+    float bulletDestroyWaitTime = 5f;
+    WaitForSeconds waitTime;
+
     private void Awake()
     {
         wp = FindObjectOfType<Weapon>();
+        waitTime = new WaitForSeconds(bulletDestroyWaitTime);
     }
+
+    private void OnEnable()
+    {
+        transform.GetComponent<Rigidbody>().WakeUp();
+        StartCoroutine(HideBullet());        
+    }
+
+    private void OnDisable()
+    {
+        transform.GetComponent<Rigidbody>().Sleep();
+        StopCoroutine(HideBullet());
+    }    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -65,29 +81,18 @@ public class Bullet : MonoBehaviour
             wp.WeaponSO.PlayBulletImpactSFX(collision.collider.tag, bulletImpactAudioSource);
             Destroy(bullet, 2f);
         }
-        else
-            Destroy(gameObject, 20f);
+    }
 
-        //gameObject.SetActive(false);
+    IEnumerator HideBullet()
+    {
+        yield return waitTime;
+        gameObject.SetActive(false);
     }
 
     private void AddExplosiveForce()
     {
         Rigidbody rb; 
         rb = GetComponent<Rigidbody>();
-        rb.AddForceAtPosition(rb.velocity, rb.position, ForceMode.Impulse);
-        //rb.AddExplosionForce(wp.WeaponSO.WeaponMaxDMG, transform.position, 0.05f, 0f, ForceMode.Impulse);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        rb.AddForceAtPosition(rb.velocity, rb.position, ForceMode.Impulse);        
+    }        
 }

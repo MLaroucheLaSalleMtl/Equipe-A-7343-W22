@@ -87,6 +87,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "KeyboardChangeWeapon",
+                    "type": "PassThrough",
+                    "id": "987fac8f-1523-4acb-90cf-6c89d5f09fdb",
+                    "expectedControlType": "Key",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "ControllerChangeWeapon",
                     "type": "PassThrough",
                     "id": "826dcfa4-48cb-46c5-961b-34a1085c0dd9",
@@ -459,6 +468,50 @@
                     "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "Two Modifiers",
+                    "id": "12dc10b9-3124-4b97-abaa-02de6af7d955",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KeyboardChangeWeapon",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "binding",
+                    "id": "fa385be0-ad00-4ef8-b77b-d9ce5cec13b9",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC_Keyboard&Mouse",
+                    "action": "KeyboardChangeWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "bd831778-6398-42d6-bd20-74dca4151125",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC_Keyboard&Mouse",
+                    "action": "KeyboardChangeWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "800768d9-2437-497e-8f88-7f88c4bfe918",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC_Keyboard&Mouse",
+                    "action": "KeyboardChangeWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },
