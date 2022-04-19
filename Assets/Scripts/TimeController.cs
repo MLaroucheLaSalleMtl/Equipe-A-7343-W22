@@ -21,14 +21,14 @@ public class TimeController : MonoBehaviour
 
     private DateTime currentTime;
     private TimeSpan sunriseTime;
-    private TimeSpan sunsetTIme;
+    private TimeSpan sunsetTime;
 
     // Start is called before the first frame update
     void Start()
     {
         currentTime = DateTime.Now.Date + TimeSpan.FromHours(starHour);
         sunriseTime = TimeSpan.FromHours(sunrisehour);
-        sunsetTIme = TimeSpan.FromHours(sunsetHour);
+        sunsetTime = TimeSpan.FromHours(sunsetHour);
 
     }
 
@@ -54,9 +54,9 @@ public class TimeController : MonoBehaviour
     void RotateSuns()
     {
         float sunsLightRotation;
-        if(currentTime.TimeOfDay > sunriseTime && currentTime.TimeOfDay < sunriseTime)
+        if(currentTime.TimeOfDay > sunriseTime && currentTime.TimeOfDay < sunsetTime)
         {
-            TimeSpan sunriseToSunsetDuration = CalculateTimeDiffrence(sunriseTime, sunsetTIme);
+            TimeSpan sunriseToSunsetDuration = CalculateTimeDiffrence(sunriseTime, sunsetTime);
             TimeSpan timeSinceSunrise = CalculateTimeDiffrence(sunriseTime, currentTime.TimeOfDay);
 
             double percentage = timeSinceSunrise.TotalMinutes / sunriseToSunsetDuration.TotalMinutes;
@@ -66,8 +66,8 @@ public class TimeController : MonoBehaviour
 
         else
         {
-            TimeSpan sunriseToSunsetDuration = CalculateTimeDiffrence(sunsetTIme, sunriseTime);
-            TimeSpan timeSinceSunset = CalculateTimeDiffrence(sunsetTIme, currentTime.TimeOfDay);
+            TimeSpan sunriseToSunsetDuration = CalculateTimeDiffrence(sunsetTime, sunriseTime);
+            TimeSpan timeSinceSunset = CalculateTimeDiffrence(sunsetTime, currentTime.TimeOfDay);
 
             double percentage = timeSinceSunset.TotalMinutes / sunriseToSunsetDuration.TotalMinutes;
 
