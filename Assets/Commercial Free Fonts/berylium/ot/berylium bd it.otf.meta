@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 4bd32004a8857944dac3e68a56eeed5a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Berylium
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 78985e46324119a44b5e36d9ffd2f943, type: 3}
+  - {fileID: 12800000, guid: 14d9c614768205148a4baf53367779c8, type: 3}
+  - {fileID: 12800000, guid: 41502fb22c44e3c499605ed791bd1c4f, type: 3}
+  - {fileID: 12800000, guid: 64122a3cd53357441817654168e1cb59, type: 3}
+  - {fileID: 12800000, guid: c73b221cf791ef044a28031a24fa39bd, type: 3}
+  - {fileID: 12800000, guid: 63107e932c2b2b74d8aba0529be9b640, type: 3}
+  - {fileID: 12800000, guid: f64f7191b5570334c88caa7f7de09e43, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

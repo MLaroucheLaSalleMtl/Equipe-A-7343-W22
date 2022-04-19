@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 4ba6c7f55fcd0654daf4264d8861ce4b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Zero Hour
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 69ee6ada3fef7494abe3cab57531de9c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d4a5132a637b0834596b2b9bcc0cac87
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Zekton
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7002b94e1076e814d8288d70f8c8ec77, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2c2f9fb739d16734585f0ab5639af37e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Counterscraps
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: cbbc28e30a8f8564bb7c7e42e69d489d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

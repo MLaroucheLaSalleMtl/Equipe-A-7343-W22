@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ef0c2e8cdc324ee4597d7bcfea64aab6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Rhumba Script NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6fdc62c648c670b45b6bf9feaaa01de8, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

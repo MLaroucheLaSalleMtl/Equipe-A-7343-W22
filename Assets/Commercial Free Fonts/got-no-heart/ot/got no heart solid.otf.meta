@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 0d1fc0f45643e3741bae9c11a05665a6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Got No Heart
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6c7961d2a2d06634eb02992158e32daa, type: 3}
+  - {fileID: 12800000, guid: a791a41b26519364691d4b1f649f3ea3, type: 3}
+  - {fileID: 12800000, guid: 9a0d2d0463507f147a3c581964e38abd, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

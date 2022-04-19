@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 03a10a5d4daf6db4bbee30d40bc1ac71
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Oliver's Barney
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 21660ad9bd557dd42b39ac70107b5343, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

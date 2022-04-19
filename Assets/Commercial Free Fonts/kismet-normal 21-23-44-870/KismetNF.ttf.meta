@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: fc255052be360c94c9384f565b02b5dc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Kismet NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: dbb8e407f0f6aa549acc41bf0a3744a5, type: 3}
+  - {fileID: 12800000, guid: bb922aaeec7fb004db8084c0c8036512, type: 3}
+  - {fileID: 12800000, guid: a8f333d4f544899478f5975db97ca6ba, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

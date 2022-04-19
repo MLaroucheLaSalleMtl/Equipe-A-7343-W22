@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7f700e6ac1cb4ff40995eb8d77fedd7b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - pizarr?n
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 88b80d8d7e1223e46ae7d6cb21e39998, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

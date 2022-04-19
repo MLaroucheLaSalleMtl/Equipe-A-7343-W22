@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 18f255a39997ad64c879a430ea4b2cff
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Graffiti Treat
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 043bb04ca3b274c4c842547f0a3c3a89, type: 3}
+  - {fileID: 12800000, guid: a7d59e691279d004ba079205b792d5dd, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

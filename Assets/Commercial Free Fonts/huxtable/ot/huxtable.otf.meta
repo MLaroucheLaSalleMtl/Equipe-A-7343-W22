@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6966b63fe434b854b9b1f217750df3b9
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Huxtable
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c43754e5d0c545a43a13120bb16c749a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

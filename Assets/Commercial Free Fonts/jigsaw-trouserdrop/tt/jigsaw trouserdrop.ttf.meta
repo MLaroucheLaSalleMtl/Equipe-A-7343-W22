@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: df3d677bb9ffd8c4eaa39d77b4f5ba46
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Jigsaw Trouserdrop
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4f978be9e99b776439628803e9c80479, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

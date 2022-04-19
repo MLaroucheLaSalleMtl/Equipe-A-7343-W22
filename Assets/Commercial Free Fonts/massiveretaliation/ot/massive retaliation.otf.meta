@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 68e62c39b95934c4394b7afdd26f937d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Massive Retaliation
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 069c6cf3e98ab7b4284ec8fa095ce012, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

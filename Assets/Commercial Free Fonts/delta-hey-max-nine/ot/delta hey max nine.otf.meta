@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7cd90958bdd432246acf9a58e7b6d456
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Delta Hey Max 9
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9751b5ec4f8244246a7382b2d0c3d423, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

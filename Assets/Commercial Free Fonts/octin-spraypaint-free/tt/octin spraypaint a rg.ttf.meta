@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ff483a680e5d1c74696804e1fa337f0e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Octin Spraypaint
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d24954431e411354a8e898eda155258f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

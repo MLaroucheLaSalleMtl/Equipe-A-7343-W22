@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: e6d66a2a116ed8a408a596e923841986
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Quixotic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 222fad9c1f4bdf14ba25a1467fc99872, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

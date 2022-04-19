@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: b6fbee279948f8045aeb63e027e09c59
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Effloresce
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 958100b3f24bfd94196175f612d0693a, type: 3}
+  - {fileID: 12800000, guid: 56b4d93a53b86b445a26d433fb13a58e, type: 3}
+  - {fileID: 12800000, guid: a40767f2f74c2dd4d8067b087ea44a7f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

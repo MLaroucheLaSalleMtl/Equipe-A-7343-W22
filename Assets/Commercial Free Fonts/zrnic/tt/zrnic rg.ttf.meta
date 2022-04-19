@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5d514ddcd6da4f447b770a835dae3cfc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Zrnic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6666437b0e4c0f840af8b61ab322fbcb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

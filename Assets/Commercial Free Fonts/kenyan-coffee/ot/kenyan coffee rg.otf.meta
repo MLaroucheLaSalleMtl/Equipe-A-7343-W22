@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: ebe7d8ca02a95ef45b538d2e3e8de1da
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Kenyan Coffee
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 30c972b4dfd90bc4587fe085e78d57e9, type: 3}
+  - {fileID: 12800000, guid: 3a1859ce95427d245bca5090c6856feb, type: 3}
+  - {fileID: 12800000, guid: c08f4cba23405f2418ebf7647d1dd56a, type: 3}
+  - {fileID: 12800000, guid: 521bb9c30a1918f47a71831dfc542426, type: 3}
+  - {fileID: 12800000, guid: 208dcc4a0474840479f138f07364d2a2, type: 3}
+  - {fileID: 12800000, guid: b96f88f04fd8bf04b8e19558df3cad55, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

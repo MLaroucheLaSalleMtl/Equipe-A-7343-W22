@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 2d7831a812714a043808f499c90ca64f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Sandoval
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 304d1c5d7421cc14c94f4d2454fac0ac, type: 3}
+  - {fileID: 12800000, guid: 623be583b24b9714180aa5145a8c05d3, type: 3}
+  - {fileID: 12800000, guid: 05f440596c621a449815e601a6112a36, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

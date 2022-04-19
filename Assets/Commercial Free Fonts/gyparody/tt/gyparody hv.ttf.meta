@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 7dbbbb45966bb9243a540d9392baf4a5
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Gyparody
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4a45ede40661e7e4086ed5ab96cd680b, type: 3}
+  - {fileID: 12800000, guid: 66de8799b7bd41f45881d087f8064e33, type: 3}
+  - {fileID: 12800000, guid: bb5d6a8353f9e2d439747bc99afcbb7e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ea3104760079a024e9f6a355bc75d04f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Ironick NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 97e6d5443cd6ea94da75bb5602de73a9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

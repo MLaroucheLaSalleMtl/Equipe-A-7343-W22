@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ad19d22c93ec9b843828f4be9644b465
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Terminator Real NFI
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4360e2844189a5a45b62291ce5766432, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

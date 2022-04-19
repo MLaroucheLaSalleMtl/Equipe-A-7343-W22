@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c237c8ac58f4b984485387b827114020
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Public Enemy NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f05be1779463e4a469ac25999f5f3713, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

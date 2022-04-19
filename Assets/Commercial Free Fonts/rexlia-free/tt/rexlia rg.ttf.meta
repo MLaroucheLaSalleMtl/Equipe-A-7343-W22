@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 4c84f48ddfb42d548889a80874b7af96
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Rexlia
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f4e1bc49d5210154dba54aa187f6df4e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

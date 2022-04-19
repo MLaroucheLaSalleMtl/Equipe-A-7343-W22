@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 89258f8176283454d85d8792fbdf9180
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Sybil Green
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 16e85467ad3f2c54fad4a57f30b0e45f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5a0ba0e7741e1044aaad0163999d32a8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Octin Sports
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 65afefb8dea1cae4e9ca5f3e5762a3ed, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

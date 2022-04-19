@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c535be31c70f1df4abf2c66b3eea3d73
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - LikeCockatoos
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 14a76049853c96041a46ab0e4c2d2fe0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

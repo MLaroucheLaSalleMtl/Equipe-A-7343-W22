@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: aa2a389435c12e241ac68146a9c3fecb
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Vanilla Whale
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 047d53de7c8d08841ad34bd733546c96, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

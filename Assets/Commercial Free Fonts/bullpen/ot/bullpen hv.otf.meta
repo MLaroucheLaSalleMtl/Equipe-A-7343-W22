@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 8bc9688eed8613f449a1d0c998c19684
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Bullpen
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b94be2a7f8bf96a43984f8437271e263, type: 3}
+  - {fileID: 12800000, guid: 706b02957bd31d04bbce10da183524e4, type: 3}
+  - {fileID: 12800000, guid: 80bc81ac84baf8e4ab41ee1493e5503f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

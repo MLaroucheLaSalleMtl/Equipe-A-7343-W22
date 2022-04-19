@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 9d77c77a935764348993cacc82757b41
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Oil Crisis
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 783a7a5faf2d9d64c8a488ba3bc2d902, type: 3}
+  - {fileID: 12800000, guid: 561d828dd7d03a34eac228619f094893, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

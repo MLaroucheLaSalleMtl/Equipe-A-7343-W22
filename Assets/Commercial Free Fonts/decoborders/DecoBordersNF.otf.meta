@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c6a8b9658815bd442a11dcc57f0e41ec
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Deco Borders NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b223162c4d557ec4fac680547381c9d8, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

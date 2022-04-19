@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 3604807fe2dcc5f48b7b4b7ce4d93d58
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Map of You
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 60ea55e60facc9143a54ae1324b14ffc, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

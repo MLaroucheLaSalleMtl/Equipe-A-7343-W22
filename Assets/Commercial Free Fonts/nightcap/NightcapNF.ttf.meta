@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: bfd28cae36ce7dc49ac8337bc5758d3a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Nightcap NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b07bc8cd390217d4d886b489d8b7427f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

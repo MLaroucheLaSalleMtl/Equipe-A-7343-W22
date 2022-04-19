@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: b417c8c96450dd544849749288373732
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - KartoonKutz2
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 116aa85b572dd5145a50596a4d742a3a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

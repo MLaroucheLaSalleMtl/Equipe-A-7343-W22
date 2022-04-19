@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7194766957234e74c989c4a079bfed91
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Anklepants
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 41487a27cfd799b4fa0ddfad05d768fa, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

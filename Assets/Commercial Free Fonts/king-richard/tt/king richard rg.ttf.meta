@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: a4a0f6b3a517a4742b6dcf075c96501d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - King Richard
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 43090dfb3305d5d4dbb0c959cd46f252, type: 3}
+  - {fileID: 12800000, guid: 83ed8c634578bce43bbefe5303b16c04, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

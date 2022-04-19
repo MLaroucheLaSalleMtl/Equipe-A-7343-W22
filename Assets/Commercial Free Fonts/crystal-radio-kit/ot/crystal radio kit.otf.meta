@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7cae8a9c7172f5a4f984db187d2ad073
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Crystal Radio Kit
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 860b2a7eca43bf247a0d33cb6b4e08d7, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

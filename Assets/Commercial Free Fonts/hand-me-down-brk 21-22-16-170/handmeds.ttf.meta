@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 3bacaaed064d4914c8d982825e7f0c1e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Hand Me Down S (BRK)
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 36ddbb3269651614692fc3841768e7c2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6f8da4949751ef74ebb9da432a4f1200
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Matrix Code NFI
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d359f556a136fcc43b14663949e56e84, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

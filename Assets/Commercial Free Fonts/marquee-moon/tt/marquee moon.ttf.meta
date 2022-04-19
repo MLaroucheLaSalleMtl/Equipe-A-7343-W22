@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 724a85f4a238c464abca99ea08530972
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Marquee Moon
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a1310cda2288d8a4b9f002dcbc84b17d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

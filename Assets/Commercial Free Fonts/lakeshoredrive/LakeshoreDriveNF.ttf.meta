@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a790263ce7740cd4480db07aa6537819
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Lakeshore Drive NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 705d87462477d4e49ae115bedf93c7f0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

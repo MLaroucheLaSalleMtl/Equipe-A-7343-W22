@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8c3f793a60f3eac4bb938681b8595f95
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - WC Rhesus B Bta
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: dace9c7b78fdc2a45b354b31f0aca0c5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,35 @@
+ _  _   __   ____  ___   __   _  _     __  _  _   __
+( \( ) /  \ ( () )(  _) /  \ ( )/ )   (  )( \( ) / _)
+ )  ( ( () ) )  <  ) _)( () ) ) -<     )(  )  ( ( (_   _
+(_)\_) \__/ (_)\_)(_)   \__/ (_)\_)   (__)(_)\_) \__) (_)
+
+
+Norfok Inc. Freeware Agreement
+==========================================
+Released for Halloween 2002
+Font Information: Zreaks NFI
+------------------------------------------
+Uppercase & Lowercase: Yes / Caps
+Numbers & Punktuation: Yes
+International Characters: No
+German Dieresis: NO
+Euro symbol: NO
+Kerning: Yes
+Platform: Win95, Win98, WinME, NT, Y2K, XP
+==========================================
+
+By using or installing this software, you agree to be bound by the terms of this Agreement. 
+
+Under no circumstances and under no legal theory, tort, contract, or otherwise, shall Norfok Inc.
+or its  suppliers  or  resellers be liable to you or any other person for any indirect,  special,
+incidental, or consequential damages of any character including,  without limitation, damages for
+loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial
+damages or losses.
+
+All contents of this package copyright 2002, Norfok Inc.
+
+If you have any questions concerning this Agreement, or if you desire to contact Norfok Inc. 
+for any reason, please contact us through our website at:
+
+http://www.norfok.com
+

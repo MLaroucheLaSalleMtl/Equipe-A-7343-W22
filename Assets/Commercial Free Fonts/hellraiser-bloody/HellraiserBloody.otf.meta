@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7e3dac841aff2f7458e0e22eb9fb451b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Hellraiser Bloody
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 87d7c43e76874c24b9daa14a6a8993f6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

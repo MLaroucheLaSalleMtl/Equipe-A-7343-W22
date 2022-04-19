@@ -1,0 +1,24 @@
+To make this font display correctly -- that is, with the beginnings and ends of each word closed -- you must begin each word with a capital letter and end each word with the symbol ^. (There are two irregularities: W & V. If a word contains a W, you must end the preceding letter with a ^. If a word contains a V, you must end the preceding letter with a ^ and capitalize the letter following the V.)
+
+example:
+Amazingly^ Fe^w^ Discotheques^ Pro^vIde^ Jukeboxes^.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+font created by teagan white
+http://geocities.com/teagan.white

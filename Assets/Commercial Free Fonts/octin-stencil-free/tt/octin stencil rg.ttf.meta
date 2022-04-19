@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 4be9644c4326d7a4fa6651dcc3487ebb
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Octin Stencil
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f2a9dc72fb31bfc4199ee901a00326c4, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

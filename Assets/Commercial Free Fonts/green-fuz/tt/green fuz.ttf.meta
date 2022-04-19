@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 060425912431930488006db348eecfca
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Green Fuz
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 936a5ca448c3a6140b954d773c3abdb3, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

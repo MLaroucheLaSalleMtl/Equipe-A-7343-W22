@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 1d158f307ebb2b24595a0cdf555a5ffd
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Zreaks NFI
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 65aa0267a4c0f1b488a492d50d2b8cb5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

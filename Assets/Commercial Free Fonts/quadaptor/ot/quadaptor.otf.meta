@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c455fb7ee394d5640827e3d366010fa9
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Quadaptor
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 710f0cb8565c4244b8e8ee78b1247f52, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

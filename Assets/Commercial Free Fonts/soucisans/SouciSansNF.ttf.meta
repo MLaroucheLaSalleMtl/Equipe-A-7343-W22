@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ea4c260546ab2a54bb12202059f9d20c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Souci Sans NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d873fdc8537a0204f83e65717750fc58, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 9e132dc954e414b4296e6fa2e39ab27b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Misirlou
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c64056cb0e5021240b945e1bff82127d, type: 3}
+  - {fileID: 12800000, guid: 8ed743ab35e951448bb30551bd451fab, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

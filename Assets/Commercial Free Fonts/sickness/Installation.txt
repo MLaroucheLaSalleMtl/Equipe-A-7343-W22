@@ -1,0 +1,13 @@
+How To Install the Slipknot font
+
+**********THIS IS HOW TO INSTALL THE FONT FOR WINDOWS, NOT MACS***********
+
+1. Select the file named "Sickness.tff"
+
+2. From the edit menu, select "copy"
+
+3. Go into your Windows folder, then into your fonts folder from there
+
+4. Right click in a blank area and select "Paste"
+
+5. If you did it right then your all set!

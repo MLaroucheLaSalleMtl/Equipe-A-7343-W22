@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 98a8308ead0d6f44f888ec2dd75ac1dc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Squealer
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f61dadfe4b619f6418f6460ab7103920, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

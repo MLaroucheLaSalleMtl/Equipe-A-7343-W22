@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 9967d1f4964f1464fbaaee6550e28780
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Fancy Pants NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 32b451aa62bf1d04ab8cfb5fad59fdac, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

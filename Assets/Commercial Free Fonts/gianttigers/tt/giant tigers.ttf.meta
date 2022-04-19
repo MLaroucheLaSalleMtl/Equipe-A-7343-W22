@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: dbb26e7c70146b940ad7e280da884389
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Giant Tigers
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c324cd993cceab040b2c319c4aea85ca, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: de49c6ded0c21fd4db0975252c414d0c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Lockergnome
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 33ef40c71c0f1fb4c8edd3ddfe58c91c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

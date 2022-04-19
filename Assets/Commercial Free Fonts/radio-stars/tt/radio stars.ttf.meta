@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8f2d8cc612b90a647b2de781303532b8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Radio Stars
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 75bb9fd094c601b41bfe74a623d5a9c9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

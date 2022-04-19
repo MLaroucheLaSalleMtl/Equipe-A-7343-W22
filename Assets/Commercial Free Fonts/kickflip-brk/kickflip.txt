@@ -1,0 +1,167 @@
+_______________________________
+Kickflip  Created by Brian Kent
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Thanks for Downloading Kickflip.
+
+  This font is based on the logo I made for my game Kickflip.  All of
+the 'prongs' in each character slant inward or outward, depending on
+what Case the character is.
+
+NOTE: This font is all caps, 'Case' refers to where the characters
+are located (in an Upper or Lower Case position).
+
+'Uppercase' Characters slant like this:
+[best viewed with Fixedsys]
+
+   .·'| |'·.
+   |  |_|  |
+ /¯         ¯\
+/__         __\
+___|  |¯|  |___
+\      ¯      /
+ \           /
+  ¯|  |¯|  |¯
+   '·.| |.·'
+
+
+'Lowercase' Characters slant like this:
+[best viewed with Fixedsys]
+
+   |'·. .·'|
+___|  |_|  |___
+\             /
+ \_         _/
+   |  |¯|  |
+ /¯    ¯    ¯\
+/             \
+¯¯¯|  |¯|  |¯¯¯
+   |.·' '·.|
+
+
+  Since the Uppercase and Lowercase characters slant differently, I
+put in Extra 'Lowercase' versions of all of the basic characters.
+There are also a couple of Extra characters for I, M, N(x2), W, Y
+and Z (for Upper and Lowercase).
+
+
+Extra Characters
+-All you need to do is Press and Hold the Alt key, then on the
+Number Pad, type in the #s shown.  When you release the Alt key the
+Extra Character will appear.
+___________________________________________________
+| the character = what to type = actual character |
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+'Lowercase' characters:
+! = Alt+0133 = […]
+" = Alt+0134 = [†]
+# = Alt+0135 = [‡]
+$ = Alt+0136 = [ˆ]
+% = Alt+0137 = [‰]
+& = Alt+0138 = [Š]
+' = Alt+0139 = [‹]
+( = Alt+0140 = [Œ]
+) = Alt+0141 = []
+* = Alt+0142 = []
++ = Alt+0143 = []
+, = Alt+0144 = []
+- = Alt+0145 = [‘]
+. = Alt+0146 = [’]
+/ = Alt+0147 = [“]
+0 = Alt+0148 = [”]
+1 = Alt+0149 = [•]
+2 = Alt+0150 = [–]
+3 = Alt+0151 = [—]
+4 = Alt+0152 = [˜]
+5 = Alt+0153 = [™]
+6 = Alt+0154 = [š]
+7 = Alt+0155 = [›]
+8 = Alt+0156 = [œ]
+9 = Alt+0157 = []
+: = Alt+0158 = []
+; = Alt+0159 = [Ÿ]
+< = Alt+0160 = [ ]
+= = Alt+0161 = [¡]
+> = Alt+0162 = [¢]
+? = Alt+0163 = [£]
+@ = Alt+0164 = [¤]
+[ = Alt+0165 = [¥]
+\ = Alt+0166 = [¦]
+] = Alt+0167 = [§]
+_ = Alt+0168 = [¨]
+{ = Alt+0169 = [©]
+| = Alt+0170 = [ª]
+} = Alt+0171 = [«]
+~ = Alt+0172 = [¬]
+
+I = Alt+0181 = [µ]
+M = Alt+0182 = [¶]
+N = Alt+0183 = [·]
+N = Alt+0184 = [¸]
+W = Alt+0185 = [¹]
+Y = Alt+0186 = [º]
+Z = Alt+0187 = [»]
+
+'Uppercase' Characters:
+I = Alt+0174 = [®]
+M = Alt+0175 = [¯]
+N = Alt+0176 = [°]
+N = Alt+0177 = [±]
+W = Alt+0178 = [²]
+Y = Alt+0179 = [³]
+Z = Alt+0180 = [´]
+
+  Take a look at the image 'kfextra.gif' included in the zip for a
+chart that shows all of the Extra characters.
+
+
+If you have any questions or comments, you can e-mail me at
+kentpw@norwich.net
+
+You can visit my Homepage <ÆNIGMA GAMES & FONTS> at
+http://aenigma.cellosoft.com/
+
+________________
+INSTALLING FONTS
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+  There's a couple of ways to install Fonts. The 'easy' way to
+install fonts is to just Unzip/place the font file [.ttf] into your
+Windows\Fonts directory (I always use this method). If you're unable
+to do it the 'easy' way, then try to do it this way (for Windows
+95/98/NT):
+
+1] Unzip the Font(s) to a folder (or somewhere, just remember where
+you unzipped it) on your Computer.
+
+2] Next, click on the START button, then select SETTINGS then
+CONTROL PANEL.
+
+3] When the Control Panel Window pops up, Double Click on FONTS.
+
+4] When the FONTS window pops up, select File then Install New Font...
+
+5] A Add Fonts window will pop up, just go to the folder that you
+unzipped the Font(s) to, select the Font(s) and then click on OK.
+Now the Font(s) are installed.
+
+  Now you can use the Font(s) in programs the utilize Fonts.  Make
+sure that you install the font(s) first, then open up your apps
+(so the app will recognize the font).    Sometimes you'll have to
+wait until you computer 'auto-refreshes' for programs to recognize
+fonts (Windows is sometimes slow to do that).  You can refresh your
+computer quicker by going into Windows Explorer -or- My Computer and
+press ALT + V, then R (or in the menubar select VIEW then REFRESH).
+
+
+__________
+DISCLAIMER
+¯¯¯¯¯¯¯¯¯¯
+-The font(s) in this zip file were created by me (Brian Kent).  All
+of my Fonts are Freeware, you can use them any way you want to
+(Personal use, Commercial use, or whatever).
+
+-If you have a Font related site and would like to offer my fonts on
+your site, go right ahead. All I ask is that you keep this text file
+intact with the Font.
+
+-You may not Sell or Distribute my Fonts for profit or alter them in
+any way without asking me first.  [e-mail -  kentpw@norwich.net]

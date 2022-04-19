@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 9f26188856d51fd4298f6281f871dc5e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Captain Swabby NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a0dda12f51ba1274db2f3418404f6eb9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5903c0726ee142a4fbbb10fc4d802886
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Neurochrome
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 542430c3a93e8ee439f973e8fb968ea5, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

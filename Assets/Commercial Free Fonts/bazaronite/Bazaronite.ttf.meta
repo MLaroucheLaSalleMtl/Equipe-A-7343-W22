@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6b8bd616b672a0342be14595b4e39d8c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Bazaronite
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1120c70fcdabd2d4e93e3b35c43bdc58, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

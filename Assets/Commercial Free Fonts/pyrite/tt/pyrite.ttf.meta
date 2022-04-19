@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7a3249ba62421f549b8690730a64820a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Pyrite
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 83fa1d6b6e8964a4ca29c5eeeb7f2320, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

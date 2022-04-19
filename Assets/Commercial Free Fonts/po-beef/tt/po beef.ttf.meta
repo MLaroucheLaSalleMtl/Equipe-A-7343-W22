@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2909eac8ff59fab48b51de167ecb0e73
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Po Beef
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d296333f5c0a5744991c96939dd69bee, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

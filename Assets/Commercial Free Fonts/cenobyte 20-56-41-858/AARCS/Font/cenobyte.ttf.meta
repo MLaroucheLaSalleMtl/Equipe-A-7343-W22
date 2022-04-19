@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: b35f47f3f58acc64fa62807120abec67
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Cenobyte
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b18cf7ad321a8d647b700c9a13264ea2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

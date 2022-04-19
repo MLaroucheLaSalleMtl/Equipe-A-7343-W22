@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6e7fd53f47bb6a14b8f352e52a6c43be
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Roddy
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6b8fb4e291db1dd499cc9d0b96dd8956, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

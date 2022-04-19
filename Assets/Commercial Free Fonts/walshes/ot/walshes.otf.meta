@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: e7cd4a028a5b06d4a8fbb379f90b6ffc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Walshes
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f2d6f74d86bd3db4298978b068dbed9a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

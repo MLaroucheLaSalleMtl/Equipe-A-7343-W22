@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 1126e39f8c227554883f90a7adcd10fe
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Nip And Tuck NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 20979d6b7b54c3d4396c7a074c7eab9a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

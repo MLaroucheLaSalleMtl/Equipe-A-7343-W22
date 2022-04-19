@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ee218ceeca3aeef4096be0928bd6e859
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Deco Dingbats NF
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 842af88200f153e498f2977f6ed894c2, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
