@@ -13,6 +13,22 @@ MonoBehaviour:
   m_Name: SuccessSettings
   m_EditorClassIdentifier: 
   SuccessValue: 100
+--- !u!114 &-8800242885425891777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f318add6161414440bd38e0738a1683d, type: 3}
+  m_Name: TransformComponentSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings:
+    - {fileID: 5689390055406786896}
+    Init: 1
 --- !u!114 &-8743593346981024656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +228,22 @@ MonoBehaviour:
   UniformScale: 1
   MinScale: {x: 0.8, y: 0.8, z: 0.8}
   MaxScale: {x: 1.2, y: 1.2, z: 1.2}
+--- !u!114 &-2174487937338110742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7039b6dcfa7104fbd84e60512e6420, type: 3}
+  m_Name: PositionOffset
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  MinPositionOffsetY: -0.15
+  MaxPositionOffsetY: 0
 --- !u!114 &-2121470884907460076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +623,40 @@ MonoBehaviour:
       m_Bits: 0
   "Overlap\u0421heckTypeEditor":
     "overlap\u0421heckFoldout": 1
+--- !u!114 &5388050232556388527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0732a68bca73e4dbda80a1306e7ed9, type: 3}
+  m_Name: Scale
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  UniformScale: 1
+  MinScale: {x: 0.8, y: 0.8, z: 0.8}
+  MaxScale: {x: 1.2, y: 1.2, z: 1.2}
+--- !u!114 &5689390055406786896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e985c48cdb0c6545958a6143e407cc0, type: 3}
+  m_Name: Rotation
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  RandomizeOrientationX: 5
+  RandomizeOrientationY: 100
+  RandomizeOrientationZ: 5
 --- !u!114 &5737025719137187202
 MonoBehaviour:
   m_ObjectHideFlags: 0

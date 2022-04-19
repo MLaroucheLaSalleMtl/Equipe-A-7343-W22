@@ -17,6 +17,23 @@ MonoBehaviour:
   RandomizeOrientationX: 5
   RandomizeOrientationY: 100
   RandomizeOrientationZ: 5
+--- !u!114 &-8309632741828929765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e985c48cdb0c6545958a6143e407cc0, type: 3}
+  m_Name: Rotation
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  RandomizeOrientationX: 5
+  RandomizeOrientationY: 100
+  RandomizeOrientationZ: 5
 --- !u!114 &-7859123678946522275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +237,22 @@ MonoBehaviour:
   m_Name: AdditionalEraseSettings
   m_EditorClassIdentifier: 
   SuccessForErase: 100
+--- !u!114 &-1349416884709189457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7039b6dcfa7104fbd84e60512e6420, type: 3}
+  m_Name: PositionOffset
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  MinPositionOffsetY: -0.15
+  MaxPositionOffsetY: 0
 --- !u!114 &-572246174358006324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +315,21 @@ MonoBehaviour:
   FoldoutGUI: 1
   MinPositionOffsetY: -0.15
   MaxPositionOffsetY: 0
+--- !u!114 &1209365470062330598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f318add6161414440bd38e0738a1683d, type: 3}
+  m_Name: TransformComponentSettings
+  m_EditorClassIdentifier: 
+  Stack:
+    Settings: []
+    Init: 0
 --- !u!114 &1465784022012006732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +427,38 @@ MonoBehaviour:
   RandomizeOrientationX: 5
   RandomizeOrientationY: 100
   RandomizeOrientationZ: 5
+--- !u!114 &3572735584947216325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e489eb6e5f2294c94b95073fcd57cd, type: 3}
+  m_Name: OverlapCheckSettings
+  m_EditorClassIdentifier: 
+  OverlapShape: 2
+  BoundsCheck:
+    BoundsType: 1
+    UniformBoundsSize: 0
+    BoundsSize: {x: 1, y: 1, z: 1}
+    MultiplyBoundsSize: 1
+  SphereCheck:
+    VegetationMode: 1
+    Size: 3.5
+    Priority: 0
+    ViabilitySize: 4
+    TrunkSize: 0.8
+  CollisionCheck:
+    multiplyBoundsSize: 1
+    collisionCheckType: 0
+    checkCollisionLayers:
+      serializedVersion: 2
+      m_Bits: 0
+  "Overlap\u0421heckTypeEditor":
+    "overlap\u0421heckFoldout": 1
 --- !u!114 &5213579662225270680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,6 +491,23 @@ MonoBehaviour:
       m_Bits: 0
   "Overlap\u0421heckTypeEditor":
     "overlap\u0421heckFoldout": 1
+--- !u!114 &5375122803596057430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0732a68bca73e4dbda80a1306e7ed9, type: 3}
+  m_Name: Scale
+  m_EditorClassIdentifier: 
+  Enabled: 1
+  FoldoutGUI: 1
+  UniformScale: 1
+  MinScale: {x: 0.8, y: 0.8, z: 0.8}
+  MaxScale: {x: 1.2, y: 1.2, z: 1.2}
 --- !u!114 &6191911243411172905
 MonoBehaviour:
   m_ObjectHideFlags: 0
