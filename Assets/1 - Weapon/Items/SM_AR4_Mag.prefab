@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 919132149353530011}
   - component: {fileID: 919132149353530010}
   - component: {fileID: 919132149353530012}
+  - component: {fileID: 2839202025143422929}
   m_Layer: 0
   m_Name: SM_AR4_Mag
   m_TagString: AmmoSO
@@ -193,7 +194,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4667918782126068910}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.37789237, y: 0.1912, z: 4.61554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -202,7 +203,7 @@ Transform:
   - {fileID: 4984739571006305596}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!135 &919132149353530011
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -225,7 +226,7 @@ MeshCollider:
   m_GameObject: {fileID: 4667918782126068910}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -242,4 +243,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3e6f26e5f0d9c4db8ac44e144eb230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoSO: {fileID: 11400000, guid: f38554f39f4cc71479a96862337f6595, type: 2}
+  weaponShoot: {fileID: 0}
+--- !u!114 &2839202025143422929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4667918782126068910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ba6eea6043abb48871831cfafa901f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 180

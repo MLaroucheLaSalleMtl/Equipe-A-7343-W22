@@ -4,24 +4,17 @@ using UnityEngine;
 
 public class WeaponCollect : MonoBehaviour
 {
-    //public delegate void OnWeaponDelegate();
-    //public static OnWeaponDelegate onWeaponDelegate;
-
-    //[SerializeField] private WeaponItemSO weaponItemSO;
-
     WeaponManager _wpManager;
     [SerializeField] private GameObject weaponPrefab;
 
     private void Awake()
     {
         _wpManager = FindObjectOfType<RigidBodyFPSController>().GetComponentInChildren<WeaponManager>();
-        //_wpManager = FindObjectOfType<WeaponManager>();
-        //onWeaponDelegate = Collect;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.GetComponent<RigidBodyFPSController>())
         {
             Collect();
         }
@@ -29,36 +22,21 @@ public class WeaponCollect : MonoBehaviour
 
     public void Collect()
     {
-        if (_wpManager.weaponPickUpList.Count > 0)
+        GameObject tmpWeaponPrefab;
+        if (_wpManager.weaponPickUpList.Count == 1)
         {
-            if (_wpManager.weaponPickUpList.Contains(weaponPrefab))
-            {
-                return;
-            }
-            else
-            {
-                _wpManager.weaponPickUpList.Add(weaponPrefab);
-                _wpManager.UpdateWeaponList();
-                Destroy(this.gameObject);
-            }
-            //if (_wpManager.weaponPickUpList.Contains(weaponPrefab))
-            //{
+            tmpWeaponPrefab = Instantiate(weaponPrefab, _wpManager.transform) as GameObject;
+            _wpManager.weaponPickUpList.Add(tmpWeaponPrefab);
+            _wpManager.UpdateWeaponList();
+            tmpWeaponPrefab.SetActive(false);
 
-            //weaponPrefab.SetActive(true);
-            //Instantiate(weaponPrefab, this.transform);
-            //_wpManager.WeaponPrefabs = _wpManager.weaponPickUpList.ToArray();
-            //_wpManager.UpdateWeaponList(wepaopnPrefab);
-
-            //_wpManager.AddToList(wepaopnPrefab);
-            //_wpManager.UpdateWeaponList();
-            //}
-            //else
-            //    return;
+            Destroy(this.gameObject);           
         }
-    }
-
-    private void Update()
-    {
-        //_wpManager.WeaponPrefabs = GameObject.FindGameObjectsWithTag("Weapon");
+        else
+        {
+            print("!!! You already have this weapon !!!");
+            Destroy(this.gameObject);
+            return;
+        }
     }
 }

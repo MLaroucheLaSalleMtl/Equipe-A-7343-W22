@@ -59,7 +59,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 41c311ead95f3cb438aa2da466fa4e49, type: 3}
   fireRate: 15000
   maxFireRange: 250
-  weaponMaxAmmo: 252
+  weaponMaxAmmo: 250
   weaponMagazineAmmo: 30
   weaponMinDMG: 20
   weaponMaxDMG: 25

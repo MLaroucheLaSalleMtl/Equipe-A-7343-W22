@@ -6,28 +6,38 @@ public class TempCamLook
 {
     public float XMouseSensitivity = 0.1f;
     public float YMouseSensitivity = 0.1f;
+
+    public float XAimMouseSensitivity = 0.05f;
+    public float YAimMouseSensitivity = 0.05f;
+
     public float ClampMinimumX = -80F;   
     public float ClampMaximumX = 80F;
     public float smoothTime = 13f;
 
     private Quaternion playerTargetRot;
-    //private Quaternion playerHeadTargetRot;
     private Quaternion camTargetRot;
 
-    public void InitSettings(Transform player,/* Transform playerHead,*/ Transform cam)
-    {
-        //playerHeadTargetRot = playerHead.transform.localRotation;
+    public void InitSettings(Transform player, Transform cam)
+    {        
         playerTargetRot = player.localRotation;
         camTargetRot    = cam.localRotation;
-    }
-    
-    public void CameraLookRotation(Vector2 rotValue, Transform player,/* Transform playerHead,*/ Transform cam) 
-    {
-        //rotValue.y = Input.GetAxis("Mouse X") * XMouseSensitivity;
-        //rotValue.x = Input.GetAxis("Mouse Y") * YMouseSensitivity;
+    }   
 
-        float yRotation = rotValue.x * XMouseSensitivity;
-        float xRotation = rotValue.y * YMouseSensitivity;
+    public void CameraLookRotation(Vector2 rotValue, Transform player, Transform cam, RigidBodyFPSController m_FPSController) 
+    {
+        float yRotation;
+        float xRotation;
+
+        if (m_FPSController.IsAiming)
+        {
+            yRotation = rotValue.x * (XMouseSensitivity * 0.5f);
+            xRotation = rotValue.y * (YMouseSensitivity * 0.5f);
+        }
+        else
+        {
+            yRotation = rotValue.x * XMouseSensitivity;
+            xRotation = rotValue.y * YMouseSensitivity;
+        }
 
         playerTargetRot *= Quaternion.Euler( 0f, yRotation, 0f);
         camTargetRot    *= Quaternion.Euler(-xRotation, 0f, 0f);
@@ -38,13 +48,7 @@ public class TempCamLook
             smoothTime * Time.fixedDeltaTime);
         cam.localRotation = Quaternion.Slerp (cam.localRotation, camTargetRot, 
             smoothTime * Time.fixedDeltaTime);
-
-        //playerHead.transform.rotation = cam.transform.rotation;
-        //Vector3 localHeadRotation = playerHeadTargetRot.eulerAngles/*playerHead.transform.localRotation.eulerAngles*/;
-        //localHeadRotation.y = Mathf.Clamp(localHeadRotation.y, -45f, 45f);
-        //localHeadRotation.x = Mathf.Clamp(localHeadRotation.x, -30f, 30f);
-        //playerHeadTargetRot = Quaternion.Euler(localHeadRotation);
-
+       
         Cursor.lockState = CursorLockMode.Locked;
     }
 

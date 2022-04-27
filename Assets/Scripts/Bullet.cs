@@ -6,6 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Weapon wp;
+    WeaponShoot wpShoot;
     [SerializeField] private AudioSource bulletImpactAudioSource;
     [SerializeField] private GameObject[] bulletHole;
 
@@ -15,6 +16,7 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         wp = FindObjectOfType<Weapon>();
+        wpShoot = FindObjectOfType<WeaponShoot>();
         waitTime = new WaitForSeconds(bulletDestroyWaitTime);
     }
 
@@ -72,7 +74,7 @@ public class Bullet : MonoBehaviour
         }
         if (collision.collider.CompareTag("Zombies"))
         {
-            collision.collider.gameObject.GetComponent<EnemieController>().Hit();
+            collision.collider.gameObject.GetComponent<EnemyHealth>().DeducHealth(wpShoot.currDMG);
 
             Quaternion rotFX = Quaternion.LookRotation(collision.contacts[0].normal);
             GameObject bullet = Instantiate(bulletHole[4], collision.contacts[0].point, rotFX);

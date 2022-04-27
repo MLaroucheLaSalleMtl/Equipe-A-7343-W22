@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class ArmorCollect : MonoBehaviour
 {
-    //public delegate void OnArmorCollect();
-    //public static OnArmorCollect onArmorCollect;
-
-    //[SerializeField] private ArmorSO armorSO;
-
     RigidBodyFPSController FPSController;
     float _armorCapacity = 50;
 
@@ -19,7 +14,7 @@ public class ArmorCollect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.GetComponent<RigidBodyFPSController>())
         {
             Collect();
         }
@@ -27,12 +22,16 @@ public class ArmorCollect : MonoBehaviour
 
     public void Collect()
     {
-        FPSController.playerArmor += _armorCapacity;
-        Destroy(this.gameObject);
+        if (FPSController.playerArmor == FPSController.playerStatsSO.m_MaxPlayerArmor)
+        {
+            print("Max Armor");
+            return;
+        }
+        else
+        {
+            FPSController.playerArmor += _armorCapacity;
+            PlayerUIManager.playerArmorUpdate?.Invoke();
+            Destroy(this.gameObject);
+        }        
     }
-
-    //private void Awake()
-    //{
-    //    onArmorCollect = CollectItem;
-    //}
 }

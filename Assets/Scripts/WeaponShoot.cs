@@ -46,18 +46,18 @@ public class WeaponShoot : MonoBehaviour
 
     
     private bool _isFiring = false;
-    private bool _pistolIsFiring = false;
+    //private bool _pistolIsFiring = false;
     private bool _isAiming = false;
 
     private bool _isReloading = false;
 
     public bool autoFire;
 
-    private float nextFireRate = 0.0f;
+    //private float nextFireRate = 0.0f;
 
     public Animator WeaponAnim { get => _weaponAnim; set => _weaponAnim = value; }
 
-    //public bool IsFiring { get => _isFiring; set => _isFiring = value; }    
+    public bool IsFiring { get => _isFiring; set => _isFiring = value; }    
     public bool IsAiming { get => _isAiming; set => _isAiming = value; }
     public bool CanFire { get => _canFire; set => _canFire = value; }
     public bool IsReloading { get => _isReloading; set => _isReloading = value; }
@@ -66,69 +66,56 @@ public class WeaponShoot : MonoBehaviour
     #region  - IEnumerators -
     public IEnumerator Firing()
     {
-        if (CanShoot())
-        {
-            if (FPSController.IsAiming)
-            {                
-                FireEvent();
-                _isFiring = false;
-                if (autoFire)
+        //if (this.isActiveAndEnabled == true)
+        //{
+            if (CanShoot())
+            {
+                if (FPSController.IsAiming)
                 {
-                    while (CanShoot())
+                    FireEvent();
+                    IsFiring = false;
+                    if (autoFire)
                     {
-                        yield return autoADSFireWaitTime;
-                        FireEvent();
+                        while (CanShoot())
+                        {
+                            yield return autoADSFireWaitTime;
+                            FireEvent();
+                        }
+                    }
+                }
+                else
+                {
+                    FireEvent();
+                    IsFiring = false;
+                    if (autoFire)
+                    {
+                        while (CanShoot())
+                        {
+                            yield return autoFireWaitTime;
+                            FireEvent();
+                        }
                     }
                 }
             }
             else
             {
-                FireEvent();
-                _isFiring = false;
-                if (autoFire)
-                {
-                    while (CanShoot())
-                    {
-                        yield return autoFireWaitTime;
-                        FireEvent();
-                    }
-                }
-            }
-        }
-        else
-        {
-            if (_wpManager._currentWeapon.weaponDryFire != null)
-            {
-                //Play Dry Fire SFX Here instead of inside the FireEvent Funcion
                 dryFireAudioSource.PlayOneShot(_wpManager._currentWeapon.weaponDryFire);
-
-                //if (currAvailableAmmo == 0)
-                //{
-                //    StartCoroutine(GiveAmmo());         
-                //}
-
-                //if (currAvailableAmmo == 0)
-                //{
-                //    StartCoroutine(GiveAmmo());
-                //}
             }
-        }
-    }
-
-    public IEnumerator GiveAmmo()
-    {
-        yield return new WaitForSeconds(5f);
-        currAvailableAmmo += _weapon.WeaponSO.WeaponMaxAmmo;
+        //}
     }
 
     public IEnumerator Reloading()
     {
+        Mathf.Clamp(currAvailableAmmo, 0, _weapon.WeaponSO.WeaponMaxAmmo * 2);
+
         CanFire = false;
 
         StopCoroutine(Firing());
 
-        if (currAvailableAmmo == 0)
+        if (currAvailableAmmo <= 0)
+        {
             yield return null;
+        }
 
         Debug.Log("- Reloading Weapon -");
 
@@ -145,9 +132,7 @@ public class WeaponShoot : MonoBehaviour
 
         this._canFire = true;
         this._canReload = true;
-        this.IsReloading = false;
-
-        Mathf.Clamp(currAvailableAmmo, 0, _wpManager._currentWeapon.WeaponMaxAmmo);
+        this.IsReloading = false;        
 
         int _fullMagazine = _wpManager._currentWeapon.WeaponMagazineAmmo - currMagAmmo;
 
@@ -163,6 +148,8 @@ public class WeaponShoot : MonoBehaviour
             currAvailableAmmo -= currAvailableAmmo;
         }
 
+        PlayerUIManager.munitionUpdate?.Invoke();
+
         Debug.Log("Current Mag Ammo : " + currMagAmmo + " , Current Ammo : " + currAvailableAmmo);
     }
     #endregion
@@ -174,12 +161,15 @@ public class WeaponShoot : MonoBehaviour
 
     bool CanShoot()
     {
-        bool canShoot = currMagAmmo > 0 && CanFire;
+        bool canShoot = (currMagAmmo > 0 || currAvailableAmmo > 0) && CanFire == true;
         return canShoot;
     }
 
     private void Awake()
     {
+        _isFiring = false;
+        StopCoroutine(Firing());
+
         _weapon = GetComponent<Weapon>();
 
         WeaponAnim = GetComponent<Animator>();        
@@ -195,12 +185,15 @@ public class WeaponShoot : MonoBehaviour
     //Start is called before the first frame update
     void Start()
     {
+        StopCoroutine(Firing());
+
         if (_wpManager.CurrentWeaponType != WeaponType.Unarmed)
         {
             currDMG = Mathf.Clamp(currDMG, _weapon.WeaponSO.WeaponMinDMG, _weapon.WeaponSO.WeaponMaxDMG);
             currMagAmmo = _weapon.WeaponSO.WeaponMagazineAmmo;
             currAvailableAmmo = _weapon.WeaponSO.WeaponMaxAmmo;
             currAvailableAmmo = Mathf.Clamp(currAvailableAmmo, 0, _weapon.WeaponSO.WeaponMaxAmmo);
+            PlayerUIManager.munitionUpdate?.Invoke();
         }
 
         if (_weapon.WeaponSO.WeaponFireMode is WeaponFireMode.Auto)
@@ -211,14 +204,15 @@ public class WeaponShoot : MonoBehaviour
         autoFireWaitTime = new WaitForSeconds(0.02f / _wpManager._currentWeapon.ArmsFireAnim.length);
         reloadWaitTime = new WaitForSeconds(_weapon.WeaponSO.ArmsReloadAnim.length);
         autoADSFireWaitTime = new WaitForSeconds(0.02f / _wpManager._currentWeapon.ArmsADSFireAnim.length);
-        
     }
 
     private void OnEnable()
     {
         _canFire = true;
         _canReload = true;
-        
+        _isFiring = false;
+        StopCoroutine(Firing());
+
         _armsAnim = _weapon.WeaponSO.ArmsAnimator;
     }
 
@@ -231,31 +225,15 @@ public class WeaponShoot : MonoBehaviour
     }    
 
     #region FireEvents
-    public void FireEvent()
+    private void FireEvent()
     {
         //IsFiring = true;
-
         if (IsReloading)
             StopCoroutine(Firing());
 
-        if (currAvailableAmmo <= 0)
-        {
-            StartCoroutine(GiveAmmo());
-            CanFire = false;
-            print("!!! -- No more Available Ammo -- !!!");
-        }
-
-        if (currMagAmmo <= 0)
-        {
-            CanFire = false;
-            print("!!! -- Magazine is Empty -- !!!");
-        }
-
-        if (currMagAmmo > 0)
+        if (currMagAmmo > 0 && this.isActiveAndEnabled == true && CanShoot())
         {
             _weapon.WeaponSO.PlayFireSFX(fireStartAudioSource, fireEndAudioSource);
-
-            //IsFiring = true;
 
             currMagAmmo--;
 
@@ -268,83 +246,51 @@ public class WeaponShoot : MonoBehaviour
                 WeaponAnim.SetTrigger("IsFiring"); _wpManager.ArmsAnim.SetTrigger("IsFiring");
             }
 
-            _isFiring = false;            
+            _isFiring = false;
 
             Debug.DrawRay(muzzleLocation.transform.position, muzzleLocation.transform.forward * _weapon.WeaponSO.MaxFireRange, Color.yellow);
             muzzleFX.StartEmit(_weapon.WeaponSO.MaxFireRange);
 
-            if (_weapon.WeaponSO.WeaponType is WeaponType.Pistol)
-            {
-                M9BulletPool.SharedBulletInstance.GetM9PooledBullet(muzzleLocation, _weapon.WeaponSO.FireRate);
-            }
             if (_weapon.WeaponSO.WeaponType is WeaponType.AssaultRifle)
             {
                 M416BulletPool.SharedBulletInstance.GetM416PooledBullet(muzzleLocation, _wpManager._currentWeapon.FireRate);
-            }                
+            }
 
             Debug.Log("Current DMG : " + currDMG +
                     " , Current Mag Ammo : " + currMagAmmo +
                     " , Current Ammo : " + currAvailableAmmo);
-        }        
-        else if (/*FPSController.fireBool || FPSController.*//*IsFiring*/ /*|| FPSController.fireTrigger*/ /*&&*/ currAvailableAmmo <= 0 || currMagAmmo <= 0 && !IsReloading)
-        {
-            
-            //if (_weaponScript._weapon.weaponSoundFX[1] /*&& !manager.isPaused */ /* && currMagAmmo >= 0*/)
-            //    _weaponScript._weapon.weaponSoundFX[1].PlayOneShot(_weaponScript._weapon.weaponSoundFX[0].clip);
-            //FPSController.fireTrigger = false;
-            //FPSController.fireBool = false;
-            /*FPSController*/
-            CanFire = false;
-            print("!!! -- Out Of Ammo -- !!!");            
         }
-    }        
+        else if (currAvailableAmmo <= 0 || currMagAmmo <= 0 && !IsReloading)
+        {
+            if (_wpManager._currentWeapon.weaponDryFire != null)
+            {
+                dryFireAudioSource.PlayOneShot(_wpManager._currentWeapon.weaponDryFire);
+            }
+            CanFire = false;
+            print("!!! -- Out Of Ammo -- !!!");
+        }
+        //else
+        //{
+        //    _isFiring = false;
+        //}
+
+        PlayerUIManager.munitionUpdate?.Invoke();
+    }
     #endregion
-
-    //bool AnimIsPlaying()
-    //{        
-    //    return _wpManager.ArmsAnim.GetCurrentAnimatorStateInfo(0).length > _wpManager.ArmsAnim.GetCurrentAnimatorStateInfo(0).normalizedTime;
-    //}
-
-    //bool AnimIsPlaying(string _stateTag)
-    //{
-    //    return AnimIsPlaying() && _wpManager.ArmsAnim.GetCurrentAnimatorStateInfo(0).IsTag(_stateTag)/* && _weaponAnim.GetCurrentAnimatorStateInfo(0).IsTag(_stateTag))*/;
-    //}
-
-    //public void OnReload(/*InputAction.CallbackContext context*/)
-    //{
-    //    this._canFire = false;
-
-    //    if (currAvailableAmmo == 0)
-    //        return;
-
-    //    if (_canReload /*&& context.performed*/ /*&& AnimIsPlaying("Reload")*/)
-    //    {
-    //        //if (_isReloading)
-    //        //{
-    //        //    this._canReload = false;
-    //        //    this._isFiring = false;
-    //        //    FPSController.IsAiming = false;
-    //        //}
-
-    //        Debug.Log("- Reloading Weapon -");
-
-    //        this.IsReloading = true;
-    //        this._canReload = false;
-    //        this._isFiring = false;
-    //        FPSController.IsAiming = false;
-
-    //        //_weaponAnim.SetBool("IsReloading", _isReloading); _wpManager.ArmsAnim.SetBool("IsReloading", _isReloading);
-
-    //        _wpManager.ArmsAnim.SetTrigger("Reload"); _weaponAnim.SetTrigger("Reload");
-
-    //        StartCoroutine(Reloading());
-    //    }
-    //}
 
     // Update is called once per frame
     void Update()
-    {       
-        
+    {
+        if (!this.isActiveAndEnabled)
+        {
+            CanShoot();
+        }
+
+        if (currAvailableAmmo <= 0)
+        {
+            this._canReload = false;
+            return;
+        }
 
         if (IsReloading)
         {

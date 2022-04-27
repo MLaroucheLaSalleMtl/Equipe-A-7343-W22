@@ -9,7 +9,7 @@ public class MuzzleScript : MonoBehaviour
     private ParticleSystem wpVFX;
     //private LineRenderer wpLine;
 
-    private float duration = 0.03f;
+    //private float duration = 0.03f;
 
     public Transform WeaponMuzzleLocation { get => _weaponMuzzleLocation; set => _weaponMuzzleLocation = value; }
 

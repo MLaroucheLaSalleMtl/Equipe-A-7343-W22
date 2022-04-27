@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class HealthCollect : MonoBehaviour
 {
-    //public delegate void OnHealthCollect();
-    //public static OnHealthCollect onHealthCollect;
-
-    //[SerializeField] private HealthPackSO healthPackSO;
-
     RigidBodyFPSController FPSController;
     float _healthCapacity = 50;
 
@@ -19,7 +14,7 @@ public class HealthCollect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.GetComponent<RigidBodyFPSController>())
         {
             Collect();
         }
@@ -27,17 +22,16 @@ public class HealthCollect : MonoBehaviour
 
     public void Collect()
     {
-        FPSController.playerHealth += _healthCapacity;
-        Destroy(this.gameObject);
+        if (FPSController.playerHealth == FPSController.playerStatsSO.m_MaxPlayerHealth)
+        {
+            print("Max Health");
+            return;
+        }
+        else
+        {
+            FPSController.playerHealth += _healthCapacity;
+            PlayerUIManager.playerHealthUpdate?.Invoke();
+            Destroy(this.gameObject);
+        }
     }
-
-    //public void CollectItem()
-    //{
-    //    healthPackSO.OnCollect();
-    //}
-
-    //private void Awake()
-    //{
-    //    onHealthCollect = CollectItem;
-    //}
 }

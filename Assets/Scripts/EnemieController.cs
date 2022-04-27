@@ -8,24 +8,33 @@ using UnityEngine.AI;
 
 public class EnemieController : MonoBehaviour
 {
+    RigidBodyFPSController FPSController;
+
     NavMeshAgent agent;
-    public Transform target;
+    private Transform target;
     public float distanceRation = 10f;
     public float attackRation = 1.5f;
-    public int damageAmount = 15;
+    public float damageAmount = 15;
     public enum AiState { idle, chasing, attacking};
     public AiState aiState = AiState.idle;
 
     public Animator anim;
 
+    private void Awake()
+    {
+        //agent.Warp(transform.position);
+        //agent.SetDestination(target.position);
+    }
+
     void Start()
     {
+        FPSController = FindObjectOfType<RigidBodyFPSController>();
         agent = GetComponent<NavMeshAgent>();
-        StartCoroutine(Think());
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        
+        StartCoroutine(Think());
+        //agent.Warp(transform.position);
     }
-     void Update()
+    void Update()
     {
         
     }
@@ -58,8 +67,9 @@ public class EnemieController : MonoBehaviour
                     {
                         aiState = AiState.attacking;
                         anim.SetBool("Attacking", true);
-                        PlayerDamage.TakeDamage(damageAmount);
+                        FPSController.TakeDamage(damageAmount);                        
                     }
+                    //agent.Warp(transform.position);
                     agent.SetDestination(target.position);
                     break;
                 case AiState.attacking:
@@ -69,8 +79,7 @@ public class EnemieController : MonoBehaviour
                     if (dist > attackRation)
                     {
                         aiState = AiState.chasing;
-                        anim.SetBool("Attacking", false);
-                        
+                        anim.SetBool("Attacking", false);                        
                     }
                     break;
                 default:

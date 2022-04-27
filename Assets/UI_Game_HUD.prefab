@@ -1242,7 +1242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.6}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.34901962}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1309,15 +1309,15 @@ Canvas:
   m_GameObject: {fileID: 7211880619037477207}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: -1
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1373,9 +1373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5221bf273875c4c81be01698079576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealthSlider: {fileID: 7211880617069204083}
-  playerArmorSlider: {fileID: 7211880618319035373}
   playerStaminaSlider: {fileID: 7211880617409138191}
+  playerArmorSlider: {fileID: 7211880618319035373}
+  playerHealthSlider: {fileID: 7211880617069204083}
 --- !u!1 &7211880619060754558
 GameObject:
   m_ObjectHideFlags: 0

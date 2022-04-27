@@ -92,9 +92,9 @@ namespace VladislavTsurikov.MegaWorldSystem
 					{
 						return true;
 					}
+					break;
 #endif
 
-					break;
 				}
 				case ResourceType.TerrainDetail:
                 case ResourceType.TerrainTexture:

@@ -3017,6 +3017,7 @@ GameObject:
   - component: {fileID: 7542258539275339918}
   - component: {fileID: 7542258539275339919}
   - component: {fileID: 7542258539275339905}
+  - component: {fileID: 4506184070942200629}
   m_Layer: 0
   m_Name: ZOMBI
   m_TagString: Zombies
@@ -3076,9 +3077,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.95, z: 0}
 --- !u!114 &7542258539275339918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3091,7 +3092,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5786fa5f6c7b4458ee4c8280b5060b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   distanceRation: 50
   attackRation: 1.5
   damageAmount: 15
@@ -3132,6 +3132,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 100
+--- !u!136 &4506184070942200629
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235619939159254104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 0.55
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &7405345880752468092
 GameObject:
   m_ObjectHideFlags: 0

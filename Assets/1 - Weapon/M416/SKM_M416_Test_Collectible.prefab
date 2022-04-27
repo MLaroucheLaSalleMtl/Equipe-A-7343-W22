@@ -423,6 +423,7 @@ GameObject:
   - component: {fileID: 631648079}
   - component: {fileID: 631648078}
   - component: {fileID: 695521565338454277}
+  - component: {fileID: -8919406899951918042}
   m_Layer: 0
   m_Name: SKM_M416_Test_Collectible
   m_TagString: WeaponSO
@@ -437,8 +438,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7184495783492077715}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.2212558, y: 0.000000029802322, z: 2.9970613}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -507,7 +508,7 @@ MeshCollider:
   m_GameObject: {fileID: 7184495783492077715}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -538,6 +539,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 2675957613276378626, guid: 99bc635e996167f4e8cc5bd51be057a4, type: 3}
+--- !u!114 &-8919406899951918042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7184495783492077715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ba6eea6043abb48871831cfafa901f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 180
 --- !u!1 &8040590461825192740
 GameObject:
   m_ObjectHideFlags: 0

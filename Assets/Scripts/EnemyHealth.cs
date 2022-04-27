@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float enemyHealth = 100f;
+    public int enemyHealth = 100;
 
     void Start()
     {
         SetRigidbodyState(true);
         SetColliderStae(true);
     }
-    public void DeducHealth(float deductHealth)
+    public void DeducHealth(int deductHealth)
     {
         enemyHealth -= deductHealth;
         if(enemyHealth <= 0) { Die(); }

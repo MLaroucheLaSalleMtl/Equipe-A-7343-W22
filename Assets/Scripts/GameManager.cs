@@ -24,6 +24,13 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public static void GameOver()
+    {
+        SceneManager.LoadSceneAsync(3);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void MainMenu(int number)
     {
         SceneManager.LoadSceneAsync(3);

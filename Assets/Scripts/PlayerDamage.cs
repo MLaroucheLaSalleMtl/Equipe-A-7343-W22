@@ -28,8 +28,7 @@ public class PlayerDamage : MonoBehaviour
    
 
     public static void TakeDamage(int damageAmount)
-    {
-        
+    {        
         playerHealth -= damageAmount;
         if (playerHealth <= 0)
             isGameover = true;

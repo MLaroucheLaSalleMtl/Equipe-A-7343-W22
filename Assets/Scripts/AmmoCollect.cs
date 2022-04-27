@@ -4,30 +4,45 @@ using UnityEngine;
 
 public class AmmoCollect : MonoBehaviour
 {
-    //public delegate void OnAmmoCollect();
-    //public static OnAmmoCollect onAmmoCollect;
+    RigidBodyFPSController FPSController;
+    [SerializeField] WeaponShoot weaponShoot;
+    int _ammoPackCapacity;
 
-    //[SerializeField] private AmmoSO ammoSO;    
-
-    WeaponShoot weaponShoot;
-    int _ammoPackCapacity = 50;
-
-    private void Awake()
+    private void Start()
     {
-        weaponShoot = FindObjectOfType<WeaponShoot>();
+        //weaponShoot = FindObjectOfType<RigidBodyFPSController>().GetComponentInChildren<WeaponManager>().weaponShoot;
+        //if (WeaponManager.instance.CurrentWeaponType != WeaponType.Unarmed)
+        //{
+        //    _ammoPackCapacity = weaponShoot._weapon.WeaponSO.WeaponMaxAmmo;
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.GetComponent<RigidBodyFPSController>())
         {
-            Collect();
+            Collect();            
         }
     }
 
     public void Collect()
     {
-        weaponShoot.currAvailableAmmo += _ammoPackCapacity;
-        Destroy(this.gameObject);
+        weaponShoot = FindObjectOfType<RigidBodyFPSController>().GetComponentInChildren<WeaponManager>().weaponShoot;
+
+        if (weaponShoot != null)
+        {
+            _ammoPackCapacity = weaponShoot._weapon.WeaponSO.WeaponMagazineAmmo;
+            if (weaponShoot.currAvailableAmmo < weaponShoot._weapon.WeaponSO.WeaponMaxAmmo * 2)
+            {
+                weaponShoot.currAvailableAmmo += _ammoPackCapacity;
+                Destroy(this.gameObject);
+            }
+            else if (weaponShoot.currAvailableAmmo >= weaponShoot._weapon.WeaponSO.WeaponMaxAmmo)
+            {
+                print("Max Ammo Capacity Reached");
+            }
+        }       
+
+        PlayerUIManager.munitionUpdate?.Invoke();
     }
 }
